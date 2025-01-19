@@ -1,0 +1,106 @@
+/* Reset */
+body,
+h1,
+p,
+ul,
+li,
+a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(2 6 23);
+    color: #fff;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar li a {
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.6s;
+}
+
+.navbar li a:hover {
+    color: #00bcd4;
+}
+
+
+.hero {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    color: transparent white;
+
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+
+}
+
+.hero .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero .social-links a img {
+    border: #ffffff;
+    border-radius: 50%;
+    width: 30px;
+    transition: transform 0.3s;
+}
+
+.hero .social-links a img:hover {
+    transform: scale(1.1);
+}
+
+/* Spotlight Effect */
+.hero {
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 100px;
+    background: #00bcd4;
+    filter: blur(50px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+@media (min-width: 768px) {
+    .md\:text-7xl {
+        font-size: 4.5rem;
+        line-height: 1;
+    }
+}
