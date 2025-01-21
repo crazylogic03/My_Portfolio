@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Projects</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            background: #111;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #00bcd4;
+        }
+
+        /* Project Section */
+        .projects {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 50px 20px;
+            background: linear-gradient(145deg, #000, #111);
+        }
+
+        .project-card {
+            background: #222;
+            border-radius: 10px;
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            background: #00bcd4;
+        }
+
+        .project-card a:hover {
+            background: #008c9e;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="projects" id="projects">
+        <div class="project-card">
+            <img src="https://via.placeholder.com/300x150" alt="Amazon Music Clone">
+            <h3>Amazon Music Clone</h3>
+            <p>Amazon Music is a streaming service offering millions of songs, playlists, and albums, with options for
+                ad-free listening and offline downloads.</p>
+            <a href="#" target="_blank">GitHub Repo</a>
+            <a href="#" target="_blank">Live Link</a>
+        </div>
+
+        <div class="project-card">
+            <img src="https://via.placeholder.com/300x150" alt="College Appointment System Server">
+            <h3>College Appointment System Server</h3>
+            <p>Where a student can book an appointment with the server.</p>
+            <a href="#" target="_blank">GitHub Repo</a>
+            <a href="#" target="_blank">Live Link</a>
+        </div>
+    </section>
+</body>
+
+</html>
