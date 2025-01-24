@@ -13,10 +13,17 @@ a {
 }
 
 body {
-    background-color: rgb(2 6 23);
+    /* background-color: rgb(2 6 23); */
     color: #fff;
-    /* background-image: url(hqwiud.gif); */
+    background-image: url(wlehi.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
 }
+
+
 
 /* Navbar */
 .navbar {
