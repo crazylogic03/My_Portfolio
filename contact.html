@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>contact</title>
+    <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
@@ -18,6 +19,17 @@
             </ul>
         </nav>
     </header>
+    <section id="contact" class="contact-section">
+        <h1>Connect with Me</h1>
+        <p>Hello! 👋 If you'd like to get in touch with me for inquiries, feedback, or potential collaborations, feel
+            free to reach out! I'm here and ready to connect.</p>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+    </section>
 </body>
 
 </html>
