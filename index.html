@@ -5,37 +5,347 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thrishul</title>
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Aboutme.html">About</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact Me</a></li>
-                </ul>
-            </nav>
-        </header>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo"><span class="text-primary">Thrishul</a>
 
-        <section class="hero">
-            <h1>Thrishul</h1>
-            <p>
-                Student at NST | Web Developer | Artificial Intelligence & Machine Learning Engineer |
-            </p>
+            <!-- Desktop Navigation -->
+            <div class="nav-links">
+                <button data-section="home" class="nav-item active">Home</button>
+                <button data-section="about" class="nav-item">About</button>
+                <button data-section="projects" class="nav-item">Projects</button>
+                <button data-section="skills" class="nav-item">Skills</button>
+                <button data-section="experience" class="nav-item">Experience</button>
+                <button data-section="contact" class="nav-item">Contact</button>
+
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-buttons">
+                <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <button id="mobile-menu-btn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="container">
+                <button data-section="home" class="nav-item">Home</button>
+                <button data-section="about" class="nav-item">About</button>
+                <button data-section="projects" class="nav-item">Projects</button>
+                <button data-section="skills" class="nav-item">Skills</button>
+                <button data-section="experience" class="nav-item">Experience</button>
+                <button data-section="contact" class="nav-item">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span class="text-primary">Thrishul</span></h1>
+                    <h2>Student at NST | Web Developer | Artificial Intelligence & Machine Learning Engineer |</h2>
+                    <p>
+                        As a Computer Science student at Newton School of Technology, I'm Passionate about coding, I
+                        specialize in full-stack development and data structures & algorithms
+                        using Python. Whether it’s solving DSA problems or building real-world applications, I’m always
+                        up for a challenge and eager to grow.
+                    </p>
+                </div>
+
+                <div class="hero-image">
+                    <div class="profile-image">
+                        <img src="https://via.placeholder.com/400" alt="Thrishul">
+                    </div>
+                </div>
+            </div>
             <div class="social-links">
                 <a href="https://github.com/crazylogic03"><img src="github.png" alt="GitHub"></a>
                 <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/"><img src="linkindin.png"
                         alt="LinkedIn"></a>
-                <a href="Resume-Bheemanaboyani Sai Thrishul (1).pdf"><img src="icon.png" alt="Resume"></a>
-                <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"><img src="email.png" alt="Email"></a>
+                <a href="https://www.codechef.com/users/crazylogic03"><img src="codechef.png" alt="codechef"></a>
+                <a href="https://codeforces.com/profile/crazylogic03"><img src="codeforces.jpg" alt="codeforces"></a>
+                <a href="https://leetcode.com/u/itsthrish/"><img src="leetcode.png" alt="leetcode"></a>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="imageeeeeee.png.jpeg" alt="About Thrishul">
+                </div>
+
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>
+                        I'm a passionate Frontend Developer with over 5 years of experience in creating
+                        modern, responsive web applications. I specialize in React, Next.js, and UI/UX design.
+                    </p>
+                    <p>
+                        My approach combines technical expertise with creative problem-solving to deliver
+                        exceptional user experiences. I'm dedicated to writing clean, maintainable code
+                        and staying up-to-date with the latest web technologies.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <h4>Name:</h4>
+                            <p>Sai Thrishul</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Email:</h4>
+                            <p>thrishul.professional@gmail.com</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Location:</h4>
+                            <p>Hyderabad</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Availability:</h4>
+                            <p>Looking For Interships and Freelancing</p>
+                        </div>
+                    </div>
+                    <a href="Resume-Bheemanaboyani Sai Thrishul (4).pdf" class="btn btn-primary" download>Download
+                        CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Projects</h2>
+                <div class="section-divider"></div>
+                <p>
+                    Here are some of my recent projects. Each project represents a unique challenge
+                    and solution using modern web technologies.
+                </p>
+            </div>
+
+            <div class="projects-grid" id="projects-container">
+                <!-- Projects will be added dynamically via JavaScript -->
+            </div>
+
+            <div class="projects-more">
+                <button class="btn btn-outline">View All Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Skills</h2>
+                <div class="section-divider"></div>
+                <p>
+                    I've worked with a variety of technologies and tools throughout my career.
+                    Here are some of my key skills and proficiency levels.
+                </p>
+            </div>
+
+            <div class="skills-grid" id="skills-container">
+                <!-- Skills will be added dynamically via JavaScript -->
+            </div>
+
+            <div class="other-skills">
+                <h3>Other Technologies & Tools</h3>
+                <div class="tools-grid">
+                    <div class="tool-item">SQl</div>
+                    <div class="tool-item">C (programming language) </div>
+                    <div class="tool-item">Machine Learing</div>
+                    <div class="tool-item">BootStrap</div>
+                    <div class="tool-item">Linux</div>
+                    <div class="tool-item">Matplotlib</div>
+                    <div class="tool-item">Pandas</div>
+                    <div class="tool-item">Figma</div>
+                    <div class="tool-item">Data-Structure-Alogorithms (DSA)</div>
+                    <div class="tool-item">Illustrator</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience & Education</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="experience-content">
+                <!-- Experience -->
+                <div class="timeline-container">
+                    <h3>Work Experience</h3>
+                    <div class="timeline" id="experience-timeline">
+                        <!-- Experience items will be added dynamically via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="timeline-container">
+                    <h3>Education</h3>
+                    <div class="timeline" id="education-timeline">
+                        <!-- Education items will be added dynamically via JavaScript -->
+                    </div>
+
+                    <div class="certifications">
+                        <h3>Certifications</h3>
+                        <div class="cert-item">
+                            <h4>Fundamentals of AI</h4>
+                            <p>Deepseek.ai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <div class="section-divider"></div>
+                <p>
+                    Have a project in mind or want to collaborate? Feel free to reach out to me
+                    using the form below or through my social media channels.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div>
+                        <h3>Contact Information</h3>
+                        <div class="info-items">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p>+91 9391780057</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>thrishul.professional@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Hyderabad</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Follow Me</h3>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/crazylogic03" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo"><span class="text-primary">Thrishul</a>
+                    <p>&copy; <span id="current-year"></span> Thrishul. All rights reserved.</p>
+                </div>
+
+                <div class="footer-links">
+                    <button data-section="home" class="footer-link">Home</button>
+                    <button data-section="about" class="footer-link">About</button>
+                    <button data-section="projects" class="footer-link">Projects</button>
+                    <button data-section="skills" class="footer-link">Skills</button>
+                    <button data-section="contact" class="footer-link">Contact</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
