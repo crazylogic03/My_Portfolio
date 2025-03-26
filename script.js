@@ -44,6 +44,15 @@ const projects = [
         liveUrl: "https://my-portfolio-crazylogic03s-projects.vercel.app/",
         githubUrl: "#",
     },
+    {
+        id: 4,
+        title: "Waste Management Automation in Dark Stores",
+        description: "Developed an innovative solution during a hackathon to optimize waste management in dark stores.Designed a system to analyze near-expiry items using bar and donut graphs, enabling eﬃcient tracking of waste through visual analytics. Implemented an automated approach to minimize packaging waste by recommending appropriately sized packaging for products, enhancing sustainability and operational eﬃciency.",
+        image: "https://via.placeholder.com/800x600",
+        techStack: ["HTML", "CSS", "JavaScript", "React"],
+        liveUrl: "https://team-senorita.vercel.app/",
+        githubUrl: "#",
+    }
 ];
 
 // Skills Data
