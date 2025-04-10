@@ -336,7 +336,7 @@ nav .container {
 }
 
 .about-image {
-    width: 100%;
+    width: 50%;
     height: 24rem;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -344,9 +344,9 @@ nav .container {
 }
 
 .about-image img {
-    width: 100%;
+    width: 50%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 .about-text h3 {
