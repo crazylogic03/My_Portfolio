@@ -52,7 +52,17 @@ const projects = [
         techStack: ["HTML", "CSS", "JavaScript", "React"],
         liveUrl: "https://team-senorita.vercel.app/",
         githubUrl: "#",
+    },
+    {
+        id: 5,
+        title: "MasterMind-Game",
+        description: "A web-based implementation of the classic code-breaking game, Mastermind. Built using HTML, CSS, and JavaScript, this project challenges players to guess a hidden color sequence within limited attempts. The game provides intuitive visual feedback for each guess, indicating correct colors and positions. It features a clean UI, interactive logic, and fully responsive design, offering an enjoyable and brain-teasing experience. Ideal for showcasing logical reasoning and frontend development skills.",
+        image: "mmlogo.png",
+        techStack: ["HTML", "CSS", "JavaScript", "React"],
+        liveUrl: "https://mastermind-game-gray.vercel.app/",
+        githubUrl: "https://github.com/crazylogic03/mastermind-game",
     }
+
 ];
 
 // Skills Data
