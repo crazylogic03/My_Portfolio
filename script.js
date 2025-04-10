@@ -69,7 +69,7 @@ const projects = [
 const skills = [
     { name: "HTML/CSS", level: 90 },
     { name: "JavaScript", level: 85 },
-    { name: "React", level: 45 },
+    { name: "React", level: 60 },
     { name: "Python", level: 75 },
 ];
 
