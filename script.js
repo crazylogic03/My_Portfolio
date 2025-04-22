@@ -61,6 +61,16 @@ const projects = [
         techStack: ["HTML", "CSS", "JavaScript", "React"],
         liveUrl: "https://mastermind-game-gray.vercel.app/",
         githubUrl: "https://github.com/crazylogic03/mastermind-game",
+    },
+
+    {
+        id: 6,
+        title: "Travel Bucket-List",
+        description: "A feature-rich Travel Bucket List web app that enables users to explore, add, and track dream destinations. Built with React, Leaflet, Tailwind CSS, and JavaScript, the app integrates interactive maps for visualizing locations and uses the Unsplash API to display stunning travel images. Users can mark destinations as visited, filter entries, and enjoy a clean, responsive UI designed for smooth and engaging interactions. This project showcases skills in API integration, state management, and modern frontend development.",
+        image: "looo.jpeg",
+        techStack: ["React", "Tailwind", "JavaScript", "Leaflet", "Unsplash API"],
+        liveUrl: "travel-bucket-pied.vercel.app",
+        githubUrl: "https://github.com/crazylogic03/TravelBucket",
     }
 
 ];
