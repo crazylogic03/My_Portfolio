@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thrishul</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 
 <body>
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
-            <a href="#" class="logo"><span class="text-primary">Thrishul</a>
-
-            <!-- Desktop Navigation -->
+            <a href="#" class="logo"><span class="text-primary">Thrishul</span></a>
             <div class="nav-links">
                 <button data-section="home" class="nav-item active">Home</button>
                 <button data-section="about" class="nav-item">About</button>
@@ -23,25 +24,19 @@
                 <button data-section="skills" class="nav-item">Skills</button>
                 <button data-section="experience" class="nav-item">Experience</button>
                 <button data-section="contact" class="nav-item">Contact</button>
-
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon"></i>
                 </button>
             </div>
-
-            <!-- Mobile Menu Button -->
             <div class="mobile-menu-buttons">
                 <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon"></i>
                 </button>
-
                 <button id="mobile-menu-btn" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Navigation -->
         <div id="mobile-menu" class="mobile-menu">
             <div class="container">
                 <button data-section="home" class="nav-item">Home</button>
@@ -57,33 +52,50 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
-
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Hi, I'm <span class="text-primary">Thrishul</span></h1>
-                    <h2>Student at NST | Web Developer | Artificial Intelligence & Machine Learning Engineer |</h2>
+                    <h2>Student at NST | Web Developer | Artificial Intelligence & Machine Learning Engineer</h2>
                     <p>
-                        As a Computer Science student at Newton School of Technology, I'm Passionate about coding, I
-                        specialize in full-stack development and data structures & algorithms
-                        using Python. Whether it’s solving DSA problems or building real-world applications, I’m always
-                        up for a challenge and eager to grow.
+                        As a Computer Science student at Newton School of Technology, I'm passionate about coding. I
+                        specialize in full-stack development and data structures & algorithms using Python. Whether it’s
+                        solving DSA problems or building real-world applications, I’m always up for a challenge and
+                        eager
+                        to grow.
                     </p>
+                    <div class="hero-buttons">
+                        <button data-section="projects" class="btn btn-primary">View Projects</button>
+                        <button data-section="contact" class="btn btn-outline">Contact Me</button>
+                    </div>
                 </div>
-
                 <div class="hero-image">
                     <div class="profile-image">
                         <img src="p.jpeg" alt="Thrishul">
                     </div>
                 </div>
             </div>
-            <div class="social-links">
-                <a href="https://github.com/crazylogic03"><img src="github.png" alt="GitHub"></a>
-                <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/"><img src="linkindin.png"
-                        alt="LinkedIn"></a>
-                <a href="https://www.codechef.com/users/crazylogic03"><img src="codechef.png" alt="codechef"></a>
-                <a href="https://codeforces.com/profile/crazylogic03"><img src="codeforces.jpg" alt="codeforces"></a>
-                <a href="https://leetcode.com/u/itsthrish/"><img src="leetcode.png" alt="leetcode"></a>
+            <div class="social-links" style="position: relative; z-index: 10;">
+                <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/" class="social-icon" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/crazylogic03" class="social-icon" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.codechef.com/users/crazylogic03" class="social-icon" target="_blank"
+                    rel="noopener noreferrer" aria-label="CodeChef">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+                <a href="https://codeforces.com/profile/crazylogic03" class="social-icon" target="_blank"
+                    rel="noopener noreferrer" aria-label="Codeforces">
+                    <i class="fas fa-chess-knight"></i>
+                </a>
+                <a href="https://leetcode.com/u/itsthrish/" class="social-icon" target="_blank"
+                    rel="noopener noreferrer" aria-label="LeetCode">
+                    <i class="fas fa-terminal"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -95,31 +107,24 @@
                 <h2>About Me</h2>
                 <div class="section-divider"></div>
             </div>
-
             <div class="about-content">
                 <div class="about-image">
                     <img src="imageeeeeee.png.jpeg" alt="About Thrishul">
                 </div>
-
                 <div class="about-text">
                     <h3>Who am I?</h3>
                     <p>
-                        I'm a passionate Frontend Developer and a dedicated Competitive Programmer.
-                        I can solve complex algorithmic challenges efficiently and build interactive, user-friendly web
-                        applications. Skilled in React, JavaScript, and modern frontend technologies, I craft seamless
-                        user experiences.
-
-                        In Competitive Programming, I specialize in Data Structures and Algorithms (DSA) using Python,
-                        excelling in problem-solving and optimization. I’ve successfully tackled diverse coding
-                        challenges and contests, continuously improving my skills.
-
-                        Always eager to learn and innovate, I strive to bridge the gap between logic and design. 🚀
-
+                        I'm a passionate Frontend Developer and a dedicated Competitive Programmer. I can solve complex
+                        algorithmic challenges efficiently and build interactive, user-friendly web applications.
+                        Skilled
+                        in React, JavaScript, and modern frontend technologies, I craft seamless user experiences.
                     </p>
                     <p>
-                        My approach combines technical expertise with creative problem-solving to deliver
-                        exceptional user experiences. I'm dedicated to writing clean, maintainable code
-                        and staying up-to-date with the latest web technologies.
+                        In Competitive Programming, I specialize in Data Structures and Algorithms (DSA) using Python,
+                        excelling in problem-solving and optimization. I’ve successfully tackled diverse coding
+                        challenges
+                        and contests, continuously improving my skills. Always eager to learn and innovate, I strive to
+                        bridge the gap between logic and design. 🚀
                     </p>
                     <div class="about-info">
                         <div class="info-item">
@@ -136,11 +141,10 @@
                         </div>
                         <div class="info-item">
                             <h4>Availability:</h4>
-                            <p>Looking For Interships and Freelancing</p>
+                            <p>Looking For Internships and Freelancing</p>
                         </div>
                     </div>
-                    <a href="Resume-Bheemanaboyani Sai Thrishul.pdf" class="btn btn-primary" download>Download
-                        CV</a>
+                    <a href="Resume-Bheemanaboyani Sai Thrishul.pdf" class="btn btn-primary" download>Download CV</a>
                 </div>
             </div>
         </div>
@@ -152,18 +156,12 @@
             <div class="section-header">
                 <h2>My Projects</h2>
                 <div class="section-divider"></div>
-                <p>
-                    Here are some of my recent projects. Each project represents a unique challenge
-                    and solution using modern web technologies.
-                </p>
+                <p>Here are some of my recent projects. Each project represents a unique challenge and solution using
+                    modern web technologies.</p>
             </div>
-
-            <div class="projects-grid" id="projects-container">
-                <!-- Projects will be added dynamically via JavaScript -->
-            </div>
-
+            <div class="projects-grid" id="projects-container"></div>
             <div class="projects-more">
-                <button class="btn btn-outline">View All Projects</button>
+                <a href="https://github.com/crazylogic03" target="_blank" class="btn btn-outline">View All Projects</a>
             </div>
         </div>
     </section>
@@ -174,33 +172,35 @@
             <div class="section-header">
                 <h2>My Skills</h2>
                 <div class="section-divider"></div>
-                <p>
-                    I've worked with a variety of technologies and tools throughout my career.
-                    Here are some of my key skills and proficiency levels.
-                </p>
+                <p>I've worked with a variety of technologies and tools throughout my career. Here are some of my key
+                    skills and proficiency levels.</p>
             </div>
-
-            <div class="skills-grid" id="skills-container">
-                <!-- Skills will be added dynamically via JavaScript -->
-            </div>
-
+            <div class="skills-grid" id="skills-container"></div>
             <div class="other-skills">
                 <h3>Other Technologies & Tools</h3>
                 <div class="tools-grid">
-                    <div class="tool-item">SQl</div>
-                    <div class="tool-item">C (programming language) </div>
-                    <div class="tool-item">Machine Learing</div>
-                    <div class="tool-item">BootStrap</div>
-                    <div class="tool-item">Linux</div>
-                    <div class="tool-item">Matplotlib</div>
-                    <div class="tool-item">Pandas</div>
-                    <div class="tool-item">Figma</div>
-                    <div class="tool-item">Data-Structure-Alogorithms (DSA)</div>
-                    <div class="tool-item">GIT</div>
-                    <div class="tool-item">Git Hub</div>
-                    <div class="tool-item"> Numpy [Basics] </div>
-                    <div class="tool-item">Bash</div>
-
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-mysql-plain"></i></span>SQL</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-c-plain"></i></span>C</div>
+                    <div class="tool-item"><span class="tool-icon"><i
+                                class="devicon-postgresql-plain"></i></span>PostgreSQL</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="fas fa-brain"></i></span>Machine Learning
+                    </div>
+                    <div class="tool-item"><span class="tool-icon"><i
+                                class="devicon-bootstrap-plain"></i></span>Bootstrap</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-linux-plain"></i></span>Linux</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-jupyter-plain"></i></span>Jupyter
+                    </div>
+                    <div class="tool-item"><span class="tool-icon"><i
+                                class="devicon-matplotlib-plain"></i></span>Matplotlib</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-pandas-plain"></i></span>Pandas
+                    </div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-figma-plain"></i></span>Figma</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="fas fa-sitemap"></i></span>DSA</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-git-plain"></i></span>Git</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-github-plain"></i></span>GitHub
+                    </div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-numpy-plain"></i></span>NumPy</div>
+                    <div class="tool-item"><span class="tool-icon"><i class="devicon-bash-plain"></i></span>Bash</div>
                 </div>
             </div>
         </div>
@@ -213,23 +213,14 @@
                 <h2>Experience & Education</h2>
                 <div class="section-divider"></div>
             </div>
-
             <div class="experience-content">
-                <!-- Experience -->
                 <div class="timeline-container">
                     <h3>Work Experience</h3>
-                    <div class="timeline" id="experience-timeline">
-                        <!-- Experience items will be added dynamically via JavaScript -->
-                    </div>
+                    <div class="timeline" id="experience-timeline"></div>
                 </div>
-
-                <!-- Education -->
                 <div class="timeline-container">
                     <h3>Education</h3>
-                    <div class="timeline" id="education-timeline">
-                        <!-- Education items will be added dynamically via JavaScript -->
-                    </div>
-
+                    <div class="timeline" id="education-timeline"></div>
                     <div class="certifications">
                         <h3>Certifications</h3>
                         <div class="cert-item">
@@ -256,12 +247,9 @@
             <div class="section-header">
                 <h2>Get In Touch</h2>
                 <div class="section-divider"></div>
-                <p>
-                    Have a project in mind or want to collaborate? Feel free to reach out to me
-                    using the form below or through my social media channels.
-                </p>
+                <p>Have a project in mind or want to collaborate? Feel free to reach out to me using the form below or
+                    through my social media channels.</p>
             </div>
-
             <div class="contact-content">
                 <div class="contact-form">
                     <form id="contact-form">
@@ -269,54 +257,41 @@
                             <input type="text" id="name" required>
                             <label for="name">Your Name</label>
                         </div>
-
                         <div class="form-group">
                             <input type="email" id="email" required>
                             <label for="email">Your Email</label>
                         </div>
-
                         <div class="form-group">
                             <input type="text" id="subject" required>
                             <label for="subject">Subject</label>
                         </div>
-
                         <div class="form-group">
                             <textarea id="message" rows="5" required></textarea>
                             <label for="message">Your Message</label>
                         </div>
-
                         <button type="submit" class="btn btn-primary btn-full">Send Message</button>
                     </form>
                 </div>
-
                 <div class="contact-info">
                     <div>
                         <h3>Contact Information</h3>
                         <div class="info-items">
                             <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
+                                <div class="contact-icon"><i class="fas fa-phone"></i></div>
                                 <div>
                                     <h4>Phone</h4>
                                     <p>+91 9391780057</p>
                                 </div>
                             </div>
-
                             <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
+                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                                 <div>
                                     <h4>Email</h4>
                                     <p>thrishul.professional@gmail.com</p>
                                 </div>
                             </div>
-
                             <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
+                                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div>
                                     <h4>Location</h4>
                                     <p>Hyderabad</p>
@@ -324,16 +299,13 @@
                             </div>
                         </div>
                     </div>
-
                     <div>
                         <h3>Follow Me</h3>
                         <div class="social-links">
-                            <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/" class="social-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/crazylogic03" class="social-icon">
-                                <i class="fab fa-github"></i>
-                            </a>
+                            <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/" class="social-icon"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/crazylogic03" class="social-icon"><i
+                                    class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -346,10 +318,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="#" class="logo"><span class="text-primary">Thrishul</a>
-                    <p>&copy; <span id="current-year"></span> Thrishul. All rights reserved.</p>
+                    <a href="#" class="logo"><span class="text-primary">Thrishul</span></a>
+                    <p>© <span id="current-year"></span> Thrishul. All rights reserved.</p>
                 </div>
-
                 <div class="footer-links">
                     <button data-section="home" class="footer-link">Home</button>
                     <button data-section="about" class="footer-link">About</button>
@@ -361,7 +332,7 @@
         </div>
     </footer>
 
-    <!-- Scroll to top button -->
+    <!-- Scroll to Top Button -->
     <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>

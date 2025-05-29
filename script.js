@@ -20,7 +20,7 @@ const projects = [
     {
         id: 1,
         title: "Tic-Tac-Toe",
-        description: "Developed an interactive Tic-Tac-Toe game using HTML, CSS, and JavaScript. Implemented dynamic UI updates and a winning condition check. Designed a responsive layout for seamless gameplay on diﬀerent screen sizes.",
+        description: "Developed an interactive Tic-Tac-Toe game using HTML, CSS, and JavaScript. Implemented dynamic UI updates and a winning condition check. Designed a responsive layout for seamless gameplay on different screen sizes.",
         image: "ttt.png",
         techStack: ["HTML", "CSS", "JS"],
         liveUrl: "https://tic-tac-toe-livid-psi.vercel.app/",
@@ -47,7 +47,7 @@ const projects = [
     {
         id: 4,
         title: "Waste Management Automation in Dark Stores",
-        description: "Developed an innovative solution during a hackathon to optimize waste management in dark stores.Designed a system to analyze near-expiry items using bar and donut graphs, enabling eﬃcient tracking of waste through visual analytics. Implemented an automated approach to minimize packaging waste by recommending appropriately sized packaging for products, enhancing sustainability and operational eﬃciency.",
+        description: "Developed an innovative solution during a hackathon to optimize waste management in dark stores. Designed a system to analyze near-expiry items using bar and donut graphs, enabling efficient tracking of waste through visual analytics. Implemented an automated approach to minimize packaging waste by recommending appropriately sized packaging for products, enhancing sustainability and operational efficiency.",
         image: "waste.webp",
         techStack: ["HTML", "CSS", "JavaScript", "React"],
         liveUrl: "https://team-senorita.vercel.app/",
@@ -62,25 +62,23 @@ const projects = [
         liveUrl: "https://mastermind-game-gray.vercel.app/",
         githubUrl: "https://github.com/crazylogic03/mastermind-game",
     },
-
     {
         id: 6,
         title: "Travel Bucket-List",
         description: "A feature-rich Travel Bucket List web app that enables users to explore, add, and track dream destinations. Built with React, Leaflet, Tailwind CSS, and JavaScript, the app integrates interactive maps for visualizing locations and uses the Unsplash API to display stunning travel images. Users can mark destinations as visited, filter entries, and enjoy a clean, responsive UI designed for smooth and engaging interactions. This project showcases skills in API integration, state management, and modern frontend development.",
         image: "looo.jpeg",
-        techStack: ["React", "Tailwind", "JavaScript", "Leaflet", "Unsplash API"],
-        liveUrl: "travel-bucket-pied.vercel.app",
+        techStack: ["React", "Tailwind CSS", "JavaScript", "Leaflet", "Unsplash API"],
+        liveUrl: "https://travel-bucket-list.vercel.app/", // Corrected URL
         githubUrl: "https://github.com/crazylogic03/TravelBucket",
     }
-
 ];
 
 // Skills Data
 const skills = [
-    { name: "HTML/CSS", level: 90 },
-    { name: "JavaScript", level: 85 },
-    { name: "React", level: 60 },
-    { name: "Python", level: 75 },
+    { name: "HTML/CSS", level: 90, icons: ["devicon-html5-plain", "devicon-css3-plain"] },
+    { name: "JavaScript", level: 85, icons: ["devicon-javascript-plain"] },
+    { name: "React", level: 60, icons: ["devicon-react-original"] },
+    { name: "Python", level: 75, icons: ["devicon-python-plain"] },
 ];
 
 // Experience Data
@@ -89,7 +87,7 @@ const experiences = [
         id: 1,
         title: "Student Developer Club Member",
         period: "2021 - Present",
-        company: "Newton School of Technology - Student developer club",
+        company: "Newton School of Technology - Student Developer Club",
         description: "Active member of the Student Developer Club (SDC) at Newton School of Technology. Collaborated in coding workshops and Engaged in hackathons to enhance problem-solving, teamwork, and software development skills.",
     }
 ];
@@ -98,7 +96,7 @@ const experiences = [
 const education = [
     {
         id: 1,
-        degree: "Marticulation",
+        degree: "Matriculation",
         institution: "Kendriya Vidyalaya",
         period: "2019 - 2022",
     },
@@ -106,7 +104,7 @@ const education = [
         id: 2,
         degree: "Intermediate",
         institution: "Medha-V Junior School",
-        period: "2022- 2024",
+        period: "2022 - 2024",
     },
     {
         id: 3,
@@ -118,31 +116,22 @@ const education = [
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-    // Set current year in footer
     currentYearSpan.textContent = new Date().getFullYear();
-
-    // Check for saved theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark');
         updateThemeIcons(true);
     }
-
-    // Render dynamic content
     renderProjects();
     renderSkills();
     renderExperience();
     renderEducation();
-
-    // Initialize scroll animations
     initScrollAnimations();
 });
 
 // Toggle mobile menu
 mobileMenuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
-
-    // Toggle icon
     const icon = mobileMenuBtn.querySelector('i');
     if (mobileMenu.classList.contains('open')) {
         icon.classList.remove('fa-bars');
@@ -163,7 +152,6 @@ function toggleDarkMode() {
 function updateThemeIcons(isDarkMode) {
     const themeIcon = themeToggle.querySelector('i');
     const mobileThemeIcon = mobileThemeToggle.querySelector('i');
-
     if (isDarkMode) {
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
@@ -183,31 +171,21 @@ mobileThemeToggle.addEventListener('click', toggleDarkMode);
 // Scroll event handling
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-
-    // Navbar styling on scroll
     if (scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
-
-    // Parallax effect for hero background
     const heroBg = document.querySelector('.hero-bg');
     if (heroBg) {
         heroBg.style.transform = `translateY(${scrollY * 0.05}px)`;
     }
-
-    // Show/hide scroll to top button
     if (scrollY > 300) {
         scrollTopBtn.classList.add('visible');
     } else {
         scrollTopBtn.classList.remove('visible');
     }
-
-    // Update active nav item based on scroll position
     updateActiveNavItem();
-
-    // Check for elements to animate on scroll
     animateOnScroll();
 });
 
@@ -220,8 +198,6 @@ function scrollToSection(sectionId) {
             top: offsetTop,
             behavior: 'smooth'
         });
-
-        // Close mobile menu if open
         mobileMenu.classList.remove('open');
         const icon = mobileMenuBtn.querySelector('i');
         icon.classList.remove('fa-times');
@@ -266,23 +242,14 @@ scrollTopBtn.addEventListener('click', () => {
 // Update active nav item based on scroll position
 function updateActiveNavItem() {
     const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];
-
     for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
             const rect = element.getBoundingClientRect();
             if (rect.top <= 100 && rect.bottom >= 100) {
-                // Remove active class from all nav items
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                });
-
-                // Add active class to current section nav item
+                navItems.forEach(item => item.classList.remove('active'));
                 const activeNavItems = document.querySelectorAll(`.nav-item[data-section="${section}"]`);
-                activeNavItems.forEach(item => {
-                    item.classList.add('active');
-                });
-
+                activeNavItems.forEach(item => item.classList.add('active'));
                 break;
             }
         }
@@ -292,32 +259,56 @@ function updateActiveNavItem() {
 // Render projects
 function renderProjects() {
     projectsContainer.innerHTML = '';
-
+    const techIcons = {
+        'HTML': 'devicon-html5-plain',
+        'CSS': 'devicon-css3-plain',
+        'JS': 'devicon-javascript-plain',
+        'JavaScript': 'devicon-javascript-plain',
+        'React': 'devicon-react-original',
+        'Tailwind CSS': 'devicon-tailwindcss-plain',
+        'Tailwind': 'devicon-tailwindcss-plain',
+        'Leaflet': 'devicon-leaflet-plain',
+        'Unsplash API': 'fas fa-camera'
+    };
+    const techIconColors = {
+        'HTML': 'var(--primary-light)',
+        'CSS': '#60A5FA',
+        'JS': '#FBBF24',
+        'JavaScript': '#FBBF24',
+        'React': '#22D3EE',
+        'Tailwind CSS': '#22D3EE',
+        'Tailwind': '#22D3EE',
+        'Leaflet': '#34D399',
+        'Unsplash API': '#F87171'
+    };
     projects.forEach(project => {
         const projectCard = document.createElement('div');
         projectCard.className = 'project-card';
-
         projectCard.innerHTML = `
-      <div class="project-image">
-        <img src="${project.image}" alt="${project.title}">
-      </div>
-      <div class="project-content">
-        <h3>${project.title}</h3>
-        <p>${project.description}</p>
-        <div class="project-tech">
-          ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-        </div>
-        <div class="project-links">
-          <a href="${project.liveUrl}" class="project-link" target="_blank">
-            <i class="fas fa-external-link-alt"></i> Live Preview
-          </a>
-          <a href="${project.githubUrl}" class="project-link" target="_blank">
-            <i class="fab fa-github"></i> Source Code
-          </a>
-        </div>
-      </div>
-    `;
-
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.title}">
+            </div>
+            <div class="project-content">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="project-tech">
+                    ${project.techStack.map(tech => `
+                        <span class="tech-tag">
+                            <span class="tool-icon"><i class="${techIcons[tech] || 'fas fa-tools'}" style="color: ${techIconColors[tech] || 'var(--primary-light)'}"></i></span>
+                            ${tech}
+                        </span>
+                    `).join('')}
+                </div>
+                <div class="project-links">
+                    <a href="${project.liveUrl}" class="project-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Live Preview
+                    </a>
+                    <a href="${project.githubUrl}" class="project-link" target="_blank">
+                        <i class="fab fa-github"></i> Source Code
+                    </a>
+                </div>
+            </div>
+        `;
         projectsContainer.appendChild(projectCard);
     });
 }
@@ -325,21 +316,29 @@ function renderProjects() {
 // Render skills
 function renderSkills() {
     skillsContainer.innerHTML = '';
-
+    const skillIconColors = {
+        'HTML/CSS': 'var(--primary-light)',
+        'JavaScript': '#FBBF24',
+        'React': '#22D3EE',
+        'Python': '#60A5FA'
+    };
     skills.forEach((skill, index) => {
         const skillItem = document.createElement('div');
         skillItem.className = 'skill-item';
-
         skillItem.innerHTML = `
-      <div class="skill-header">
-        <h3>${skill.name}</h3>
-        <span>${skill.level}%</span>
-      </div>
-      <div class="skill-bar">
-        <div class="skill-progress" data-level="${skill.level}" style="width: 0%"></div>
-      </div>
-    `;
-
+            <div class="tool-item">
+                <div class="skill-header">
+                    ${skill.icons.map(icon => `
+                        <span class="tool-icon"><i class="${icon}" style="color: ${skillIconColors[skill.name] || 'var(--primary-light)'}"></i></span>
+                    `).join('')}
+                    <span class="skill-name">${skill.name}</span>
+                    <span class="skill-level">${skill.level}%</span>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" data-level="${skill.level}" style="width: 0%"></div>
+            </div>
+        `;
         skillsContainer.appendChild(skillItem);
     });
 }
@@ -347,20 +346,17 @@ function renderSkills() {
 // Render experience timeline
 function renderExperience() {
     experienceTimeline.innerHTML = '';
-
     experiences.forEach(exp => {
         const timelineItem = document.createElement('div');
         timelineItem.className = 'timeline-item';
-
         timelineItem.innerHTML = `
-      <div class="timeline-content">
-        <h4>${exp.title}</h4>
-        <p class="company">${exp.company}</p>
-        <p class="period">${exp.period}</p>
-        <p>${exp.description}</p>
-      </div>
-    `;
-
+            <div class="timeline-content">
+                <h4>${exp.title}</h4>
+                <p class="company">${exp.company}</p>
+                <p class="period">${exp.period}</p>
+                <p>${exp.description}</p>
+            </div>
+        `;
         experienceTimeline.appendChild(timelineItem);
     });
 }
@@ -368,19 +364,16 @@ function renderExperience() {
 // Render education timeline
 function renderEducation() {
     educationTimeline.innerHTML = '';
-
     education.forEach(edu => {
         const timelineItem = document.createElement('div');
         timelineItem.className = 'timeline-item';
-
         timelineItem.innerHTML = `
-      <div class="timeline-content">
-        <h4>${edu.degree}</h4>
-        <p class="company">${edu.institution}</p>
-        <p class="period">${edu.period}</p>
-      </div>
-    `;
-
+            <div class="timeline-content">
+                <h4>${edu.degree}</h4>
+                <p class="company">${edu.institution}</p>
+                <p class="period">${edu.period}</p>
+            </div>
+        `;
         educationTimeline.appendChild(timelineItem);
     });
 }
@@ -388,26 +381,17 @@ function renderEducation() {
 // Contact form submission
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    // Get form values
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-
-    // Here you would typically send the form data to a server
     console.log('Form submitted:', { name, email, subject, message });
-
-    // Reset form
     contactForm.reset();
-
-    // Show success message (you can implement this)
     alert('Message sent successfully!');
 });
 
 // Initialize scroll animations
 function initScrollAnimations() {
-    // Animate skill bars when in viewport
     const skillsSection = document.getElementById('skills');
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
@@ -418,12 +402,9 @@ function initScrollAnimations() {
                     bar.style.width = `${level}%`;
                 }, index * 100);
             });
-
-            // Unobserve after animation
             observer.unobserve(skillsSection);
         }
     }, { threshold: 0.5 });
-
     if (skillsSection) {
         observer.observe(skillsSection);
     }
@@ -432,11 +413,9 @@ function initScrollAnimations() {
 // Animate elements when they come into view
 function animateOnScroll() {
     const animateElements = document.querySelectorAll('.scroll-animate');
-
     animateElements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-
         if (elementTop < windowHeight - 100) {
             element.classList.add('visible');
         }
