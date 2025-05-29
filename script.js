@@ -68,7 +68,7 @@ const projects = [
         description: "A feature-rich Travel Bucket List web app that enables users to explore, add, and track dream destinations. Built with React, Leaflet, Tailwind CSS, and JavaScript, the app integrates interactive maps for visualizing locations and uses the Unsplash API to display stunning travel images. Users can mark destinations as visited, filter entries, and enjoy a clean, responsive UI designed for smooth and engaging interactions. This project showcases skills in API integration, state management, and modern frontend development.",
         image: "looo.jpeg",
         techStack: ["React", "Tailwind CSS", "JavaScript", "Leaflet", "Unsplash API"],
-        liveUrl: "https://travel-bucket-list.vercel.app/", // Corrected URL
+        liveUrl: "https://travel-bucket-pied.vercel.app/", // Corrected URL
         githubUrl: "https://github.com/crazylogic03/TravelBucket",
     }
 ];
