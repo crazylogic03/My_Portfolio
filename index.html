@@ -61,8 +61,7 @@
                         As a Computer Science student at Newton School of Technology, I'm passionate about coding. I
                         specialize in full-stack development and data structures & algorithms using Python. Whether it’s
                         solving DSA problems or building real-world applications, I’m always up for a challenge and
-                        eager
-                        to grow.
+                        eager to grow.
                     </p>
                     <div class="hero-buttons">
                         <button data-section="projects" class="btn btn-primary">View Projects</button>
@@ -116,14 +115,14 @@
                     <p>
                         I'm a passionate Frontend Developer and a dedicated Competitive Programmer. I can solve complex
                         algorithmic challenges efficiently and build interactive, user-friendly web applications.
-                        Skilled
-                        in React, JavaScript, and modern frontend technologies, I craft seamless user experiences.
+                        Skilled in React, JavaScript, and modern frontend technologies, I craft seamless user
+                        experiences.
                     </p>
                     <p>
                         In Competitive Programming, I specialize in Data Structures and Algorithms (DSA) using Python,
                         excelling in problem-solving and optimization. I’ve successfully tackled diverse coding
-                        challenges
-                        and contests, continuously improving my skills. Always eager to learn and innovate, I strive to
+                        challenges and contests, continuously improving my skills. Always eager to learn and innovate, I
+                        strive to
                         bridge the gap between logic and design. 🚀
                     </p>
                     <div class="about-info">
@@ -252,24 +251,29 @@
             </div>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form id="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/xeoealle" method="POST"
+                        aria-describedby="form-status">
+                        <input type="hidden" name="_next" value="/thank-you.html">
+                        <input type="text" name="_gotcha" style="display:none" />
                         <div class="form-group">
-                            <input type="text" id="name" required>
-                            <label for="name">Your Name</label>
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" required>
-                            <label for="email">Your Email</label>
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" required>
-                            <label for="subject">Subject</label>
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" required aria-required="true">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" rows="5" required></textarea>
-                            <label for="message">Your Message</label>
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-full" aria-label="Send Message">Send
+                            Message</button>
+                        <p id="form-status" class="form-status" role="status"></p>
                     </form>
                 </div>
                 <div class="contact-info">
@@ -302,10 +306,14 @@
                     <div>
                         <h3>Follow Me</h3>
                         <div class="social-links">
-                            <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/" class="social-icon"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a href="https://github.com/crazylogic03" class="social-icon"><i
-                                    class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/" class="social-icon"
+                                target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/crazylogic03" class="social-icon" target="_blank"
+                                rel="noopener noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
