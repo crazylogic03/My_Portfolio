@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,10 +64,6 @@
                         solving DSA problems or building real-world applications, I’m always up for a challenge and
                         eager to grow.
                     </p>
-                    <div class="hero-buttons">
-                        <button data-section="projects" class="btn btn-primary">View Projects</button>
-                        <button data-section="contact" class="btn btn-outline">Contact Me</button>
-                    </div>
                 </div>
                 <div class="hero-image">
                     <div class="profile-image">
@@ -122,8 +119,7 @@
                         In Competitive Programming, I specialize in Data Structures and Algorithms (DSA) using Python,
                         excelling in problem-solving and optimization. I’ve successfully tackled diverse coding
                         challenges and contests, continuously improving my skills. Always eager to learn and innovate, I
-                        strive to
-                        bridge the gap between logic and design. 🚀
+                        strive to bridge the gap between logic and design. 🚀
                     </p>
                     <div class="about-info">
                         <div class="info-item">
@@ -251,25 +247,29 @@
             </div>
             <div class="contact-content">
                 <div class="contact-form">
-                    <form id="contact-form" action="https://formspree.io/f/xeoealle" method="POST"
-                        aria-describedby="form-status">
+                    <form action="https://getform.io/f/bmdmmkva" method="POST">
+                        <input type="hidden" name="_subject" value="Contact Form Submission">
                         <input type="hidden" name="_next" value="/thank-you.html">
-                        <input type="text" name="_gotcha" style="display:none" />
+                        <input type="text" name="_gotcha" style="display:none">
                         <div class="form-group">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" name="name" required aria-required="true">
+                            <label for="name" class="form-label"></label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required
+                                aria-required="true">
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">Your Email</label>
-                            <input type="email" id="email" name="email" required aria-required="true">
+                            <label for="email" class="form-label"></label>
+                            <input type="email" id="email" name="_replyto" placeholder="Your Email" required
+                                aria-required="true">
                         </div>
                         <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" name="subject" required aria-required="true">
+                            <label for="subject" class="form-label"></label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required
+                                aria-required="true">
                         </div>
                         <div class="form-group">
-                            <label for="message" class="form-label">Your Message</label>
-                            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                            <label for="message" class="form-label"></label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required
+                                aria-required="true"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full" aria-label="Send Message">Send
                             Message</button>
@@ -346,6 +346,32 @@
     </button>
 
     <script src="script.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const status = document.getElementById('form-status');
+            status.textContent = 'Sending...';
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    status.textContent = 'Message sent successfully!';
+                    form.reset();
+                } else {
+                    const data = await response.json();
+                    status.textContent = data.message || 'Oops! Something went wrong.';
+                }
+            } catch (error) {
+                status.textContent = 'Oops! There was a problem submitting your form.';
+            }
+        });
+    </script>
+
 </body>
 
 </html>
