@@ -86,9 +86,16 @@ const experiences = [
     {
         id: 1,
         title: "Student Developer Club Member",
-        period: "2021 - Present",
+        period: "Oct 2024 - April   2025",
         company: "Newton School of Technology - Student Developer Club",
         description: "Active member of the Student Developer Club (SDC) at Newton School of Technology. Collaborated in coding workshops and Engaged in hackathons to enhance problem-solving, teamwork, and software development skills.",
+    },
+    {
+        id: 2,
+        title: "Frontend Developer",
+        period: "June 2025 - Present",
+        company: "TechQRT Pvt ltd",
+        description: "Worked on building and optimizing responsive web applications using HTML, CSS, JavaScript, and React. Collaborated in an Agile team, participated in daily stand-ups, and contributed to UI development, API integration, and bug fixing. Gained hands-on experience with version control using Git and improved frontend performance through code optimization and UI enhancements.",
     }
 ];
 
