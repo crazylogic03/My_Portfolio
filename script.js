@@ -1,4 +1,3 @@
-// DOM Elements
 const navbar = document.getElementById('navbar');
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -68,17 +67,61 @@ const projects = [
         description: "A feature-rich Travel Bucket List web app that enables users to explore, add, and track dream destinations. Built with React, Leaflet, Tailwind CSS, and JavaScript, the app integrates interactive maps for visualizing locations and uses the Unsplash API to display stunning travel images. Users can mark destinations as visited, filter entries, and enjoy a clean, responsive UI designed for smooth and engaging interactions. This project showcases skills in API integration, state management, and modern frontend development.",
         image: "looo.jpeg",
         techStack: ["React", "Tailwind CSS", "JavaScript", "Leaflet", "Unsplash API"],
-        liveUrl: "https://travel-bucket-pied.vercel.app/", // Corrected URL
+        liveUrl: "https://travel-bucket-pied.vercel.app/",
         githubUrl: "https://github.com/crazylogic03/TravelBucket",
+    },
+    {
+        id: 7,
+        title: "ScreenTime Recorder",
+        description: "An open-source tool designed to help users track and analyze their computer usage. It features real-time activity monitoring, automatic logging, and visual dashboards to provide insights into productivity and digital habits. Built using React.js, NodeJs, MongoDB with a focus on clean UI, efficient data handling, and usability. Contributed About 10+ features and improvements through active development and testing.",
+        image: "str.png",
+        techStack: ["React", "Node", "JavaScript", "MongoDB"],
+        liveUrl: "https://screentime-recoder.vercel.app/",
+        githubUrl: "https://github.com/crazylogic03/Screentime-recoder",
     }
 ];
 
-// Skills Data
+// Skills Data (Modified with New Skills)
 const skills = [
-    { name: "HTML/CSS", level: 90, icons: ["devicon-html5-plain", "devicon-css3-plain"] },
-    { name: "JavaScript", level: 85, icons: ["devicon-javascript-plain"] },
-    { name: "React", level: 60, icons: ["devicon-react-original"] },
+    // Computer Languages
+    { name: "HTML", level: 90, icons: ["devicon-html5-plain"] },
+    { name: "CSS", level: 85, icons: ["devicon-css3-plain"] },
+    { name: "JavaScript", level: 80, icons: ["devicon-javascript-plain"] },
     { name: "Python", level: 75, icons: ["devicon-python-plain"] },
+    { name: "C", level: 70, icons: ["devicon-c-plain"] },
+    { name: "SQL", level: 65, icons: ["devicon-mysql-plain"] },
+
+    // Data Tools
+    { name: "NumPy", level: 70, icons: ["devicon-python-plain"] },
+    { name: "Pandas", level: 65, icons: ["devicon-python-plain"] },
+
+    // Software Packages
+    { name: "React", level: 60, icons: ["devicon-react-original"] },
+    { name: "Node.js", level: 70, icons: ["devicon-nodejs-plain"] },
+    { name: "MySQL", level: 65, icons: ["devicon-mysql-plain"] },
+    { name: "Prisma ORM", level: 50, icons: ["devicon-prisma-plain"] },
+    { name: "Tailwind CSS", level: 75, icons: ["devicon-tailwindcss-plain"] },
+    { name: "Bootstrap", level: 80, icons: ["devicon-bootstrap-plain"] },
+    { name: "Express.js", level: 60, icons: ["devicon-express-original"] },
+    { name: "Chart.js", level: 55, icons: ["devicon-chartjs-plain"] },
+    { name: "Figma", level: 70, icons: ["devicon-figma-plain"] },
+    { name: "Matplotlib", level: 60, icons: ["devicon-python-plain"] },
+
+    // Additional Courses
+    { name: "Data Structure", level: 80, icons: ["devicon-c-plain"] },
+
+    // Soft Skills
+    { name: "Communication Skills", level: 85, icons: ["fas fa-comments"] },
+    { name: "Leadership", level: 80, icons: ["fas fa-users-cog"] },
+    { name: "Critical Thinking", level: 75, icons: ["fas fa-lightbulb"] },
+    { name: "Teamwork", level: 90, icons: ["fas fa-handshake"] },
+    { name: "Creativity", level: 80, icons: ["fas fa-brain"] },
+    { name: "Decision-making", level: 75, icons: ["fas fa-check-circle"] },
+
+    // Others
+    { name: "Generative AI", level: 70, icons: ["fas fa-robot"] },
+    { name: "Microsoft Office", level: 90, icons: ["fas fa-file-alt"] },
+    { name: "Spreadsheet", level: 85, icons: ["fas fa-table"] }
 ];
 
 // Experience Data
