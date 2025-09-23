@@ -108,20 +108,7 @@ const skills = [
     { name: "Matplotlib", level: 60, icons: ["devicon-python-plain"] },
 
     // Additional Courses
-    { name: "Data Structure", level: 80, icons: ["devicon-c-plain"] },
-
-    // Soft Skills
-    { name: "Communication Skills", level: 85, icons: ["fas fa-comments"] },
-    { name: "Leadership", level: 80, icons: ["fas fa-users-cog"] },
-    { name: "Critical Thinking", level: 75, icons: ["fas fa-lightbulb"] },
-    { name: "Teamwork", level: 90, icons: ["fas fa-handshake"] },
-    { name: "Creativity", level: 80, icons: ["fas fa-brain"] },
-    { name: "Decision-making", level: 75, icons: ["fas fa-check-circle"] },
-
-    // Others
-    { name: "Generative AI", level: 70, icons: ["fas fa-robot"] },
-    { name: "Microsoft Office", level: 90, icons: ["fas fa-file-alt"] },
-    { name: "Spreadsheet", level: 85, icons: ["fas fa-table"] }
+    { name: "Data Structure", level: 80, icons: ["devicon-c-plain"] }
 ];
 
 // Experience Data
