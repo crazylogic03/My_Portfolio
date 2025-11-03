@@ -78,6 +78,15 @@ const projects = [
         techStack: ["React", "Node", "JavaScript", "MongoDB"],
         liveUrl: "https://screentime-recoder.vercel.app/",
         githubUrl: "https://github.com/crazylogic03/Screentime-recoder",
+    },
+    {
+        id: 7,
+        title: "ScreenTime Recorder",
+        description: "An open-source tool designed to help users track and analyze their computer usage. It features real-time activity monitoring, automatic logging, and visual dashboards to provide insights into productivity and digital habits. Built using React.js, NodeJs, MongoDB with a focus on clean UI, efficient data handling, and usability. Contributed About 10+ features and improvements through active development and testing.",
+        image: "str.png",
+        techStack: ["React", "Node", "JavaScript", "MongoDB"],
+        liveUrl: "https://screentime-recoder.vercel.app/",
+        githubUrl: "https://github.com/crazylogic03/Screentime-recoder",
     }
 ];
 
