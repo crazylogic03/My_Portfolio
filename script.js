@@ -83,7 +83,7 @@ const projects = [
         id: 7,
         title: "EmptyBagss [UpComing]",
         description: "An Travel AI Which Design the Trip Based on Number of Days , And Budget With many Other Features",
-        // image: "str.png",
+        image: "empty.jpg",
         techStack: ["React", "NodeJS", "JavaScript", "MongoDB"],
         // liveUrl: "https://screentime-recoder.vercel.app/",
         githubUrl: "https://github.com/crazylogic03/EmptyBagss",
