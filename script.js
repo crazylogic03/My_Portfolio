@@ -118,6 +118,7 @@ const skills = [
 
     // Additional Courses
     { name: "Data Structure", level: 80, icons: ["devicon-c-plain"] }
+    { name: "Data Structure", level: 80, icons: ["devicon-c-plain"] }
 ];
 
 // Experience Data
@@ -160,7 +161,6 @@ const education = [
     },
 ];
 
-// Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     currentYearSpan.textContent = new Date().getFullYear();
     const savedTheme = localStorage.getItem('theme');
