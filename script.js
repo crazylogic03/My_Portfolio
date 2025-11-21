@@ -7,6 +7,14 @@ const typedElement = document.getElementById('typed');
 const projectsGrid = document.getElementById('projects-grid');
 const skillsList = document.getElementById('skills-list');
 
+// PREVENT ANY ACCIDENTAL RENDERING IN HERO SECTION
+document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('#home');
+    if (hero) hero.innerHTML = hero.innerHTML;  // forces clean state
+    renderProjects();   // safe render
+    renderSkills();
+});
+
 // ========================
 // DATA
 // ========================
@@ -78,89 +86,91 @@ const projects = [
 ];
 
 
-const roles = ["Full-Stack Developer", "Competitive Programmer", "Problem Solver", "Open Source Contributor"];
+// ========================
+// TYPED EFFECT — FINAL FIX (WORKS 100% WITH YOUR CURRENT HTML)
+// ========================
+// CORRECT TYPED EFFECT — USES YOUR REAL #typed ELEMENT
+const roles = ["Full-Stack Developer", "Competitive Programmer", "Open Source Contributor", "Problem Solver", "AI Enthusiast"];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
-function type() {
-    const current = roles[roleIndex];
-    typedElement.textContent = isDeleting
-        ? current.substring(0, charIndex - 1)
-        : current.substring(0, charIndex + 1);
+function typeWriter() {
+    if (!typedElement) return;
 
-    if (!isDeleting && charIndex === current.length) {
-        isDeleting = true;
-        setTimeout(type, 1500);
-    } else if (isDeleting && charIndex === 0) {
+    const current = roles[roleIndex];
+
+    if (!isDeleting && charIndex <= current.length) {
+        typedElement.textContent = current.substring(0, charIndex);
+        charIndex++;
+    }
+    if (isDeleting && charIndex >= 0) {
+        typedElement.textContent = current.substring(0, charIndex);
+        charIndex--;
+    }
+
+    if (charIndex === current.length + 1) isDeleting = true;
+    if (charIndex === 0 && isDeleting) {
         isDeleting = false;
         roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(type, 500);
-    } else {
-        charIndex += isDeleting ? -1 : 1;
-        setTimeout(type, isDeleting ? 50 : 80);
     }
+
+    setTimeout(typeWriter, isDeleting ? 60 : 120);
 }
 
+
+// Start typing
+document.addEventListener('DOMContentLoaded', () => {
+    typeWriter();
+});
 // ========================
 // RENDER PROJECTS
 // ========================
 // ========================
 // RENDER PROJECTS – FIXED ICONS + ORIGINAL STYLE
-// ========================
 function renderProjects() {
-    projectsGrid.innerHTML = projects.map(p => {
-        const isUpcoming = p.upcoming;
+    if (!projectsGrid) return;
+    projectsGrid.innerHTML = ''; // Clear everything first
 
-        const techIcons = {
-            'HTML': 'devicon-html5-plain colored',
-            'CSS': 'devicon-css3-plain colored',
-            'JavaScript': 'devicon-javascript-plain colored',
-            'React': 'devicon-react-original colored',
-            'Node.js': 'devicon-nodejs-plain colored',
-            'MongoDB': 'devicon-mongodb-plain colored',
-            'Tailwind CSS': 'devicon-tailwindcss-plain colored',
-            'Python': 'devicon-python-plain colored',
-            'Leaflet': 'fas fa-map-marked-alt',
-            'Unsplash API': 'fas fa-camera',
-            'AI': 'fas fa-brain'
-        };
+    const techIcons = {
+        'HTML': 'devicon-html5-plain colored',
+        'CSS': 'devicon-css3-plain colored',
+        'JavaScript': 'devicon-javascript-plain colored',
+        'React': 'devicon-react-original colored',
+        'Node.js': 'devicon-nodejs-plain colored',
+        'MongoDB': 'devicon-mongodb-plain colored',
+        'Tailwind': 'devicon-tailwindcss-plain colored',
+        'Leaflet': 'fas fa-map-marked-alt',
+        'API': 'fas fa-cloud',
+        'AI': 'fas fa-brain'
+    };
 
-        return `
-        <div class="project-card">
-          <div class="project-image">
-            <img src="${p.img}" alt="${p.title}" loading="lazy">
-            ${isUpcoming ? '<div class="upcoming-overlay"><span>Coming Soon</span></div>' : ''}
+    projects.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+
+        card.innerHTML = `
+        <div class="project-image">
+          <img src="${p.img}" alt="${p.title}" loading="lazy">
+        </div>
+        <div class="project-content">
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          <div class="project-tech">
+            ${p.tech.map(t => `<span class="tech-tag"><i class="${techIcons[t] || 'fas fa-code'}"></i> ${t}</span>`).join('')}
           </div>
-          <div class="project-content">
-            <h3>${p.title}</h3>
-            <p>${p.desc}</p>
-            
-            <div class="project-tech">
-              ${p.tech.map(tech => `
-                <span class="tech-tag">
-                  <i class="${techIcons[tech] || 'fas fa-code'}"></i> ${tech}
-                </span>
-              `).join('')}
-            </div>
-  
-            <!-- BEAUTIFUL BUTTONS -->
-            <div class="project-actions">
-              ${!isUpcoming ? `
-                <a href="${p.live}" target="_blank" class="btn-live">
-                  <i class="fas fa-rocket"></i> Live Demo
-                </a>
-              ` : ''}
-              <a href="${p.github}" target="_blank" class="btn-github ${isUpcoming ? 'solo' : ''}">
-                <i class="fab fa-github"></i> View Code
-              </a>
-            </div>
+          <div class="project-actions">
+            ${p.live ? `<a href="${p.live}" target="_blank" class="btn-live"><i class="fas fa-rocket"></i> Live Demo</a>` : ''}
+            <a href="${p.github}" target="_blank" class="btn-github">
+              <i class="fab fa-github"></i> View Code
+            </a>
           </div>
         </div>
       `;
-    }).join('');
-}
 
+        projectsGrid.appendChild(card);
+    });
+}
 // SKILLS – GROUPED + ICONS + % + ANIMATED BARS (PERFECT)
 const skillGroups = [
     {
