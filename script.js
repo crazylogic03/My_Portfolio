@@ -1,469 +1,314 @@
+// ========================
+// SELECTORS
+// ========================
 const navbar = document.getElementById('navbar');
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const themeToggle = document.getElementById('theme-toggle');
-const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-const scrollTopBtn = document.getElementById('scroll-top');
-const navItems = document.querySelectorAll('.nav-item');
-const footerLinks = document.querySelectorAll('.footer-link');
-const heroButtons = document.querySelectorAll('.hero-buttons .btn');
-const projectsContainer = document.getElementById('projects-container');
-const skillsContainer = document.getElementById('skills-container');
-const experienceTimeline = document.getElementById('experience-timeline');
-const educationTimeline = document.getElementById('education-timeline');
-const contactForm = document.getElementById('contact-form');
-const currentYearSpan = document.getElementById('current-year');
+const navLinks = document.querySelectorAll('.nav-links a');
+const typedElement = document.getElementById('typed');
+const projectsGrid = document.getElementById('projects-grid');
+const skillsList = document.getElementById('skills-list');
 
-// Project Data
+// ========================
+// DATA
+// ========================
 const projects = [
     {
-        id: 1,
         title: "Tic-Tac-Toe",
-        description: "Developed an interactive Tic-Tac-Toe game using HTML, CSS, and JavaScript. Implemented dynamic UI updates and a winning condition check. Designed a responsive layout for seamless gameplay on different screen sizes.",
-        image: "ttt.png",
-        techStack: ["HTML", "CSS", "JS"],
-        liveUrl: "https://tic-tac-toe-livid-psi.vercel.app/",
-        githubUrl: "https://github.com/crazylogic03/Tic-Tac-Toe",
+        desc: "Interactive game with winning logic & clean UI",
+        img: "ttt.png",
+        tech: ["HTML", "CSS", "JavaScript"],
+        live: "https://tic-tac-toe-livid-psi.vercel.app/",
+        github: "https://github.com/crazylogic03/Tic-Tac-Toe"
     },
     {
-        id: 2,
         title: "Famous Inventors",
-        description: "Collaborated on a static website showcasing famous inventors and their contributions, built using HTML and CSS. Designed an engaging, responsive layout with well-structured content and intuitive navigation. Focused on clean UI design, accessibility, and cross-browser compatibility to ensure a seamless user experience.",
-        image: "logo.png",
-        techStack: ["HTML", "CSS"],
-        liveUrl: "https://famousinventors.netlify.app/",
-        githubUrl: "https://github.com/GUNAVANTH333/Famous-Inventors-S-W",
+        desc: "Static showcase of inventors using pure HTML/CSS",
+        img: "logo.png",
+        tech: ["HTML", "CSS"],
+        live: "https://famousinventors.netlify.app/",
+        github: "https://github.com/GUNAVANTH333/Famous-Inventors-S-W"
     },
     {
-        id: 3,
         title: "Portfolio Website",
-        description: "A responsive portfolio website showcasing projects and skills with modern UI/UX design.",
-        image: "por.jpg",
-        techStack: ["HTML", "CSS", "JavaScript"],
-        liveUrl: "https://my-portfolio-crazylogic03s-projects.vercel.app/",
-        githubUrl: "#",
+        desc: "My first responsive portfolio (this one evolved from here!)",
+        img: "por.jpg",
+        tech: ["HTML", "CSS", "JavaScript"],
+        live: "https://my-portfolio-crazylogic03s-projects.vercel.app/",
+        github: "#"
     },
     {
-        id: 4,
-        title: "Waste Management Automation in Dark Stores",
-        description: "Developed an innovative solution during a hackathon to optimize waste management in dark stores. Designed a system to analyze near-expiry items using bar and donut graphs, enabling efficient tracking of waste through visual analytics. Implemented an automated approach to minimize packaging waste by recommending appropriately sized packaging for products, enhancing sustainability and operational efficiency.",
-        image: "waste.webp",
-        techStack: ["HTML", "CSS", "JavaScript", "React"],
-        liveUrl: "https://team-senorita.vercel.app/",
-        githubUrl: "#",
+        title: "Waste Management Automation",
+        desc: "Hackathon winner — Smart waste analytics system",
+        img: "waste.webp",
+        tech: ["React", "JavaScript", "CSS"],
+        live: "https://team-senorita.vercel.app/",
+        github: "#"
     },
     {
-        id: 5,
-        title: "MasterMind-Game",
-        description: "A web-based implementation of the classic code-breaking game, Mastermind. Built using HTML, CSS, and JavaScript, this project challenges players to guess a hidden color sequence within limited attempts. The game provides intuitive visual feedback for each guess, indicating correct colors and positions. It features a clean UI, interactive logic, and fully responsive design, offering an enjoyable and brain-teasing experience. Ideal for showcasing logical reasoning and frontend development skills.",
-        image: "mmlogo.png",
-        techStack: ["HTML", "CSS", "JavaScript", "React"],
-        liveUrl: "https://mastermind-game-gray.vercel.app/",
-        githubUrl: "https://github.com/crazylogic03/mastermind-game",
+        title: "MasterMind Game",
+        desc: "Classic code-breaking game with visual feedback",
+        img: "mmlogo.png",
+        tech: ["React", "JavaScript"],
+        live: "https://mastermind-game-gray.vercel.app/",
+        github: "https://github.com/crazylogic03/mastermind-game"
     },
     {
-        id: 6,
-        title: "Travel Bucket-List",
-        description: "A feature-rich Travel Bucket List web app that enables users to explore, add, and track dream destinations. Built with React, Leaflet, Tailwind CSS, and JavaScript, the app integrates interactive maps for visualizing locations and uses the Unsplash API to display stunning travel images. Users can mark destinations as visited, filter entries, and enjoy a clean, responsive UI designed for smooth and engaging interactions. This project showcases skills in API integration, state management, and modern frontend development.",
-        image: "looo.jpeg",
-        techStack: ["React", "Tailwind CSS", "JavaScript", "Leaflet", "Unsplash API"],
-        liveUrl: "https://travel-bucket-pied.vercel.app/",
-        githubUrl: "https://github.com/crazylogic03/TravelBucket",
+        title: "Travel Bucket List",
+        desc: "Interactive map-based travel planner with Unsplash API",
+        img: "looo.jpeg",
+        tech: ["React", "Tailwind", "Leaflet", "API"],
+        live: "https://travel-bucket-pied.vercel.app/",
+        github: "https://github.com/crazylogic03/TravelBucket"
     },
     {
-        id: 7,
         title: "ScreenTime Recorder",
-        description: "An open-source tool designed to help users track and analyze their computer usage. It features real-time activity monitoring, automatic logging, and visual dashboards to provide insights into productivity and digital habits. Built using React.js, NodeJs, MongoDB with a focus on clean UI, efficient data handling, and usability. Contributed About 10+ features and improvements through active development and testing.",
-        image: "str.png",
-        techStack: ["React", "Node", "JavaScript", "MongoDB"],
-        liveUrl: "https://screentime-recoder.vercel.app/",
-        githubUrl: "https://github.com/crazylogic03/Screentime-recoder",
+        desc: "Real-time desktop usage tracker with analytics",
+        img: "str.png",
+        tech: ["React", "Node.js", "MongoDB"],
+        live: "https://screentime-recoder.vercel.app/",
+        github: "https://github.com/crazylogic03/Screentime-recoder"
     },
     {
-        id: 7,
-        title: "EmptyBagss [UpComing]",
-        description: "An Travel AI Which Design the Trip Based on Number of Days , And Budget With many Other Features",
-        image: "empty.jpg",
-        techStack: ["React", "NodeJS", "JavaScript", "MongoDB"],
-        // liveUrl: "https://screentime-recoder.vercel.app/",
-        githubUrl: "https://github.com/crazylogic03/EmptyBagss",
+        title: "EmptyBagss [Upcoming]",
+        desc: "AI-powered personalized travel planner",
+        img: "empty.jpg",
+        tech: ["React", "Node.js", "AI"],
+        github: "https://github.com/crazylogic03/EmptyBagss",
+        upcoming: true
     }
 ];
 
-// Skills Data (Modified with New Skills)
-const skills = [
-    // Computer Languages
-    { name: "HTML", level: 90, icons: ["devicon-html5-plain"] },
-    { name: "CSS", level: 85, icons: ["devicon-css3-plain"] },
-    { name: "JavaScript", level: 80, icons: ["devicon-javascript-plain"] },
-    { name: "Python", level: 75, icons: ["devicon-python-plain"] },
-    { name: "C", level: 70, icons: ["devicon-c-plain"] },
-    { name: "SQL", level: 65, icons: ["devicon-mysql-plain"] },
 
-    // Data Tools
-    { name: "NumPy", level: 70, icons: ["devicon-python-plain"] },
-    { name: "Pandas", level: 65, icons: ["devicon-python-plain"] },
+const roles = ["Full-Stack Developer", "Competitive Programmer", "Problem Solver", "Open Source Contributor"];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-    // Software Packages
-    { name: "React", level: 60, icons: ["devicon-react-original"] },
-    { name: "Node.js", level: 70, icons: ["devicon-nodejs-plain"] },
-    { name: "MySQL", level: 65, icons: ["devicon-mysql-plain"] },
-    { name: "Prisma ORM", level: 50, icons: ["devicon-prisma-plain"] },
-    { name: "Tailwind CSS", level: 75, icons: ["devicon-tailwindcss-plain"] },
-    { name: "Bootstrap", level: 80, icons: ["devicon-bootstrap-plain"] },
-    { name: "Express.js", level: 60, icons: ["devicon-express-original"] },
-    { name: "Chart.js", level: 55, icons: ["devicon-chartjs-plain"] },
-    { name: "Figma", level: 70, icons: ["devicon-figma-plain"] },
-    { name: "Matplotlib", level: 60, icons: ["devicon-python-plain"] },
+function type() {
+    const current = roles[roleIndex];
+    typedElement.textContent = isDeleting
+        ? current.substring(0, charIndex - 1)
+        : current.substring(0, charIndex + 1);
 
-    // Additional Courses
-    { name: "Data Structure", level: 80, icons: ["devicon-c-plain"] }
-    { name: "Data Structure", level: 80, icons: ["devicon-c-plain"] }
-];
-
-// Experience Data
-const experiences = [
-    {
-        id: 1,
-        title: "Student Developer Club Member",
-        period: "Oct 2024 - April   2025",
-        company: "Newton School of Technology - Student Developer Club",
-        description: "Active member of the Student Developer Club (SDC) at Newton School of Technology. Collaborated in coding workshops and Engaged in hackathons to enhance problem-solving, teamwork, and software development skills.",
-    },
-    {
-        id: 2,
-        title: "Frontend Developer",
-        period: "June 2025 - Present",
-        company: "TechQRT Pvt ltd",
-        description: "Worked on building and optimizing responsive web applications using HTML, CSS, JavaScript, and React. Collaborated in an Agile team, participated in daily stand-ups, and contributed to UI development, API integration, and bug fixing. Gained hands-on experience with version control using Git and improved frontend performance through code optimization and UI enhancements.",
-    }
-];
-
-// Education Data
-const education = [
-    {
-        id: 1,
-        degree: "Matriculation",
-        institution: "Kendriya Vidyalaya",
-        period: "2019 - 2022",
-    },
-    {
-        id: 2,
-        degree: "Intermediate",
-        institution: "Medha-V Junior School",
-        period: "2022 - 2024",
-    },
-    {
-        id: 3,
-        degree: "Bachelor's of Technology [B-Tech]",
-        institution: "Newton School of Technology -- Ajeenkya DY Patil University",
-        period: "2024 - 2028",
-    },
-];
-
-document.addEventListener('DOMContentLoaded', () => {
-    currentYearSpan.textContent = new Date().getFullYear();
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-        updateThemeIcons(true);
-    }
-    renderProjects();
-    renderSkills();
-    renderExperience();
-    renderEducation();
-    initScrollAnimations();
-});
-
-// Toggle mobile menu
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    const icon = mobileMenuBtn.querySelector('i');
-    if (mobileMenu.classList.contains('open')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
+    if (!isDeleting && charIndex === current.length) {
+        isDeleting = true;
+        setTimeout(type, 1500);
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(type, 500);
     } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
-
-// Theme toggle functionality
-function toggleDarkMode() {
-    const isDarkMode = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    updateThemeIcons(isDarkMode);
-}
-
-function updateThemeIcons(isDarkMode) {
-    const themeIcon = themeToggle.querySelector('i');
-    const mobileThemeIcon = mobileThemeToggle.querySelector('i');
-    if (isDarkMode) {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-        mobileThemeIcon.classList.remove('fa-moon');
-        mobileThemeIcon.classList.add('fa-sun');
-    } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-        mobileThemeIcon.classList.remove('fa-sun');
-        mobileThemeIcon.classList.add('fa-moon');
+        charIndex += isDeleting ? -1 : 1;
+        setTimeout(type, isDeleting ? 50 : 80);
     }
 }
 
-themeToggle.addEventListener('click', toggleDarkMode);
-mobileThemeToggle.addEventListener('click', toggleDarkMode);
-
-// Scroll event handling
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    if (scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    const heroBg = document.querySelector('.hero-bg');
-    if (heroBg) {
-        heroBg.style.transform = `translateY(${scrollY * 0.05}px)`;
-    }
-    if (scrollY > 300) {
-        scrollTopBtn.classList.add('visible');
-    } else {
-        scrollTopBtn.classList.remove('visible');
-    }
-    updateActiveNavItem();
-    animateOnScroll();
-});
-
-// Scroll to section functionality
-function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        const offsetTop = section.offsetTop - 80;
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-        });
-        mobileMenu.classList.remove('open');
-        const icon = mobileMenuBtn.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-}
-
-// Add click event to all navigation items
-navItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const section = item.getAttribute('data-section');
-        scrollToSection(section);
-    });
-});
-
-// Add click event to footer links
-footerLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        const section = link.getAttribute('data-section');
-        scrollToSection(section);
-    });
-});
-
-// Add click event to hero buttons
-heroButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const section = button.getAttribute('data-section');
-        if (section) {
-            scrollToSection(section);
-        }
-    });
-});
-
-// Scroll to top button
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Update active nav item based on scroll position
-function updateActiveNavItem() {
-    const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];
-    for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= 100 && rect.bottom >= 100) {
-                navItems.forEach(item => item.classList.remove('active'));
-                const activeNavItems = document.querySelectorAll(`.nav-item[data-section="${section}"]`);
-                activeNavItems.forEach(item => item.classList.add('active'));
-                break;
-            }
-        }
-    }
-}
-
-// Render projects
+// ========================
+// RENDER PROJECTS
+// ========================
+// ========================
+// RENDER PROJECTS – FIXED ICONS + ORIGINAL STYLE
+// ========================
 function renderProjects() {
-    projectsContainer.innerHTML = '';
-    const techIcons = {
-        'HTML': 'devicon-html5-plain',
-        'CSS': 'devicon-css3-plain',
-        'JS': 'devicon-javascript-plain',
-        'JavaScript': 'devicon-javascript-plain',
-        'React': 'devicon-react-original',
-        'Tailwind CSS': 'devicon-tailwindcss-plain',
-        'Tailwind': 'devicon-tailwindcss-plain',
-        'Leaflet': 'devicon-leaflet-plain',
-        'Unsplash API': 'fas fa-camera'
-    };
-    const techIconColors = {
-        'HTML': 'var(--primary-light)',
-        'CSS': '#60A5FA',
-        'JS': '#FBBF24',
-        'JavaScript': '#FBBF24',
-        'React': '#22D3EE',
-        'Tailwind CSS': '#22D3EE',
-        'Tailwind': '#22D3EE',
-        'Leaflet': '#34D399',
-        'Unsplash API': '#F87171'
-    };
-    projects.forEach(project => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.innerHTML = `
-            <div class="project-image">
-                <img src="${project.image}" alt="${project.title}">
+    projectsGrid.innerHTML = projects.map(p => {
+        const isUpcoming = p.upcoming;
+
+        const techIcons = {
+            'HTML': 'devicon-html5-plain colored',
+            'CSS': 'devicon-css3-plain colored',
+            'JavaScript': 'devicon-javascript-plain colored',
+            'React': 'devicon-react-original colored',
+            'Node.js': 'devicon-nodejs-plain colored',
+            'MongoDB': 'devicon-mongodb-plain colored',
+            'Tailwind CSS': 'devicon-tailwindcss-plain colored',
+            'Python': 'devicon-python-plain colored',
+            'Leaflet': 'fas fa-map-marked-alt',
+            'Unsplash API': 'fas fa-camera',
+            'AI': 'fas fa-brain'
+        };
+
+        return `
+        <div class="project-card">
+          <div class="project-image">
+            <img src="${p.img}" alt="${p.title}" loading="lazy">
+            ${isUpcoming ? '<div class="upcoming-overlay"><span>Coming Soon</span></div>' : ''}
+          </div>
+          <div class="project-content">
+            <h3>${p.title}</h3>
+            <p>${p.desc}</p>
+            
+            <div class="project-tech">
+              ${p.tech.map(tech => `
+                <span class="tech-tag">
+                  <i class="${techIcons[tech] || 'fas fa-code'}"></i> ${tech}
+                </span>
+              `).join('')}
             </div>
-            <div class="project-content">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="project-tech">
-                    ${project.techStack.map(tech => `
-                        <span class="tech-tag">
-                            <span class="tool-icon"><i class="${techIcons[tech] || 'fas fa-tools'}" style="color: ${techIconColors[tech] || 'var(--primary-light)'}"></i></span>
-                            ${tech}
-                        </span>
-                    `).join('')}
-                </div>
-                <div class="project-links">
-                    <a href="${project.liveUrl}" class="project-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Live Preview
-                    </a>
-                    <a href="${project.githubUrl}" class="project-link" target="_blank">
-                        <i class="fab fa-github"></i> Source Code
-                    </a>
-                </div>
+  
+            <!-- BEAUTIFUL BUTTONS -->
+            <div class="project-actions">
+              ${!isUpcoming ? `
+                <a href="${p.live}" target="_blank" class="btn-live">
+                  <i class="fas fa-rocket"></i> Live Demo
+                </a>
+              ` : ''}
+              <a href="${p.github}" target="_blank" class="btn-github ${isUpcoming ? 'solo' : ''}">
+                <i class="fab fa-github"></i> View Code
+              </a>
             </div>
-        `;
-        projectsContainer.appendChild(projectCard);
-    });
+          </div>
+        </div>
+      `;
+    }).join('');
 }
 
-// Render skills
+// SKILLS – GROUPED + ICONS + % + ANIMATED BARS (PERFECT)
+const skillGroups = [
+    {
+        category: "Computer Languages",
+        skills: [
+            { name: "JavaScript", level: 92, icon: "devicon-javascript-plain colored" },
+            // { name: "TypeScript", level: 85, icon: "devicon-typescript-plain colored" },
+            { name: "Python", level: 88, icon: "devicon-python-plain colored" },
+            { name: "SQL", level: 82, icon: "devicon-mysql-plain colored" },
+            { name: "HTML", level: 95, icon: "devicon-html5-plain colored" },
+            { name: "CSS", level: 90, icon: "devicon-css3-plain colored" },
+            { name: "NoSQL", level: 80, icon: "devicon-mongodb-plain colored" }
+        ]
+    },
+    {
+        category: "Data Tools",
+        skills: [
+            { name: "Pandas", level: 82, icon: "devicon-python-plain colored" },
+            { name: "NumPy", level: 80, icon: "devicon-python-plain colored" },
+            { name: "Matplotlib", level: 75, icon: "devicon-python-plain colored" }
+        ]
+    },
+    {
+        category: "Software Packages",
+        skills: [
+            { name: "React", level: 90, icon: "devicon-react-original colored" },
+            { name: "Next.js", level: 82, icon: "devicon-nextjs-original" },
+            { name: "Node.js", level: 85, icon: "devicon-nodejs-plain colored" },
+            { name: "Express.js", level: 80, icon: "devicon-express-original" },
+            { name: "MongoDB", level: 80, icon: "devicon-mongodb-plain colored" },
+            { name: "MySQL", level: 82, icon: "devicon-mysql-plain colored" },
+            { name: "Prisma ORM", level: 78, icon: "fas fa-database" },
+            { name: "Tailwind CSS", level: 88, icon: "devicon-tailwindcss-plain colored" },
+            { name: "Bootstrap", level: 85, icon: "devicon-bootstrap-plain colored" },
+            { name: "Chart.js", level: 82, icon: "fas fa-chart-line" },
+            { name: "Figma", level: 85, icon: "devicon-figma-plain colored" },
+            { name: "Linux", level: 80, icon: "devicon-linux-plain" },
+            { name: "Excel", level: 90, icon: "fas fa-file-excel" }
+        ]
+    },
+    {
+        category: "Additional Courses",
+        skills: [
+            { name: "Data Structures & Algorithms", level: 88, icon: "fas fa-code-branch" }
+        ]
+    },
+    {
+        category: "Soft Skills",
+        skills: [
+            { name: "Leadership", level: 90, icon: "fas fa-chess-king" },
+            { name: "Teamwork", level: 92, icon: "fas fa-users" },
+            { name: "Communication", level: 90, icon: "fas fa-comments" },
+            { name: "Problem Solving", level: 95, icon: "fas fa-lightbulb" },
+            { name: "Critical Thinking", level: 88, icon: "fas fa-brain" },
+            { name: "Creativity", level: 87, icon: "fas fa-palette" },
+            { name: "Decision Making", level: 85, icon: "fas fa-balance-scale" },
+            { name: "Presentation Skills", level: 88, icon: "fas fa-chalkboard-teacher" }
+        ]
+    },
+    {
+        category: "Others",
+        skills: [
+            { name: "Generative AI", level: 85, icon: "fas fa-robot" },
+            { name: "OpenAI API", level: 82, icon: "fas fa-brain" },
+            { name: "LLM", level: 80, icon: "fas fa-microchip" },
+            { name: "OAuth 2.0", level: 85, icon: "fas fa-shield-alt" },
+            { name: "Git & GitHub", level: 92, icon: "devicon-git-plain colored" },
+            { name: "Postman", level: 88, icon: "fas fa-vial" },
+            { name: "Bash Scripting", level: 75, icon: "fas fa-terminal" },
+            { name: "Canva", level: 90, icon: "fas fa-palette" },
+            { name: "Microsoft Office", level: 95, icon: "fas fa-file-word" }
+        ]
+    }
+];
+
 function renderSkills() {
-    skillsContainer.innerHTML = '';
-    const skillIconColors = {
-        'HTML/CSS': 'var(--primary-light)',
-        'JavaScript': '#FBBF24',
-        'React': '#22D3EE',
-        'Python': '#60A5FA'
-    };
-    skills.forEach((skill, index) => {
-        const skillItem = document.createElement('div');
-        skillItem.className = 'skill-item';
-        skillItem.innerHTML = `
-            <div class="tool-item">
-                <div class="skill-header">
-                    ${skill.icons.map(icon => `
-                        <span class="tool-icon"><i class="${icon}" style="color: ${skillIconColors[skill.name] || 'var(--primary-light)'}"></i></span>
-                    `).join('')}
-                    <span class="skill-name">${skill.name}</span>
-                    <span class="skill-level">${skill.level}%</span>
-                </div>
+    skillsList.innerHTML = skillGroups.map(group => `
+      <div class="skill-group">
+        <h3 class="skill-category">
+          ${group.category}
+        </h3>
+        <div class="horizontal-skills">
+          ${group.skills.map(skill => `
+            <div class="h-skill">
+              <div class="h-skill-info">
+                <i class="${skill.icon}"></i>
+                <span class="h-skill-name">${skill.name}</span>
+                <span class="h-skill-percent">${skill.level}%</span>
+              </div>
+              <div class="h-skill-bar">
+                <div class="h-skill-fill" style="width: 0%"></div>
+              </div>
             </div>
-            <div class="skill-bar">
-                <div class="skill-progress" data-level="${skill.level}" style="width: 0%"></div>
-            </div>
-        `;
-        skillsContainer.appendChild(skillItem);
-    });
-}
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
 
-// Render experience timeline
-function renderExperience() {
-    experienceTimeline.innerHTML = '';
-    experiences.forEach(exp => {
-        const timelineItem = document.createElement('div');
-        timelineItem.className = 'timeline-item';
-        timelineItem.innerHTML = `
-            <div class="timeline-content">
-                <h4>${exp.title}</h4>
-                <p class="company">${exp.company}</p>
-                <p class="period">${exp.period}</p>
-                <p>${exp.description}</p>
-            </div>
-        `;
-        experienceTimeline.appendChild(timelineItem);
-    });
-}
-
-// Render education timeline
-function renderEducation() {
-    educationTimeline.innerHTML = '';
-    education.forEach(edu => {
-        const timelineItem = document.createElement('div');
-        timelineItem.className = 'timeline-item';
-        timelineItem.innerHTML = `
-            <div class="timeline-content">
-                <h4>${edu.degree}</h4>
-                <p class="company">${edu.institution}</p>
-                <p class="period">${edu.period}</p>
-            </div>
-        `;
-        educationTimeline.appendChild(timelineItem);
-    });
-}
-
-// Contact form submission
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    console.log('Form submitted:', { name, email, subject, message });
-    contactForm.reset();
-    alert('Message sent successfully!');
-});
-
-// Initialize scroll animations
-function initScrollAnimations() {
-    const skillsSection = document.getElementById('skills');
+    // Animate on scroll
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-            const progressBars = document.querySelectorAll('.skill-progress');
-            progressBars.forEach((bar, index) => {
-                const level = bar.getAttribute('data-level');
-                setTimeout(() => {
-                    bar.style.width = `${level}%`;
-                }, index * 100);
+            document.querySelectorAll('.h-skill-fill').forEach((bar, i) => {
+                const width = bar.parentElement.previousElementSibling.querySelector('.h-skill-percent').textContent;
+                setTimeout(() => bar.style.width = width, i * 70);
             });
-            observer.unobserve(skillsSection);
         }
-    }, { threshold: 0.5 });
-    if (skillsSection) {
-        observer.observe(skillsSection);
-    }
-}
+    }, { threshold: 0.3 });
 
-// Animate elements when they come into view
-function animateOnScroll() {
-    const animateElements = document.querySelectorAll('.scroll-animate');
-    animateElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (elementTop < windowHeight - 100) {
-            element.classList.add('visible');
+    observer.observe(document.getElementById('skills'));
+}
+// ========================
+// NAVBAR ACTIVE STATE
+// ========================
+window.addEventListener('scroll', () => {
+    let current = 'home';
+    const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];
+
+    sections.forEach(sec => {
+        const el = document.getElementById(sec);
+        if (el && el.getBoundingClientRect().top <= 100) {
+            current = sec;
         }
     });
-}
+
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+    });
+
+    // Navbar background on scroll
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ========================
+// INITIALIZE
+// ========================
+document.addEventListener('DOMContentLoaded', () => {
+    type();
+    renderProjects();
+    renderSkills();
+});
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});

@@ -1,379 +1,158 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thrishul</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thrishul | Full-Stack Developer</title>
+    <meta name="description" content="Thrishul - Full-Stack Developer & Competitive Programmer from Hyderabad, India" />
+
+    <!-- <link rel="icon" href="p.jpeg" type="image/jpeg"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-    <!-- Navigation -->
+
+    <!-- Navbar -->
     <nav id="navbar">
-        <div class="container">
-            <a href="#" class="logo"><span class="text-primary">Thrishul</span></a>
+        <div class="container nav-container">
+            <div class="logo">Thrishul</div>
             <div class="nav-links">
-                <button data-section="home" class="nav-item active">Home</button>
-                <button data-section="about" class="nav-item">About</button>
-                <button data-section="projects" class="nav-item">Projects</button>
-                <button data-section="skills" class="nav-item">Skills</button>
-                <button data-section="experience" class="nav-item">Experience</button>
-                <button data-section="contact" class="nav-item">Contact</button>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-            <div class="mobile-menu-buttons">
-                <button id="mobile-theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="mobile-menu-btn" aria-label="Toggle menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="mobile-menu">
-            <div class="container">
-                <button data-section="home" class="nav-item">Home</button>
-                <button data-section="about" class="nav-item">About</button>
-                <button data-section="projects" class="nav-item">Projects</button>
-                <button data-section="skills" class="nav-item">Skills</button>
-                <button data-section="experience" class="nav-item">Experience</button>
-                <button data-section="contact" class="nav-item">Contact</button>
+                <a href="#home" class="nav-item active">Home</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#skills" class="nav-item">Skills</a>
+                <a href="#experience" class="nav-item">Experience</a>
+                <a href="#contact" class="nav-item">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
-        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Hi, I'm <span class="text-primary">Thrishul</span></h1>
-                    <h2>Student at NST |Competitive Programmer | Web Developer|
-                        Open Source Contributer | Artificial Intelligence & Machine Learning Engineer |</h2>
-                    <p>
-                        As a Computer Science student at Newton School of Technology, I'm passionate about coding. I
-                        specialize in full-stack development and data structures & algorithms using Python. Whether it’s
-                        solving DSA problems or building real-world applications, I’m always up for a challenge and
-                        eager to grow.
-                    </p>
-                </div>
-                <div class="hero-image">
-                    <div class="profile-image">
-                        <img src="p.jpeg" alt="Thrishul">
+                    <h1>Hi, I'm <span>Thrishul</span></h1>
+                    <h2>I am a <span id="typed"></span></h2>
+                    <p>Full-Stack Developer • Competitive Programmer • Problem Solver</p>
+                    <div class="buttons">
+                        <a href="#projects" class="btn-primary">View Projects</a>
+                        <a href="Resume-Bheemanaboyani Sai Thrishul (2).pdf" class="btn-secondary" download>Download
+                            CV</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/crazylogic03" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/sai-thrishul-3a4077329" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://leetcode.com/u/qfFJipIODP/" target="_blank"><i class="fas fa-code"></i></a>
+                        <a href="https://codeforces.com/profile/crazylogic03" target="_blank"><i
+                                class="fas fa-chess-knight"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="social-links" style="position: relative; z-index: 10;">
-                <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/" class="social-icon" target="_blank"
-                    rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/crazylogic03" class="social-icon" target="_blank" rel="noopener noreferrer"
-                    aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.codechef.com/users/crazylogic03" class="social-icon" target="_blank"
-                    rel="noopener noreferrer" aria-label="CodeChef">
-                    <i class="fas fa-laptop-code"></i>
-                </a>
-                <a href="https://codeforces.com/profile/crazylogic03" class="social-icon" target="_blank"
-                    rel="noopener noreferrer" aria-label="Codeforces">
-                    <i class="fas fa-chess-knight"></i>
-                </a>
-                <a href="https://leetcode.com/u/qfFJipIODP/" class="social-icon" target="_blank"
-                    rel="noopener noreferrer" aria-label="LeetCode">
-                    <i class="fas fa-terminal"></i>
-                </a>
+                <div class="hero-img">
+                    <img src="p.jpeg" alt="Thrishul">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- About -->
+    <section id="about" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="imageeeeeee.png.jpeg" alt="About Thrishul">
-                </div>
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <img src="imageeeeeee.png.jpeg" alt="Thrishul" class="about-img">
                 <div class="about-text">
-                    <h3>Who am I?</h3>
-                    <p>
-                        I'm a passionate Frontend Developer and a dedicated Competitive Programmer. I can solve complex
-                        algorithmic challenges efficiently and build interactive, user-friendly web applications.
-                        Skilled in React, JavaScript, and modern frontend technologies, I craft seamless user
-                        experiences.
-                    </p>
-                    <p>
-                        In Competitive Programming, I specialize in Data Structures and Algorithms (DSA) using Python,
-                        excelling in problem-solving and optimization. I’ve successfully tackled diverse coding
-                        challenges and contests, continuously improving my skills. Always eager to learn and innovate, I
-                        strive to bridge the gap between logic and design. 🚀
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <h4>Name:</h4>
-                            <p>Sai Thrishul</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>Email:</h4>
-                            <p>thrishul.professional@gmail.com</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>Location:</h4>
-                            <p>Hyderabad</p>
-                        </div>
-                        <div class="info-item">
-                            <h4>Availability:</h4>
-                            <p>Looking For Internships and Freelancing</p>
-                        </div>
-                    </div>
-                    <a href="Resume-Bheemanaboyani Sai Thrishul (2).pdf" class="btn btn-primary" download>Download
-                        CV</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>My Projects</h2>
-                <div class="section-divider"></div>
-                <p>Here are some of my recent projects. Each project represents a unique challenge and solution using
-                    modern web technologies.</p>
-            </div>
-            <div class="projects-grid" id="projects-container"></div>
-            <div class="projects-more">
-                <a href="https://github.com/crazylogic03" target="_blank" class="btn btn-outline">View All Projects</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>My Skills</h2>
-                <div class="section-divider"></div>
-                <p>I've worked with a variety of technologies and tools throughout my career. Here are some of my key
-                    skills and proficiency levels.</p>
-            </div>
-            <div class="skills-grid" id="skills-container"></div>
-            <div class="other-skills">
-                <h3>Other Technologies & Tools</h3>
-                <div class="tools-grid">
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-mysql-plain"></i></span>SQL</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-c-plain"></i></span>C</div>
-                    <div class="tool-item"><span class="tool-icon"><i
-                                class="devicon-postgresql-plain"></i></span>PostgreSQL</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="fas fa-brain"></i></span>Machine Learning
-                    </div>
-                    <div class="tool-item"><span class="tool-icon"><i
-                                class="devicon-bootstrap-plain"></i></span>Bootstrap</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-linux-plain"></i></span>Linux</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-jupyter-plain"></i></span>Jupyter
-                    </div>
-                    <div class="tool-item"><span class="tool-icon"><i
-                                class="devicon-matplotlib-plain"></i></span>Matplotlib</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-pandas-plain"></i></span>Pandas
-                    </div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-figma-plain"></i></span>Figma</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="fas fa-sitemap"></i></span>DSA</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-git-plain"></i></span>Git</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-github-plain"></i></span>GitHub
-                    </div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-numpy-plain"></i></span>NumPy</div>
-                    <div class="tool-item"><span class="tool-icon"><i class="devicon-bash-plain"></i></span>Bash</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience & Education Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2>Experience & Education</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="experience-content">
-                <div class="timeline-container">
-                    <h3>Work Experience</h3>
-                    <div class="timeline" id="experience-timeline"></div>
-                </div>
-                <div class="timeline-container">
-                    <h3>Education</h3>
-                    <div class="timeline" id="education-timeline"></div>
-                    <div class="certifications">
-                        <h3>Certifications</h3>
-                        <div class="cert-item">
-                            <h4>Fundamentals of AI</h4>
-                            <p>DeepLearning.ai</p>
-                        </div>
-                        <div class="cert-item">
-                            <h4>GenAI for everyone</h4>
-                            <p>DeepLearning.ai</p>
-                        </div>
-                        <div class="cert-item">
-                            <h4>Hactober 2024</h4>
-                            <p>Holopin</p>
-                        </div>
+                    <h3>Building the Future with Code</h3>
+                    <p>Passionate full-stack developer with expertise in modern web technologies. Currently working as a
+                        Frontend Developer at TechQRT and actively contributing to open-source.</p>
+                    <div class="info">
+                        <p><strong>Name:</strong> Bheemanaboyani Sai Thrishul</p>
+                        <p><strong>Email:</strong> thrishul.professional@gmail.com</p>
+                        <p><strong>Location:</strong> Hyderabad, India</p>
+                        <p><strong>Status:</strong> Open to Opportunities</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Projects -->
+    <section id="projects" class="section bg-alt">
         <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <div class="section-divider"></div>
-                <p>Have a project in mind or want to collaborate? Feel free to reach out to me using the form below or
-                    through my social media channels.</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form action="https://getform.io/f/bmdmmkva" method="POST">
-                        <input type="hidden" name="_subject" value="Contact Form Submission">
-                        <input type="hidden" name="_next" value="/thank-you.html">
-                        <input type="text" name="_gotcha" style="display:none">
-                        <div class="form-group">
-                            <label for="name" class="form-label"></label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required
-                                aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label"></label>
-                            <input type="email" id="email" name="_replyto" placeholder="Your Email" required
-                                aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject" class="form-label"></label>
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required
-                                aria-required="true">
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label"></label>
-                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required
-                                aria-required="true"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full" aria-label="Send Message">Send
-                            Message</button>
-                        <p id="form-status" class="form-status" role="status"></p>
-                    </form>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid" id="projects-grid"></div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-list" id="skills-list"></div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">My Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Frontend Developer</h3>
+                    <p class="company">TechQRT Pvt Ltd</p>
+                    <p class="date">June 2025 – Present</p>
+                    <p>Building responsive web apps with React, optimizing performance, and collaborating in Agile
+                        teams.</p>
                 </div>
+                <div class="timeline-item">
+                    <h3>Student Developer Club Member</h3>
+                    <p class="company">Newton School of Technology</p>
+                    <p class="date">2024 – Present</p>
+                    <p>Leading workshops, mentoring juniors, and organizing coding events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <form id="contact-form" action="https://getform.io/f/bmdmmkva" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="_replyto" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
                 <div class="contact-info">
-                    <div>
-                        <h3>Contact Information</h3>
-                        <div class="info-items">
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                                <div>
-                                    <h4>Phone</h4>
-                                    <p>+91 9391780057</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                                <div>
-                                    <h4>Email</h4>
-                                    <p>thrishul.professional@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                                <div>
-                                    <h4>Location</h4>
-                                    <p>Hyderabad</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3>Follow Me</h3>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/sai-thrishul-3a4077329/" class="social-icon"
-                                target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/crazylogic03" class="social-icon" target="_blank"
-                                rel="noopener noreferrer" aria-label="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
+                    <p>thrishul.professional@gmail.com</p>
+                    <p>+91 9391780057</p>
+                    <p>Hyderabad, India</p>
+                    <div class="social-links large">
+                        <a href="https://github.com/crazylogic03"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/sai-thrishul-3a4077329"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://leetcode.com/u/qfFJipIODP/"><i class="fas fa-code"></i></a>
+                        <a href="https://codeforces.com/profile/crazylogic03"><i class="fas fa-chess-knight"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#" class="logo"><span class="text-primary">Thrishul</span></a>
-                    <p>© <span id="current-year"></span> Thrishul. All rights reserved.</p>
-                </div>
-                <div class="footer-links">
-                    <button data-section="home" class="footer-link">Home</button>
-                    <button data-section="about" class="footer-link">About</button>
-                    <button data-section="projects" class="footer-link">Projects</button>
-                    <button data-section="skills" class="footer-link">Skills</button>
-                    <button data-section="contact" class="footer-link">Contact</button>
-                </div>
-            </div>
+            <p>© 2025 Thrishul. Made with Code & Passion</p>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script src="script.js"></script>
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            const status = document.getElementById('form-status');
-            status.textContent = 'Sending...';
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    status.textContent = 'Message sent successfully!';
-                    form.reset();
-                } else {
-                    const data = await response.json();
-                    status.textContent = data.message || 'Oops! Something went wrong.';
-                }
-            } catch (error) {
-                status.textContent = 'Oops! There was a problem submitting your form.';
-            }
-        });
-    </script>
-
 </body>
 
 </html>
