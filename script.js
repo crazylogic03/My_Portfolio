@@ -99,6 +99,7 @@ const projects = [
             "OAuth"
         ],
         github: "https://github.com/crazylogic03/EmptyBagss",
+        live: "https://screentime-recoder.vercel.app/",
         upcoming: true
     },
     {
@@ -107,6 +108,23 @@ const projects = [
         img: "GPHI.jpg",
         tech: ["Python", "ML Algorithms", "EDA"],
         github: "https://github.com/crazylogic03/PVT",
+    },
+    {
+        title: "AI-Study Coach",
+        desc: "Personalized AI mentor that adapts to your learning pace and provides real-time feedback.",
+        img: "ai_study.png",
+        tech: ["Python", "ML Algorithms", "EDA"],
+        github: "https://github.com/crazylogic03/VectorSpace",
+        live: "https://screentime-recoder.vercel.app/",
+        // upcoming: true
+    },
+    {
+        title: "AI-Summarizer",
+        desc: "An intelligent text summarization tool powered by Groq API and Streamlit to condense large documents.",
+        img: "ai_summarizer.png",
+        tech: ["Python", "StreamLit", "GROQ API"],
+        github: "https://github.com/crazylogic03/AI-SummarizerT",
+        live: "https://crazylogic03-ai-summarizer-app-nhqsac.streamlit.app/",
         // upcoming: true
     }
 
