@@ -11,3 +11,15 @@ Welcome to my personal portfolio repository! This is a responsive, modern web po
 - **Frontend**: HTML5, CSS3, Vanilla JS
 - **Styling**: Custom CSS with variables and modern layout techniques
 - **Icons**: Devicons, FontAwesome
+
+## 📸 Preview
+![Portfolio Preview](./por.jpg)
+
+## 🛠️ Run Locally
+Clone the project and open `index.html` in your browser:
+
+```bash
+git clone https://github.com/crazylogic03/My_Portfolio.git
+cd My_Portfolio
+open index.html
+```
