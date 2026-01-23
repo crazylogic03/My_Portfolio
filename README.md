@@ -23,3 +23,6 @@ git clone https://github.com/crazylogic03/My_Portfolio.git
 cd My_Portfolio
 open index.html
 ```
+
+## 📬 Contact
+Reach out at: **thrishul.professional@gmail.com** or connect with me via [LinkedIn](https://linkedin.com/in/sai-thrishul-3a4077329) / [GitHub](https://github.com/crazylogic03).
