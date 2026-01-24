@@ -82,7 +82,26 @@ const projects = [
         tech: ["React", "Node.js", "AI"],
         github: "https://github.com/crazylogic03/EmptyBagss",
         upcoming: true
+    },
+    {
+        title: "Project Management App",
+        desc: "A full-stack project management application with real-time collaboration, secure authentication, and an intuitive drag-and-drop workflow.",
+        img: "empty.jpg",
+        tech: [
+            "React",
+            "Tailwind",
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+            "Prisma",
+            "Socket.io",
+            "JWT",
+            "OAuth"
+        ],
+        github: "https://github.com/crazylogic03/EmptyBagss",
+        upcoming: true
     }
+
 ];
 
 
@@ -123,14 +142,9 @@ function typeWriter() {
 document.addEventListener('DOMContentLoaded', () => {
     typeWriter();
 });
-// ========================
-// RENDER PROJECTS
-// ========================
-// ========================
-// RENDER PROJECTS – FIXED ICONS + ORIGINAL STYLE
 function renderProjects() {
     if (!projectsGrid) return;
-    projectsGrid.innerHTML = ''; // Clear everything first
+    projectsGrid.innerHTML = '';
 
     const techIcons = {
         'HTML': 'devicon-html5-plain colored',
@@ -140,10 +154,20 @@ function renderProjects() {
         'Node.js': 'devicon-nodejs-plain colored',
         'MongoDB': 'devicon-mongodb-plain colored',
         'Tailwind': 'devicon-tailwindcss-plain colored',
+
+        // 🔽 ADD THESE
+        'Express': 'devicon-express-original',
+        'PostgreSQL': 'devicon-postgresql-plain colored',
+        'Prisma': 'devicon-prisma-original',
+        'Socket.io': 'devicon-socketio-original',
+        'JWT': 'fas fa-key',
+        'OAuth': 'fas fa-shield-alt',
+
         'Leaflet': 'fas fa-map-marked-alt',
         'API': 'fas fa-cloud',
         'AI': 'fas fa-brain'
     };
+
 
     projects.forEach(p => {
         const card = document.createElement('div');
@@ -171,13 +195,13 @@ function renderProjects() {
         projectsGrid.appendChild(card);
     });
 }
-// SKILLS – GROUPED + ICONS + % + ANIMATED BARS (PERFECT)
+
 const skillGroups = [
     {
         category: "Computer Languages",
         skills: [
             { name: "JavaScript", level: 92, icon: "devicon-javascript-plain colored" },
-            // { name: "TypeScript", level: 85, icon: "devicon-typescript-plain colored" },
+            { name: "TypeScript", level: 50, icon: "devicon-typescript-plain colored" },
             { name: "Python", level: 88, icon: "devicon-python-plain colored" },
             { name: "SQL", level: 82, icon: "devicon-mysql-plain colored" },
             { name: "HTML", level: 95, icon: "devicon-html5-plain colored" },
@@ -196,94 +220,108 @@ const skillGroups = [
     {
         category: "Software Packages",
         skills: [
-            { name: "React", level: 90, icon: "devicon-react-original colored" },
-            { name: "Next.js", level: 82, icon: "devicon-nextjs-original" },
-            { name: "Node.js", level: 85, icon: "devicon-nodejs-plain colored" },
-            { name: "Express.js", level: 80, icon: "devicon-express-original" },
-            { name: "MongoDB", level: 80, icon: "devicon-mongodb-plain colored" },
-            { name: "MySQL", level: 82, icon: "devicon-mysql-plain colored" },
-            { name: "Prisma ORM", level: 78, icon: "fas fa-database" },
-            { name: "Tailwind CSS", level: 88, icon: "devicon-tailwindcss-plain colored" },
-            { name: "Bootstrap", level: 85, icon: "devicon-bootstrap-plain colored" },
-            { name: "Chart.js", level: 82, icon: "fas fa-chart-line" },
-            { name: "Figma", level: 85, icon: "devicon-figma-plain colored" },
-            { name: "Linux", level: 80, icon: "devicon-linux-plain" },
-            { name: "Excel", level: 90, icon: "fas fa-file-excel" }
+            { name: "React", icon: "devicon-react-original colored" },
+            { name: "Next.js", icon: "devicon-nextjs-original" },
+            { name: "Node.js", icon: "devicon-nodejs-plain colored" },
+            { name: "Express.js", icon: "devicon-express-original" },
+            { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
+            { name: "MySQL", icon: "devicon-mysql-plain colored" },
+            { name: "Prisma ORM", icon: "fas fa-database" },
+            { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain colored" },
+            { name: "Bootstrap", icon: "devicon-bootstrap-plain colored" },
+            { name: "Chart.js", icon: "fas fa-chart-line" },
+            { name: "Figma", icon: "devicon-figma-plain colored" },
+            { name: "Linux", icon: "devicon-linux-plain" },
+            { name: "Excel", icon: "fas fa-file-excel" }
         ]
     },
     {
         category: "Additional Courses",
         skills: [
-            { name: "Data Structures & Algorithms", level: 88, icon: "fas fa-code-branch" }
+            { name: "Data Structures & Algorithms", icon: "fas fa-code-branch" }
         ]
     },
     {
         category: "Soft Skills",
         skills: [
-            { name: "Leadership", level: 90, icon: "fas fa-chess-king" },
-            { name: "Teamwork", level: 92, icon: "fas fa-users" },
-            { name: "Communication", level: 90, icon: "fas fa-comments" },
-            { name: "Problem Solving", level: 95, icon: "fas fa-lightbulb" },
-            { name: "Critical Thinking", level: 88, icon: "fas fa-brain" },
-            { name: "Creativity", level: 87, icon: "fas fa-palette" },
-            { name: "Decision Making", level: 85, icon: "fas fa-balance-scale" },
-            { name: "Presentation Skills", level: 88, icon: "fas fa-chalkboard-teacher" }
+            { name: "Leadership", icon: "fas fa-chess-king" },
+            { name: "Teamwork", icon: "fas fa-users" },
+            { name: "Communication", icon: "fas fa-comments" },
+            { name: "Problem Solving", icon: "fas fa-lightbulb" },
+            { name: "Critical Thinking", icon: "fas fa-brain" },
+            { name: "Creativity", icon: "fas fa-palette" },
+            { name: "Decision Making", icon: "fas fa-balance-scale" },
+            { name: "Presentation Skills", icon: "fas fa-chalkboard-teacher" }
         ]
     },
     {
         category: "Others",
         skills: [
-            { name: "Generative AI", level: 85, icon: "fas fa-robot" },
-            { name: "OpenAI API", level: 82, icon: "fas fa-brain" },
-            { name: "LLM", level: 80, icon: "fas fa-microchip" },
-            { name: "OAuth 2.0", level: 85, icon: "fas fa-shield-alt" },
-            { name: "Git & GitHub", level: 92, icon: "devicon-git-plain colored" },
-            { name: "Postman", level: 88, icon: "fas fa-vial" },
-            { name: "Bash Scripting", level: 75, icon: "fas fa-terminal" },
-            { name: "Canva", level: 90, icon: "fas fa-palette" },
-            { name: "Microsoft Office", level: 95, icon: "fas fa-file-word" }
+            { name: "Generative AI", icon: "fas fa-robot" },
+            { name: "OpenAI API", icon: "fas fa-brain" },
+            { name: "LLM", icon: "fas fa-microchip" },
+            { name: "OAuth 2.0", icon: "fas fa-shield-alt" },
+            { name: "Git & GitHub", icon: "devicon-git-plain colored" },
+            { name: "Postman", icon: "fas fa-vial" },
+            { name: "Bash Scripting", icon: "fas fa-terminal" },
+            { name: "Canva", icon: "fas fa-palette" },
+            { name: "Microsoft Office", icon: "fas fa-file-word" }
         ]
     }
 ];
 
-function renderSkills() {
-    skillsList.innerHTML = skillGroups.map(group => `
-      <div class="skill-group">
-        <h3 class="skill-category">
-          ${group.category}
-        </h3>
-        <div class="horizontal-skills">
-          ${group.skills.map(skill => `
-            <div class="h-skill">
-              <div class="h-skill-info">
-                <i class="${skill.icon}"></i>
-                <span class="h-skill-name">${skill.name}</span>
-                <span class="h-skill-percent">${skill.level}%</span>
-              </div>
-              <div class="h-skill-bar">
-                <div class="h-skill-fill" style="width: 0%"></div>
-              </div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-    `).join('');
 
-    // Animate on scroll
-    const observer = new IntersectionObserver((entries) => {
+function renderSkills() {
+    skillsList.innerHTML = skillGroups.map(group => {
+        const hasLevels = group.skills.some(skill => skill.level !== undefined);
+
+        return `
+          <div class="skill-group">
+            <h3 class="skill-category">${group.category}</h3>
+
+            <div class="horizontal-skills ${hasLevels ? '' : 'icon-grid'}">
+              ${group.skills.map(skill =>
+            skill.level !== undefined
+                ? `
+                    <div class="h-skill">
+                      <div class="h-skill-info">
+                        <i class="${skill.icon}"></i>
+                        <span class="h-skill-percent">${skill.level}%</span>
+                      </div>
+                      <div class="h-skill-bar">
+                        <div class="h-skill-fill" style="width: 0%"></div>
+                      </div>
+                    </div>
+                  `
+                : `
+                    <div class="icon-box">
+                      <i class="${skill.icon}"></i>
+                    </div>
+                  `
+        ).join('')}
+            </div>
+          </div>
+        `;
+    }).join('');
+
+    // Animate bars ONLY for skills with levels
+    const observer = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting) {
-            document.querySelectorAll('.h-skill-fill').forEach((bar, i) => {
-                const width = bar.parentElement.previousElementSibling.querySelector('.h-skill-percent').textContent;
-                setTimeout(() => bar.style.width = width, i * 70);
+            document.querySelectorAll('.h-skill').forEach((skill, i) => {
+                const percent = skill.querySelector('.h-skill-percent')?.textContent;
+                const bar = skill.querySelector('.h-skill-fill');
+                if (percent && bar) {
+                    setTimeout(() => {
+                        bar.style.width = percent;
+                    }, i * 70);
+                }
             });
         }
     }, { threshold: 0.3 });
 
     observer.observe(document.getElementById('skills'));
 }
-// ========================
-// NAVBAR ACTIVE STATE
-// ========================
+
 window.addEventListener('scroll', () => {
     let current = 'home';
     const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];

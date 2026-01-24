@@ -37,6 +37,32 @@ body {
     align-items: center;
 }
 
+/* When icon-only skills are present → switch to grid */
+.horizontal-skills.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 1rem;
+}
+
+.icon-box {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    border-radius: 14px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.icon-box:hover {
+    transform: translateY(-4px);
+    border-color: #00f2fe;
+    box-shadow: 0 10px 25px rgba(0, 242, 254, 0.2);
+}
+
+
 .logo {
     font-size: 2rem;
     font-weight: 900;
