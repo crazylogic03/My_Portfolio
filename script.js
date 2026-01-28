@@ -100,6 +100,14 @@ const projects = [
         ],
         github: "https://github.com/crazylogic03/EmptyBagss",
         upcoming: true
+    },
+    {
+        title: "GLOBAL PUBLIC HELATH INDICATORS",
+        desc: "ML Project Where we analyzed 4+ DataStes to get the trends of major trends in health analysis",
+        img: "GPHI.jpg",
+        tech: ["Python", "ML Algorithms", "EDA"],
+        github: "https://github.com/crazylogic03/PVT",
+        // upcoming: true
     }
 
 ];
