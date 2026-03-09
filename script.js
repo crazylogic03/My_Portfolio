@@ -126,6 +126,15 @@ const projects = [
         github: "https://github.com/crazylogic03/AI-SummarizerT",
         live: "https://crazylogic03-ai-summarizer-app-nhqsac.streamlit.app/",
         // upcoming: true
+    },
+    {
+        title: "Data Analysis",
+        desc: "Analyzsed Lady Gaga Words for ",
+        // img: "ai_summarizer.png",
+        tech: ["Python", "EDA"],
+        // github: "https://github.com/crazylogic03/AI-SummarizerT",
+        // live: "https://crazylogic03-ai-summarizer-app-nhqsac.streamlit.app/",
+        // upcoming: true
     }
 
 ];
