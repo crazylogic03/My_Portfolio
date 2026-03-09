@@ -123,7 +123,7 @@ const projects = [
         desc: "An intelligent text summarization tool powered by Groq API and Streamlit to condense large documents.",
         img: "ai_summarizer.png",
         tech: ["Python", "StreamLit", "GROQ API"],
-        github: "https://github.com/crazylogic03/AI-SummarizerT",
+        github: "https://github.com/crazylogic03/AI-Summarizer",
         live: "https://crazylogic03-ai-summarizer-app-nhqsac.streamlit.app/",
         // upcoming: true
     },
@@ -132,7 +132,7 @@ const projects = [
         desc: "Analyzsed Lady Gaga Words for ",
         // img: "ai_summarizer.png",
         tech: ["Python", "EDA"],
-        // github: "https://github.com/crazylogic03/AI-SummarizerT",
+        github: "https://github.com/crazylogic03/Pirates_of_the_Caribbean.",
         // live: "https://crazylogic03-ai-summarizer-app-nhqsac.streamlit.app/",
         // upcoming: true
     }
