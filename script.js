@@ -1,4 +1,4 @@
-// ========================
+// =========================
 // SELECTORS
 // ========================
 const navbar = document.getElementById('navbar');
