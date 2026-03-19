@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSkills();
 });
 
-// ========================
+// =========================
 // DATA SECTION
 // ========================
 const projects = [
