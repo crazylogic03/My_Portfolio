@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========================
-// DATA
+// DATA SECTION
 // ========================
 const projects = [
     {
