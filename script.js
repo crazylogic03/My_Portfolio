@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSkills();
 });
 
-// Smooth scroll for all anchor links
+// Function for smooth scroll for all anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
