@@ -4,12 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thrishul | Full-Stack Developer</title>
-    <meta name="description" content="Thrishul - Full-Stack Developer & Competitive Programmer from Hyderabad, India" />
-
-    <!-- <link rel="icon" href="p.jpeg" type="image/jpeg"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <title>Thrishul OS | Portfolio</title>
+    <meta name="description" content="Thrishul - Full-Stack Developer portfolio designed as an interactive computer desktop interface" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -17,139 +14,490 @@
 
 <body>
 
-    <!-- Navbar -->
-    <nav id="navbar">
-        <div class="container nav-container">
-            <div class="logo">Thrishul</div>
-            <div class="nav-links">
-                <a href="#home" class="nav-item active">Home</a>
-                <a href="#about" class="nav-item">About</a>
-                <a href="#projects" class="nav-item">Projects</a>
-                <a href="#skills" class="nav-item">Skills</a>
-                <a href="#experience" class="nav-item">Experience</a>
-                <a href="#contact" class="nav-item">Contact</a>
+    <!-- ===== BOOT SCREEN ===== -->
+    <div id="boot-screen">
+        <div class="boot-content">
+            <div class="boot-logo">
+                <div class="boot-icon">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <h1>Thrishul<span>OS</span></h1>
+            </div>
+            <div class="boot-loader">
+                <div class="boot-progress"></div>
+            </div>
+            <p class="boot-text">Loading system...</p>
+        </div>
+    </div>
+
+    <!-- ===== DESKTOP ===== -->
+    <div id="desktop" class="hidden">
+
+        <!-- Desktop Icons -->
+        <div id="desktop-icons">
+            <div class="desktop-icon" data-window="about" ondblclick="openWindow('about')">
+                <div class="icon-img"><i class="fas fa-user-circle"></i></div>
+                <span>About Me</span>
+            </div>
+            <div class="desktop-icon" data-window="projects" ondblclick="openWindow('projects')">
+                <div class="icon-img"><i class="fas fa-folder-open"></i></div>
+                <span>Projects</span>
+            </div>
+            <div class="desktop-icon" data-window="skills" ondblclick="openWindow('skills')">
+                <div class="icon-img"><i class="fas fa-chart-bar"></i></div>
+                <span>Skills</span>
+            </div>
+            <div class="desktop-icon" data-window="experience" ondblclick="openWindow('experience')">
+                <div class="icon-img"><i class="fas fa-briefcase"></i></div>
+                <span>Experience</span>
+            </div>
+            <div class="desktop-icon" data-window="contact" ondblclick="openWindow('contact')">
+                <div class="icon-img"><i class="fas fa-envelope"></i></div>
+                <span>Contact Me</span>
+            </div>
+            <div class="desktop-icon" data-window="resume" ondblclick="openWindow('resume')">
+                <div class="icon-img file-icon"><i class="fas fa-file-pdf"></i></div>
+                <span>Resume.pdf</span>
+            </div>
+            <div class="desktop-icon" data-window="github" ondblclick="openWindow('github')">
+                <div class="icon-img github-icon"><i class="fab fa-github"></i></div>
+                <span>GitHub</span>
+            </div>
+            <div class="desktop-icon" data-window="linkedin" ondblclick="openWindow('linkedin')">
+                <div class="icon-img linkedin-icon"><i class="fab fa-linkedin-in"></i></div>
+                <span>LinkedIn</span>
+            </div>
+            <div class="desktop-icon" data-window="leetcode" ondblclick="openWindow('leetcode')">
+                <div class="icon-img leetcode-icon"><i class="fas fa-code"></i></div>
+                <span>LeetCode</span>
+            </div>
+            <div class="desktop-icon" data-window="codeforces" ondblclick="openWindow('codeforces')">
+                <div class="icon-img cf-icon"><i class="fas fa-chess-knight"></i></div>
+                <span>CodeForces</span>
+            </div>
+            <div class="desktop-icon" data-window="codechef" ondblclick="openWindow('codechef')">
+                <div class="icon-img codechef-icon"><i class="fas fa-utensils"></i></div>
+                <span>CodeChef</span>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm <span>Thrishul</span></h1>
-                    <h2>I am a <span id="typed-text"></span><span class="cursor">_</span></h2>
-                    <p>Full-Stack Developer[MERN] • Competitive Programmer • Problem Solver</p>
-                    <div class="buttons">
-                        <a href="#projects" class="btn-primary">View Projects</a>
-                        <a href="Resume-Bheemanaboyani Sai Thrishul (17).pdf" class="btn-secondary" download>Download
-                            CV</a>
+        <!-- ===== WINDOWS ===== -->
+
+        <!-- About Me Window -->
+        <div class="os-window" id="window-about" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-about')">
+                <div class="window-title"><i class="fas fa-user-circle"></i> About Me</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('about')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('about')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('about')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="about-container">
+                    <div class="about-header">
+                        <img src="p.jpeg" alt="Thrishul" class="about-avatar" />
+                        <div class="about-intro">
+                            <h1>Bheemanaboyani Sai Thrishul</h1>
+                            <p class="about-role">Full-Stack Developer [MERN] • Competitive Programmer • Problem Solver</p>
+                            <div class="about-status"><span class="status-dot"></span> Open to Opportunities</div>
+                        </div>
                     </div>
-                    <div class="social-links">
-                        <a href="https://github.com/crazylogic03" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/sai-thrishul-3a4077329" target="_blank"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a href="https://leetcode.com/u/qfFJipIODP/" target="_blank"><i class="fas fa-code"></i></a>
-                        <a href="https://codeforces.com/profile/crazylogic03" target="_blank"><i
-                                class="fas fa-chess-knight"></i></a>
-                    </div>
-                </div>
-                <div class="hero-img">
-                    <img src="p.jpeg" alt="Thrishul">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <img src="imageeeeeee.png.jpeg" alt="Thrishul" class="about-img">
-                <div class="about-text">
-                    <h3>Building the Future with Code</h3>
-                    <p>Passionate full-stack developer with expertise in modern web technologies. Currently working as a
-                        Frontend Developer at TechQRT and actively contributing to open-source.</p>
-                    <div class="info">
-                        <p><strong>Name:</strong> Bheemanaboyani Sai Thrishul</p>
-                        <p><strong>Email:</strong> thrishul.professional@gmail.com</p>
-                        <p><strong>Location:</strong> Hyderabad, India</p>
-                        <p><strong>Status:</strong> Open to Opportunities</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section bg-alt">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid" id="projects-grid"></div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-list" id="skills-list"></div>
-        </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="section bg-alt">
-        <div class="container">
-            <h2 class="section-title">My Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Frontend Developer</h3>
-                    <p class="company">TechQRT Pvt Ltd</p>
-                    <p class="date">June 2025 – Present</p>
-                    <p>Building responsive web apps with React, optimizing performance, and collaborating in Agile
-                        teams.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Student Developer Club Member</h3>
-                    <p class="company">Newton School of Technology</p>
-                    <p class="date">2024 – Present</p>
-                    <p>Leading workshops, mentoring juniors, and organizing coding events.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <form id="contact-form" action="https://getform.io/f/bmdmmkva" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="_replyto" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </form>
-                <div class="contact-info">
-                    <p>thrishul.professional@gmail.com</p>
-                    <p>+91 9391780057</p>
-                    <p>Hyderabad, India</p>
-                    <div class="social-links large">
-                        <a href="https://github.com/crazylogic03"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/sai-thrishul-3a4077329"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://leetcode.com/u/qfFJipIODP/"><i class="fas fa-code"></i></a>
-                        <a href="https://codeforces.com/profile/crazylogic03"><i class="fas fa-chess-knight"></i></a>
+                    <div class="about-details">
+                        <div class="about-bio">
+                            <h3><i class="fas fa-info-circle"></i> Bio</h3>
+                            <p>Passionate full-stack developer with expertise in modern web technologies. Currently working as a Frontend Developer at TechQRT and actively contributing to open-source.</p>
+                        </div>
+                        <div class="about-info-grid">
+                            <div class="info-card">
+                                <i class="fas fa-envelope"></i>
+                                <span>thrishul.professional@gmail.com</span>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Hyderabad, India</span>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Newton School of Technology</span>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-building"></i>
+                                <span>TechQRT Pvt Ltd</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>© 2025 Thrishul. Made with Code & Passion</p>
+        <!-- Projects Window -->
+        <div class="os-window" id="window-projects" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-projects')">
+                <div class="window-title"><i class="fas fa-folder-open"></i> Projects</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('projects')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('projects')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('projects')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="window-toolbar">
+                    <span><i class="fas fa-folder"></i> C:\Users\Thrishul\Projects</span>
+                </div>
+                <div class="projects-grid" id="projects-grid"></div>
+            </div>
         </div>
-    </footer>
+
+        <!-- Skills Window -->
+        <div class="os-window" id="window-skills" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-skills')">
+                <div class="window-title"><i class="fas fa-chart-bar"></i> Skills & Expertise</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('skills')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('skills')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('skills')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div id="skills-list"></div>
+            </div>
+        </div>
+
+        <!-- Experience Window -->
+        <div class="os-window" id="window-experience" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-experience')">
+                <div class="window-title"><i class="fas fa-briefcase"></i> Experience</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('experience')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('experience')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('experience')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="timeline-content">
+                            <h3>Frontend Developer</h3>
+                            <p class="company"><i class="fas fa-building"></i> TechQRT Pvt Ltd</p>
+                            <p class="date"><i class="far fa-calendar-alt"></i> June 2025 – Present</p>
+                            <p class="timeline-desc">Building responsive web apps with React, optimizing performance, and collaborating in Agile teams.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon"><i class="fas fa-users"></i></div>
+                        <div class="timeline-content">
+                            <h3>Student Developer Club Member</h3>
+                            <p class="company"><i class="fas fa-university"></i> Newton School of Technology</p>
+                            <p class="date"><i class="far fa-calendar-alt"></i> 2024 – Present</p>
+                            <p class="timeline-desc">Leading workshops, mentoring juniors, and organizing coding events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Window -->
+        <div class="os-window" id="window-contact" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-contact')">
+                <div class="window-title"><i class="fas fa-envelope"></i> Contact Me</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('contact')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('contact')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('contact')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="contact-layout">
+                    <form id="contact-form" action="https://getform.io/f/bmdmmkva" method="POST">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Name</label>
+                            <input type="text" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" name="_replyto" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comment"></i> Message</label>
+                            <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
+                        </div>
+                        <button type="submit" class="send-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                    </form>
+                    <div class="contact-sidebar">
+                        <h3><i class="fas fa-address-card"></i> Quick Info</h3>
+                        <div class="contact-item"><i class="fas fa-envelope"></i> thrishul.professional@gmail.com</div>
+                        <div class="contact-item"><i class="fas fa-phone"></i> +91 9391780057</div>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</div>
+                        <div class="contact-socials">
+                            <a href="https://github.com/crazylogic03" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/sai-thrishul-3a4077329" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://leetcode.com/u/qfFJipIODP/" target="_blank"><i class="fas fa-code"></i></a>
+                            <a href="https://codeforces.com/profile/crazylogic03" target="_blank"><i class="fas fa-chess-knight"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resume Window -->
+        <div class="os-window iframe-window" id="window-resume" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-resume')">
+                <div class="window-title"><i class="fas fa-file-pdf"></i> Resume.pdf</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('resume')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('resume')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('resume')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body iframe-body">
+                <iframe src="Resume-Bheemanaboyani Sai Thrishul (17).pdf" title="Resume"></iframe>
+            </div>
+        </div>
+
+        <!-- GitHub Window -->
+        <div class="os-window profile-window" id="window-github" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-github')">
+                <div class="window-title"><i class="fab fa-github"></i> GitHub — crazylogic03</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('github')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('github')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('github')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="profile-card">
+                    <div class="profile-banner github-banner">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="profile-main">
+                        <img src="p.jpeg" alt="Thrishul" class="profile-pic" />
+                        <h2>crazylogic03</h2>
+                        <p class="profile-subtitle">Full-Stack Developer | Open Source Contributor</p>
+                        <div class="profile-stats">
+                            <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Repositories</span></div>
+                            <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Contributions</span></div>
+                            <div class="stat"><span class="stat-num">MERN</span><span class="stat-label">Stack</span></div>
+                        </div>
+                        <div class="profile-highlights">
+                            <div class="highlight"><i class="fas fa-code-branch"></i> Active open-source contributor</div>
+                            <div class="highlight"><i class="fas fa-star"></i> Projects in React, Node.js, Python</div>
+                            <div class="highlight"><i class="fas fa-fire"></i> Consistent commit streak</div>
+                        </div>
+                        <a href="https://github.com/crazylogic03" target="_blank" class="profile-btn github-btn">
+                            <i class="fab fa-github"></i> Open GitHub Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LinkedIn Window -->
+        <div class="os-window profile-window" id="window-linkedin" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-linkedin')">
+                <div class="window-title"><i class="fab fa-linkedin-in"></i> LinkedIn — Sai Thrishul</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('linkedin')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('linkedin')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('linkedin')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="profile-card">
+                    <div class="profile-banner linkedin-banner">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="profile-main">
+                        <img src="p.jpeg" alt="Thrishul" class="profile-pic" />
+                        <h2>Bheemanaboyani Sai Thrishul</h2>
+                        <p class="profile-subtitle">Frontend Developer at TechQRT Pvt Ltd</p>
+                        <div class="profile-stats">
+                            <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Connections</span></div>
+                            <div class="stat"><span class="stat-num">NST</span><span class="stat-label">University</span></div>
+                            <div class="stat"><span class="stat-num">HYD</span><span class="stat-label">Location</span></div>
+                        </div>
+                        <div class="profile-highlights">
+                            <div class="highlight"><i class="fas fa-briefcase"></i> Frontend Developer @ TechQRT</div>
+                            <div class="highlight"><i class="fas fa-graduation-cap"></i> Newton School of Technology</div>
+                            <div class="highlight"><i class="fas fa-code"></i> MERN Stack Specialist</div>
+                        </div>
+                        <a href="https://linkedin.com/in/sai-thrishul-3a4077329" target="_blank" class="profile-btn linkedin-btn">
+                            <i class="fab fa-linkedin-in"></i> Open LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LeetCode Window -->
+        <div class="os-window profile-window" id="window-leetcode" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-leetcode')">
+                <div class="window-title"><i class="fas fa-code"></i> LeetCode</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('leetcode')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('leetcode')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('leetcode')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="profile-card">
+                    <div class="profile-banner leetcode-banner">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="profile-main">
+                        <img src="leetcode.png" alt="LeetCode" class="profile-pic" />
+                        <h2>Thrishul</h2>
+                        <p class="profile-subtitle">Competitive Programmer</p>
+                        <div class="profile-stats">
+                            <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Problems</span></div>
+                            <div class="stat"><span class="stat-num">DSA</span><span class="stat-label">Focus</span></div>
+                            <div class="stat"><span class="stat-num">Daily</span><span class="stat-label">Practice</span></div>
+                        </div>
+                        <div class="profile-highlights">
+                            <div class="highlight"><i class="fas fa-check-circle"></i> 200+ problems solved</div>
+                            <div class="highlight"><i class="fas fa-trophy"></i> Arrays, DP, Graphs, Trees</div>
+                            <div class="highlight"><i class="fas fa-fire"></i> Contest participant</div>
+                        </div>
+                        <a href="https://leetcode.com/u/qfFJipIODP/" target="_blank" class="profile-btn leetcode-btn">
+                            <i class="fas fa-code"></i> Open LeetCode Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CodeForces Window -->
+        <div class="os-window profile-window" id="window-codeforces" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-codeforces')">
+                <div class="window-title"><i class="fas fa-chess-knight"></i> CodeForces — crazylogic03</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('codeforces')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('codeforces')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('codeforces')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="profile-card">
+                    <div class="profile-banner codeforces-banner">
+                        <i class="fas fa-chess-knight"></i>
+                    </div>
+                    <div class="profile-main">
+                        <img src="codeforces.jpg" alt="CodeForces" class="profile-pic" />
+                        <h2>crazylogic03</h2>
+                        <p class="profile-subtitle">Competitive Programmer</p>
+                        <div class="profile-stats">
+                            <div class="stat"><span class="stat-num">Newbie</span><span class="stat-label">Rating</span></div>
+                            <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Problems</span></div>
+                            <div class="stat"><span class="stat-num">Active</span><span class="stat-label">Contests</span></div>
+                        </div>
+                        <div class="profile-highlights">
+                            <div class="highlight"><i class="fas fa-chess"></i> Active contest participant</div>
+                            <div class="highlight"><i class="fas fa-puzzle-piece"></i> Problem solving in C++, Python</div>
+                            <div class="highlight"><i class="fas fa-chart-line"></i> Improving rating consistently</div>
+                        </div>
+                        <a href="https://codeforces.com/profile/crazylogic03" target="_blank" class="profile-btn codeforces-btn">
+                            <i class="fas fa-chess-knight"></i> Open CodeForces Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CodeChef Window -->
+        <div class="os-window profile-window" id="window-codechef" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-codechef')">
+                <div class="window-title"><i class="fas fa-utensils"></i> CodeChef — crazylogic03</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('codechef')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('codechef')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('codechef')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="profile-card">
+                    <div class="profile-banner codechef-banner">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="profile-main">
+                        <img src="codechef.png" alt="CodeChef" class="profile-pic" />
+                        <h2>crazylogic03</h2>
+                        <p class="profile-subtitle">Competitive Programmer</p>
+                        <div class="profile-stats">
+                            <div class="stat"><span class="stat-num">1★</span><span class="stat-label">Rating</span></div>
+                            <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Problems</span></div>
+                            <div class="stat"><span class="stat-num">Active</span><span class="stat-label">Contests</span></div>
+                        </div>
+                        <div class="profile-highlights">
+                            <div class="highlight"><i class="fas fa-utensils"></i> Regular contest participant</div>
+                            <div class="highlight"><i class="fas fa-code"></i> Problem solving practice</div>
+                            <div class="highlight"><i class="fas fa-medal"></i> Growing skill level</div>
+                        </div>
+                        <a href="https://www.codechef.com/users/crazylogic03" target="_blank" class="profile-btn codechef-btn">
+                            <i class="fas fa-utensils"></i> Open CodeChef Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== RIGHT-CLICK CONTEXT MENU ===== -->
+        <div id="context-menu">
+            <div class="ctx-item" onclick="location.reload()"><i class="fas fa-sync-alt"></i> Refresh</div>
+            <div class="ctx-item" onclick="openWindow('about')"><i class="fas fa-user-circle"></i> About Me</div>
+            <div class="ctx-item" onclick="openWindow('projects')"><i class="fas fa-folder-open"></i> Projects</div>
+            <div class="ctx-item" onclick="openWindow('contact')"><i class="fas fa-envelope"></i> Contact</div>
+            <div class="ctx-divider"></div>
+            <div class="ctx-item" onclick="openWindow('resume')"><i class="fas fa-file-pdf"></i> View Resume</div>
+            <div class="ctx-item" onclick="toggleTheme()"><i class="fas fa-palette"></i> Change Wallpaper</div>
+        </div>
+
+        <!-- ===== TASKBAR ===== -->
+        <div id="taskbar">
+            <div class="taskbar-left">
+                <button id="start-btn" onclick="toggleStartMenu()">
+                    <i class="fas fa-terminal"></i>
+                    <span>Start</span>
+                </button>
+                <div class="taskbar-apps" id="taskbar-apps"></div>
+            </div>
+            <div class="taskbar-right">
+                <div class="tray-icon" title="GitHub" onclick="openWindow('github')"><i class="fab fa-github"></i></div>
+                <div class="tray-icon" title="LinkedIn" onclick="openWindow('linkedin')"><i class="fab fa-linkedin-in"></i></div>
+                <div class="tray-divider"></div>
+                <div id="taskbar-clock"></div>
+            </div>
+        </div>
+
+        <!-- ===== START MENU ===== -->
+        <div id="start-menu" class="hidden">
+            <div class="start-header">
+                <img src="p.jpeg" alt="Thrishul" class="start-avatar" />
+                <div>
+                    <strong>Thrishul</strong>
+                    <small>Full-Stack Developer</small>
+                </div>
+            </div>
+            <div class="start-items">
+                <div class="start-item" onclick="openWindow('about'); toggleStartMenu();"><i class="fas fa-user-circle"></i> About Me</div>
+                <div class="start-item" onclick="openWindow('projects'); toggleStartMenu();"><i class="fas fa-folder-open"></i> Projects</div>
+                <div class="start-item" onclick="openWindow('skills'); toggleStartMenu();"><i class="fas fa-chart-bar"></i> Skills</div>
+                <div class="start-item" onclick="openWindow('experience'); toggleStartMenu();"><i class="fas fa-briefcase"></i> Experience</div>
+                <div class="start-item" onclick="openWindow('contact'); toggleStartMenu();"><i class="fas fa-envelope"></i> Contact</div>
+                <div class="start-divider"></div>
+                <div class="start-item" onclick="openWindow('resume'); toggleStartMenu();"><i class="fas fa-file-pdf"></i> Resume</div>
+                <div class="start-item" onclick="openWindow('github'); toggleStartMenu();"><i class="fab fa-github"></i> GitHub</div>
+                <div class="start-item" onclick="openWindow('linkedin'); toggleStartMenu();"><i class="fab fa-linkedin-in"></i> LinkedIn</div>
+                <div class="start-item" onclick="openWindow('leetcode'); toggleStartMenu();"><i class="fas fa-code"></i> LeetCode</div>
+                <div class="start-item" onclick="openWindow('codeforces'); toggleStartMenu();"><i class="fas fa-chess-knight"></i> CodeForces</div>
+                <div class="start-item" onclick="openWindow('codechef'); toggleStartMenu();"><i class="fas fa-utensils"></i> CodeChef</div>
+            </div>
+            <div class="start-footer">
+                <span>© 2025 ThrishulOS v1.0</span>
+            </div>
+        </div>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
