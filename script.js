@@ -1,23 +1,10 @@
-// =========================
-// SELECTORS
-// ========================
-const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-links a');
-const typedElement = document.getElementById('typed');
-const projectsGrid = document.getElementById('projects-grid');
-const skillsList = document.getElementById('skills-list');
+// ===================================================
+// THRISHUL OS — Desktop Interface Script
+// ===================================================
 
-// PREVENT ANY ACCIDENTAL RENDERING IN HERO SECTION
-document.addEventListener('DOMContentLoaded', () => {
-    const hero = document.querySelector('#home');
-    if (hero) hero.innerHTML = hero.innerHTML;  // forces clean state
-    renderProjects();   // safe render
-    renderSkills();
-});
-
-// =========================
-// DATA SECTION
-// ========================
+// ========================================
+// DATA
+// ========================================
 const projects = [
     {
         title: "Tic-Tac-Toe",
@@ -85,151 +72,43 @@ const projects = [
     },
     {
         title: "Project Management App",
-        desc: "A full-stack project management application with real-time collaboration, secure authentication, and an intuitive drag-and-drop workflow.",
+        desc: "Full-stack project management with real-time collaboration",
         img: "empty.jpg",
-        tech: [
-            "React",
-            "Tailwind",
-            "Node.js",
-            "Express",
-            "PostgreSQL",
-            "Prisma",
-            "Socket.io",
-            "JWT",
-            "OAuth"
-        ],
+        tech: ["React", "Tailwind", "Node.js", "Express", "PostgreSQL", "Prisma", "Socket.io", "JWT", "OAuth"],
         github: "https://github.com/crazylogic03/EmptyBagss",
         live: "https://screentime-recoder.vercel.app/",
         upcoming: true
     },
     {
-        title: "GLOBAL PUBLIC HELATH INDICATORS",
-        desc: "ML Project Where we analyzed 4+ DataStes to get the trends of major trends in health analysis",
+        title: "GLOBAL PUBLIC HEALTH INDICATORS",
+        desc: "ML Project — analyzed 4+ datasets for major health trends",
         img: "GPHI.jpg",
         tech: ["Python", "ML Algorithms", "EDA"],
-        github: "https://github.com/crazylogic03/PVT",
+        github: "https://github.com/crazylogic03/PVT"
     },
     {
         title: "AI-Study Coach",
-        desc: "Personalized AI mentor that adapts to your learning pace and provides real-time feedback.",
+        desc: "Personalized AI mentor that adapts to your learning pace",
         img: "ai_study.png",
         tech: ["Python", "ML Algorithms", "EDA"],
         github: "https://github.com/crazylogic03/VectorSpace",
-        live: "https://screentime-recoder.vercel.app/",
-        // upcoming: true
+        live: "https://screentime-recoder.vercel.app/"
     },
     {
         title: "AI-Summarizer",
-        desc: "An intelligent text summarization tool powered by Groq API and Streamlit to condense large documents.",
+        desc: "Intelligent text summarization powered by Groq API",
         img: "ai_summarizer.png",
         tech: ["Python", "StreamLit", "GROQ API"],
         github: "https://github.com/crazylogic03/AI-Summarizer",
-        live: "https://crazylogic03-ai-summarizer-app-nhqsac.streamlit.app/",
-        // upcoming: true
+        live: "https://crazylogic03-ai-summarizer-app-nhqsac.streamlit.app/"
     },
     {
         title: "Data Analysis",
-        desc: "Analyzsed Lady Gaga Words for ",
-        // img: "ai_summarizer.png",
+        desc: "Analyzed Lady Gaga lyrics data",
         tech: ["Python", "EDA"],
-        github: "https://github.com/crazylogic03/Pirates_of_the_Caribbean.",
-        // live: "https://crazylogic03-ai-summarizer-app-nhqsac.streamlit.app/",
-        // upcoming: true
+        github: "https://github.com/crazylogic03/Pirates_of_the_Caribbean."
     }
-
 ];
-
-
-// ========================
-// TYPED EFFECT — FINAL FIX (WORKS 100% WITH YOUR CURRENT HTML)
-// ========================
-// CORRECT TYPED EFFECT — USES YOUR REAL #typed ELEMENT
-const roles = ["Full-Stack Developer", "Competitive Programmer", "Open Source Contributor", "Problem Solver", "AI Enthusiast"];
-let roleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function typeWriter() {
-    if (!typedElement) return;
-
-    const current = roles[roleIndex];
-
-    if (!isDeleting && charIndex <= current.length) {
-        typedElement.textContent = current.substring(0, charIndex);
-        charIndex++;
-    }
-    if (isDeleting && charIndex >= 0) {
-        typedElement.textContent = current.substring(0, charIndex);
-        charIndex--;
-    }
-
-    if (charIndex === current.length + 1) isDeleting = true;
-    if (charIndex === 0 && isDeleting) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-    }
-
-    setTimeout(typeWriter, isDeleting ? 60 : 120);
-}
-
-
-// Start typing
-document.addEventListener('DOMContentLoaded', () => {
-    typeWriter();
-});
-function renderProjects() {
-    if (!projectsGrid) return;
-    projectsGrid.innerHTML = '';
-
-    const techIcons = {
-        'HTML': 'devicon-html5-plain colored',
-        'CSS': 'devicon-css3-plain colored',
-        'JavaScript': 'devicon-javascript-plain colored',
-        'React': 'devicon-react-original colored',
-        'Node.js': 'devicon-nodejs-plain colored',
-        'MongoDB': 'devicon-mongodb-plain colored',
-        'Tailwind': 'devicon-tailwindcss-plain colored',
-
-        // 🔽 ADD THESE
-        'Express': 'devicon-express-original',
-        'PostgreSQL': 'devicon-postgresql-plain colored',
-        'Prisma': 'devicon-prisma-original',
-        'Socket.io': 'devicon-socketio-original',
-        'JWT': 'fas fa-key',
-        'OAuth': 'fas fa-shield-alt',
-
-        'Leaflet': 'fas fa-map-marked-alt',
-        'API': 'fas fa-cloud',
-        'AI': 'fas fa-brain'
-    };
-
-
-    projects.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'project-card';
-
-        card.innerHTML = `
-        <div class="project-image">
-          <img src="${p.img}" alt="${p.title}" loading="lazy">
-        </div>
-        <div class="project-content">
-          <h3>${p.title}</h3>
-          <p>${p.desc}</p>
-          <div class="project-tech">
-            ${p.tech.map(t => `<span class="tech-tag"><i class="${techIcons[t] || 'fas fa-code'}"></i> ${t}</span>`).join('')}
-          </div>
-          <div class="project-actions">
-            ${p.live ? `<a href="${p.live}" target="_blank" class="btn-live"><i class="fas fa-rocket"></i> Live Demo</a>` : ''}
-            <a href="${p.github}" target="_blank" class="btn-github">
-              <i class="fab fa-github"></i> View Code
-            </a>
-          </div>
-        </div>
-      `;
-
-        projectsGrid.appendChild(card);
-    });
-}
 
 const skillGroups = [
     {
@@ -305,93 +184,425 @@ const skillGroups = [
     }
 ];
 
+const techIcons = {
+    'HTML': 'devicon-html5-plain colored',
+    'CSS': 'devicon-css3-plain colored',
+    'JavaScript': 'devicon-javascript-plain colored',
+    'React': 'devicon-react-original colored',
+    'Node.js': 'devicon-nodejs-plain colored',
+    'MongoDB': 'devicon-mongodb-plain colored',
+    'Tailwind': 'devicon-tailwindcss-plain colored',
+    'Express': 'devicon-express-original',
+    'PostgreSQL': 'devicon-postgresql-plain colored',
+    'Prisma': 'devicon-prisma-original',
+    'Socket.io': 'devicon-socketio-original',
+    'JWT': 'fas fa-key',
+    'OAuth': 'fas fa-shield-alt',
+    'Leaflet': 'fas fa-map-marked-alt',
+    'API': 'fas fa-cloud',
+    'AI': 'fas fa-brain',
+    'Python': 'devicon-python-plain colored',
+    'ML Algorithms': 'fas fa-cogs',
+    'EDA': 'fas fa-chart-pie',
+    'StreamLit': 'fas fa-stream',
+    'GROQ API': 'fas fa-bolt'
+};
 
-function renderSkills() {
-    skillsList.innerHTML = skillGroups.map(group => {
-        const hasLevels = group.skills.some(skill => skill.level !== undefined);
+// ========================================
+// STATE
+// ========================================
+let zIndex = 100;
+let openWindows = {};
+let dragState = null;
+let wallpaperIndex = 0;
+const wallpapers = ['', 'wallpaper-1', 'wallpaper-2'];
 
-        return `
-          <div class="skill-group">
-            <h3 class="skill-category">${group.category}</h3>
+// Window title icons
+const windowIcons = {
+    about: 'fas fa-user-circle',
+    projects: 'fas fa-folder-open',
+    skills: 'fas fa-chart-bar',
+    experience: 'fas fa-briefcase',
+    contact: 'fas fa-envelope',
+    resume: 'fas fa-file-pdf',
+    github: 'fab fa-github',
+    linkedin: 'fab fa-linkedin-in',
+    leetcode: 'fas fa-code',
+    codeforces: 'fas fa-chess-knight',
+    codechef: 'fas fa-utensils'
+};
 
-            <div class="horizontal-skills ${hasLevels ? '' : 'icon-grid'}">
-              ${group.skills.map(skill =>
-            skill.level !== undefined
-                ? `
-                    <div class="h-skill">
-                      <div class="h-skill-info">
-                        <i class="${skill.icon}"></i>
-                        <span class="h-skill-percent">${skill.level}%</span>
-                      </div>
-                      <div class="h-skill-bar">
-                        <div class="h-skill-fill" style="width: 0%"></div>
-                      </div>
-                    </div>
-                  `
-                : `
-                    <div class="icon-box">
-                      <i class="${skill.icon}"></i>
-                    </div>
-                  `
-        ).join('')}
-            </div>
-          </div>
-        `;
-    }).join('');
+const windowNames = {
+    about: 'About Me',
+    projects: 'Projects',
+    skills: 'Skills',
+    experience: 'Experience',
+    contact: 'Contact Me',
+    resume: 'Resume.pdf',
+    github: 'GitHub',
+    linkedin: 'LinkedIn',
+    leetcode: 'LeetCode',
+    codeforces: 'CodeForces',
+    codechef: 'CodeChef'
+};
 
-    // Animate bars ONLY for skills with levels
-    const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-            document.querySelectorAll('.h-skill').forEach((skill, i) => {
-                const percent = skill.querySelector('.h-skill-percent')?.textContent;
-                const bar = skill.querySelector('.h-skill-fill');
-                if (percent && bar) {
-                    setTimeout(() => {
-                        bar.style.width = percent;
-                    }, i * 70);
-                }
-            });
-        }
-    }, { threshold: 0.3 });
-
-    observer.observe(document.getElementById('skills'));
-}
-
-window.addEventListener('scroll', () => {
-    let current = 'home';
-    const sections = ['home', 'about', 'projects', 'skills', 'experience', 'contact'];
-
-    sections.forEach(sec => {
-        const el = document.getElementById(sec);
-        if (el && el.getBoundingClientRect().top <= 100) {
-            current = sec;
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-    });
-
-    // Navbar background on scroll
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// ========================
-// INITIALIZE
-// ========================
+// ========================================
+// BOOT SEQUENCE
+// ========================================
 document.addEventListener('DOMContentLoaded', () => {
-    type();
+    const desktop = document.getElementById('desktop');
+    const bootScreen = document.getElementById('boot-screen');
+
+    // Render content
     renderProjects();
     renderSkills();
+    startClock();
+
+    // Boot -> Desktop transition
+    setTimeout(() => {
+        desktop.classList.remove('hidden');
+        setTimeout(() => {
+            if (bootScreen) bootScreen.remove();
+        }, 600);
+    }, 3200);
 });
 
-// Function for smooth scroll for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// ========================================
+// WINDOW MANAGEMENT
+// ========================================
+function openWindow(id) {
+    const win = document.getElementById(`window-${id}`);
+    if (!win) return;
+
+    // If already open but minimized, restore it
+    if (openWindows[id] && win.style.display === 'none') {
+        win.style.display = '';
+        bringToFront(win);
+        updateTaskbar();
+        return;
+    }
+
+    // If already open, just bring to front
+    if (openWindows[id]) {
+        bringToFront(win);
+        return;
+    }
+
+    // Position new window with offset
+    const count = Object.keys(openWindows).length;
+    const offsetX = 180 + (count % 5) * 40;
+    const offsetY = 40 + (count % 5) * 35;
+    win.style.left = offsetX + 'px';
+    win.style.top = offsetY + 'px';
+    win.style.display = '';
+    win.classList.remove('closing', 'maximized');
+    win.classList.add('opening');
+
+    bringToFront(win);
+    openWindows[id] = true;
+    updateTaskbar();
+
+    // Animate skill bars if skills window
+    if (id === 'skills') {
+        setTimeout(animateSkillBars, 300);
+    }
+
+    setTimeout(() => win.classList.remove('opening'), 250);
+}
+
+function closeWindow(id) {
+    const win = document.getElementById(`window-${id}`);
+    if (!win) return;
+
+    win.classList.add('closing');
+    setTimeout(() => {
+        win.style.display = 'none';
+        win.classList.remove('closing', 'maximized');
+        delete openWindows[id];
+        updateTaskbar();
+    }, 200);
+}
+
+function minimizeWindow(id) {
+    const win = document.getElementById(`window-${id}`);
+    if (!win) return;
+
+    win.classList.add('closing');
+    setTimeout(() => {
+        win.style.display = 'none';
+        win.classList.remove('closing');
+        updateTaskbar();
+    }, 200);
+}
+
+function maximizeWindow(id) {
+    const win = document.getElementById(`window-${id}`);
+    if (!win) return;
+
+    if (win.classList.contains('maximized')) {
+        win.classList.remove('maximized');
+        // Restore previous position
+        if (win._prevPos) {
+            win.style.left = win._prevPos.left;
+            win.style.top = win._prevPos.top;
+            win.style.width = win._prevPos.width;
+            win.style.height = win._prevPos.height;
+        }
+    } else {
+        // Save current position
+        win._prevPos = {
+            left: win.style.left,
+            top: win.style.top,
+            width: win.style.width,
+            height: win.style.height
+        };
+        win.classList.add('maximized');
+    }
+    bringToFront(win);
+}
+
+function bringToFront(win) {
+    zIndex++;
+    win.style.zIndex = zIndex;
+}
+
+// ========================================
+// DRAGGING
+// ========================================
+function startDrag(e, winId) {
+    const win = document.getElementById(winId);
+    if (!win || win.classList.contains('maximized')) return;
+
+    e.preventDefault();
+    bringToFront(win);
+
+    const rect = win.getBoundingClientRect();
+    dragState = {
+        el: win,
+        offsetX: e.clientX - rect.left,
+        offsetY: e.clientY - rect.top
+    };
+}
+
+document.addEventListener('mousemove', (e) => {
+    if (!dragState) return;
+    const { el, offsetX, offsetY } = dragState;
+    const x = Math.max(0, Math.min(e.clientX - offsetX, window.innerWidth - 100));
+    const y = Math.max(0, Math.min(e.clientY - offsetY, window.innerHeight - 100));
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+});
+
+document.addEventListener('mouseup', () => {
+    dragState = null;
+});
+
+// ========================================
+// TASKBAR
+// ========================================
+function updateTaskbar() {
+    const container = document.getElementById('taskbar-apps');
+    if (!container) return;
+    container.innerHTML = '';
+
+    Object.keys(openWindows).forEach(id => {
+        const win = document.getElementById(`window-${id}`);
+        const isVisible = win && win.style.display !== 'none';
+        const btn = document.createElement('div');
+        btn.className = `taskbar-app${isVisible ? ' active' : ''}`;
+        btn.innerHTML = `<i class="${windowIcons[id] || 'fas fa-window-maximize'}"></i> ${windowNames[id] || id}`;
+        btn.onclick = () => {
+            if (win.style.display === 'none') {
+                win.style.display = '';
+                win.classList.remove('closing');
+                bringToFront(win);
+            } else {
+                minimizeWindow(id);
+            }
+            updateTaskbar();
+        };
+        container.appendChild(btn);
+    });
+}
+
+// ========================================
+// CLOCK
+// ========================================
+function startClock() {
+    function update() {
+        const now = new Date();
+        const h = now.getHours().toString().padStart(2, '0');
+        const m = now.getMinutes().toString().padStart(2, '0');
+        const el = document.getElementById('taskbar-clock');
+        if (el) {
+            el.innerHTML = `${h}:${m}<br><span style="font-size:0.65rem;color:#8892a4">${now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' })}</span>`;
+        }
+    }
+    update();
+    setInterval(update, 10000);
+}
+
+// ========================================
+// START MENU
+// ========================================
+function toggleStartMenu() {
+    const menu = document.getElementById('start-menu');
+    if (!menu) return;
+    menu.classList.toggle('hidden');
+}
+
+// Close start menu on outside click
+document.addEventListener('click', (e) => {
+    const menu = document.getElementById('start-menu');
+    const btn = document.getElementById('start-btn');
+    if (menu && !menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.add('hidden');
+    }
+});
+
+// ========================================
+// CONTEXT MENU
+// ========================================
+document.addEventListener('contextmenu', (e) => {
+    // Only show on desktop background, not within windows/icons
+    const isDesktop = e.target.id === 'desktop' || e.target === document.body;
+    const ctxMenu = document.getElementById('context-menu');
+
+    if (isDesktop && ctxMenu) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+        ctxMenu.style.display = 'block';
+        ctxMenu.style.left = Math.min(e.clientX, window.innerWidth - 220) + 'px';
+        ctxMenu.style.top = Math.min(e.clientY, window.innerHeight - 250) + 'px';
+    }
+});
+
+document.addEventListener('click', () => {
+    const ctxMenu = document.getElementById('context-menu');
+    if (ctxMenu) ctxMenu.style.display = 'none';
+});
+
+// ========================================
+// WALLPAPER TOGGLE
+// ========================================
+function toggleTheme() {
+    const desktop = document.getElementById('desktop');
+    wallpaperIndex = (wallpaperIndex + 1) % wallpapers.length;
+    desktop.className = wallpapers[wallpaperIndex] || '';
+}
+
+// ========================================
+// RENDER PROJECTS
+// ========================================
+function renderProjects() {
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    projects.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+
+        const imgSrc = p.img || 'empty.jpg';
+
+        card.innerHTML = `
+            <div class="project-image">
+                <img src="${imgSrc}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="project-content">
+                <h3>${p.title}</h3>
+                <p>${p.desc}</p>
+                <div class="project-tech">
+                    ${p.tech.map(t => `<span class="tech-tag"><i class="${techIcons[t] || 'fas fa-code'}"></i> ${t}</span>`).join('')}
+                </div>
+                <div class="project-actions">
+                    ${p.live ? `<a href="${p.live}" target="_blank" class="btn-live"><i class="fas fa-rocket"></i> Live</a>` : ''}
+                    <a href="${p.github}" target="_blank" class="btn-github"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+
+// ========================================
+// RENDER SKILLS
+// ========================================
+function renderSkills() {
+    const container = document.getElementById('skills-list');
+    if (!container) return;
+
+    container.innerHTML = skillGroups.map(group => {
+        const hasLevels = group.skills.some(s => s.level !== undefined);
+
+        return `
+            <div class="skill-group">
+                <h3 class="skill-category">${group.category}</h3>
+                <div class="horizontal-skills ${hasLevels ? '' : 'icon-grid'}">
+                    ${group.skills.map(skill =>
+                        skill.level !== undefined
+                            ? `
+                                <div class="h-skill">
+                                    <div class="h-skill-info">
+                                        <i class="${skill.icon}"></i>
+                                        <span class="h-skill-name">${skill.name}</span>
+                                        <span class="h-skill-percent">${skill.level}%</span>
+                                    </div>
+                                    <div class="h-skill-bar">
+                                        <div class="h-skill-fill" data-level="${skill.level}" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            `
+                            : `
+                                <div class="icon-box" title="${skill.name}">
+                                    <i class="${skill.icon}"></i>
+                                </div>
+                            `
+                    ).join('')}
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function animateSkillBars() {
+    document.querySelectorAll('.h-skill-fill').forEach((bar, i) => {
+        const level = bar.getAttribute('data-level');
+        if (level) {
+            setTimeout(() => {
+                bar.style.width = level + '%';
+            }, i * 60);
         }
     });
+}
+
+// ========================================
+// ICON SELECTION
+// ========================================
+document.addEventListener('click', (e) => {
+    // Deselect all icons
+    document.querySelectorAll('.desktop-icon').forEach(ic => ic.classList.remove('selected'));
+
+    // Select clicked icon
+    const icon = e.target.closest('.desktop-icon');
+    if (icon) {
+        icon.classList.add('selected');
+    }
+});
+
+// ========================================
+// KEYBOARD SHORTCUTS
+// ========================================
+document.addEventListener('keydown', (e) => {
+    // Escape to close topmost window
+    if (e.key === 'Escape') {
+        const windows = Object.keys(openWindows);
+        if (windows.length > 0) {
+            const topWindow = windows[windows.length - 1];
+            closeWindow(topWindow);
+        }
+        // Also close start menu
+        const menu = document.getElementById('start-menu');
+        if (menu) menu.classList.add('hidden');
+    }
 });
