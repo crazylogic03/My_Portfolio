@@ -610,3 +610,4 @@ document.addEventListener('keydown', (e) => {
 // render projects
 // skills animation
 // wallpaper toggle
+// codechef window support
