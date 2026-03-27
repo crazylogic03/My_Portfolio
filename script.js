@@ -609,3 +609,4 @@ document.addEventListener('keydown', (e) => {
 // drag handler update
 // render projects
 // skills animation
+// wallpaper toggle
