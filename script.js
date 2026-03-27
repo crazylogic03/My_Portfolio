@@ -606,3 +606,4 @@ document.addEventListener('keydown', (e) => {
         if (menu) menu.classList.add('hidden');
     }
 });
+// drag handler update
