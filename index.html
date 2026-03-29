@@ -79,6 +79,10 @@
                 <div class="icon-img codechef-icon"><i class="fas fa-utensils"></i></div>
                 <span>CodeChef</span>
             </div>
+            <div class="desktop-icon" data-window="terminal" ondblclick="openWindow('terminal')">
+                <div class="icon-img terminal-icon"><i class="fas fa-terminal"></i></div>
+                <span>Terminal</span>
+            </div>
         </div>
 
         <!-- ===== WINDOWS ===== -->
@@ -441,6 +445,25 @@
             </div>
         </div>
 
+        <!-- Terminal Window -->
+        <div class="os-window" id="window-terminal" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-terminal')">
+                <div class="window-title"><i class="fas fa-terminal"></i> Terminal</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('terminal')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('terminal')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('terminal')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body terminal-body">
+                <div id="terminal-output"></div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">thrishul@os:~$</span>
+                    <input type="text" id="terminal-input" autocomplete="off" autofocus spellcheck="false" />
+                </div>
+            </div>
+        </div>
+
         <!-- ===== RIGHT-CLICK CONTEXT MENU ===== -->
         <div id="context-menu">
             <div class="ctx-item" onclick="location.reload()"><i class="fas fa-sync-alt"></i> Refresh</div>
@@ -491,6 +514,8 @@
                 <div class="start-item" onclick="openWindow('leetcode'); toggleStartMenu();"><i class="fas fa-code"></i> LeetCode</div>
                 <div class="start-item" onclick="openWindow('codeforces'); toggleStartMenu();"><i class="fas fa-chess-knight"></i> CodeForces</div>
                 <div class="start-item" onclick="openWindow('codechef'); toggleStartMenu();"><i class="fas fa-utensils"></i> CodeChef</div>
+                <div class="start-divider"></div>
+                <div class="start-item" onclick="openWindow('terminal'); toggleStartMenu();"><i class="fas fa-terminal"></i> Terminal</div>
             </div>
             <div class="start-footer">
                 <span>© 2025 ThrishulOS v1.0</span>

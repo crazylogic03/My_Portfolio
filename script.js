@@ -229,7 +229,8 @@ const windowIcons = {
     linkedin: 'fab fa-linkedin-in',
     leetcode: 'fas fa-code',
     codeforces: 'fas fa-chess-knight',
-    codechef: 'fas fa-utensils'
+    codechef: 'fas fa-utensils',
+    terminal: 'fas fa-terminal'
 };
 
 const windowNames = {
@@ -243,7 +244,8 @@ const windowNames = {
     linkedin: 'LinkedIn',
     leetcode: 'LeetCode',
     codeforces: 'CodeForces',
-    codechef: 'CodeChef'
+    codechef: 'CodeChef',
+    terminal: 'Terminal'
 };
 
 // ========================================
@@ -611,3 +613,172 @@ document.addEventListener('keydown', (e) => {
 // skills animation
 // wallpaper toggle
 // codechef window support
+
+// ========================================
+// INTERACTIVE TERMINAL
+// ========================================
+const terminalCommands = {
+    help: () => [
+        '<span class="term-accent">Available commands:</span>',
+        '  <span class="term-cmd">about</span>      — Learn about me',
+        '  <span class="term-cmd">skills</span>     — View my skills',
+        '  <span class="term-cmd">projects</span>   — Browse my projects',
+        '  <span class="term-cmd">contact</span>    — Get my contact info',
+        '  <span class="term-cmd">experience</span> — View work experience',
+        '  <span class="term-cmd">whoami</span>     — Who am I?',
+        '  <span class="term-cmd">date</span>       — Current date & time',
+        '  <span class="term-cmd">uname</span>      — System info',
+        '  <span class="term-cmd">social</span>     — Social media links',
+        '  <span class="term-cmd">open [app]</span> — Open a window (about, projects, skills, etc.)',
+        '  <span class="term-cmd">clear</span>      — Clear the terminal',
+        '  <span class="term-cmd">neofetch</span>   — Display system info',
+        '  <span class="term-cmd">history</span>    — View command history',
+    ],
+    about: () => [
+        '<span class="term-accent">╔══════════════════════════════════════╗</span>',
+        '<span class="term-accent">║</span>  Bheemanaboyani Sai Thrishul         <span class="term-accent">║</span>',
+        '<span class="term-accent">╚══════════════════════════════════════╝</span>',
+        '',
+        '  Full-Stack Developer [MERN Stack]',
+        '  Competitive Programmer & Problem Solver',
+        '  Frontend Developer @ TechQRT Pvt Ltd',
+        '  Student @ Newton School of Technology',
+        '  📍 Hyderabad, India',
+    ],
+    skills: () => [
+        '<span class="term-accent">Languages:</span>  JavaScript, TypeScript, Python, SQL, HTML, CSS',
+        '<span class="term-accent">Frontend:</span>   React, Next.js, Tailwind CSS, Bootstrap',
+        '<span class="term-accent">Backend:</span>    Node.js, Express.js, Prisma ORM',
+        '<span class="term-accent">Database:</span>   MongoDB, MySQL, PostgreSQL',
+        '<span class="term-accent">Tools:</span>      Git, Postman, Figma, Linux, Docker',
+        '<span class="term-accent">AI/ML:</span>      OpenAI API, LLM, Generative AI',
+    ],
+    projects: () => {
+        return projects.slice(0, 6).map(p =>
+            `  <span class="term-cmd">${p.title}</span> — ${p.desc}`
+        ).concat(['', '  Type <span class="term-cmd">open projects</span> to see all projects.']);
+    },
+    contact: () => [
+        '<span class="term-accent">📧 Email:</span>   thrishul.professional@gmail.com',
+        '<span class="term-accent">📱 Phone:</span>   +91 9391780057',
+        '<span class="term-accent">📍 Location:</span> Hyderabad, India',
+        '',
+        '  Type <span class="term-cmd">open contact</span> to send a message.',
+    ],
+    experience: () => [
+        '<span class="term-accent">💼 Frontend Developer</span> — TechQRT Pvt Ltd',
+        '   June 2025 – Present',
+        '   Building responsive web apps with React',
+        '',
+        '<span class="term-accent">👥 Student Developer Club</span> — NST',
+        '   2024 – Present',
+        '   Leading workshops & mentoring juniors',
+    ],
+    whoami: () => ['thrishul — Full-Stack Developer & Competitive Programmer'],
+    date: () => [new Date().toString()],
+    uname: () => ['ThrishulOS v2.0 — Portfolio Desktop Environment (x86_64)'],
+    social: () => [
+        '<span class="term-accent">GitHub:</span>     https://github.com/crazylogic03',
+        '<span class="term-accent">LinkedIn:</span>   https://linkedin.com/in/sai-thrishul-3a4077329',
+        '<span class="term-accent">LeetCode:</span>   https://leetcode.com/u/qfFJipIODP/',
+        '<span class="term-accent">CodeForces:</span> https://codeforces.com/profile/crazylogic03',
+        '<span class="term-accent">CodeChef:</span>   https://www.codechef.com/users/crazylogic03',
+    ],
+    neofetch: () => [
+        '<span class="term-accent">       ████████       </span>   <span class="term-cmd">thrishul</span>@<span class="term-cmd">portfolio</span>',
+        '<span class="term-accent">     ██        ██     </span>   ────────────────────',
+        '<span class="term-accent">   ██    ████    ██   </span>   <span class="term-accent">OS:</span>      ThrishulOS v2.0',
+        '<span class="term-accent">  ██   ██████   ██  </span>   <span class="term-accent">Host:</span>    Portfolio Desktop',
+        '<span class="term-accent">  ██   ██████   ██  </span>   <span class="term-accent">Kernel:</span>  JavaScript ES6+',
+        '<span class="term-accent">   ██    ████    ██   </span>   <span class="term-accent">Shell:</span>   ThrishulTerm 1.0',
+        '<span class="term-accent">     ██        ██     </span>   <span class="term-accent">DE:</span>      Custom CSS Desktop',
+        '<span class="term-accent">       ████████       </span>   <span class="term-accent">Theme:</span>   Dark Mode [Cyan]',
+        '                           <span class="term-accent">Stack:</span>   MERN',
+        '                           <span class="term-accent">Uptime:</span>  Since 2024',
+    ],
+};
+
+let terminalHistory = [];
+let historyIndex = -1;
+
+function initTerminal() {
+    const input = document.getElementById('terminal-input');
+    const output = document.getElementById('terminal-output');
+    if (!input || !output) return;
+
+    // Welcome message
+    output.innerHTML = [
+        '<span class="term-accent">Welcome to ThrishulOS Terminal v2.0</span>',
+        'Type <span class="term-cmd">help</span> to see available commands.',
+        ''
+    ].map(l => `<div class="term-line">${l}</div>`).join('');
+
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const cmd = input.value.trim().toLowerCase();
+            if (!cmd) return;
+
+            terminalHistory.push(cmd);
+            historyIndex = terminalHistory.length;
+
+            // Echo the command
+            output.innerHTML += `<div class="term-line"><span class="terminal-prompt">thrishul@os:~$</span> ${cmd}</div>`;
+
+            if (cmd === 'clear') {
+                output.innerHTML = '';
+            } else if (cmd === 'history') {
+                const lines = terminalHistory.map((c, i) => `  ${i + 1}  ${c}`);
+                output.innerHTML += lines.map(l => `<div class="term-line">${l}</div>`).join('');
+            } else if (cmd.startsWith('open ')) {
+                const app = cmd.split(' ')[1];
+                if (windowNames[app]) {
+                    openWindow(app);
+                    output.innerHTML += `<div class="term-line"><span class="term-accent">Opening ${windowNames[app]}...</span></div>`;
+                } else {
+                    output.innerHTML += `<div class="term-line term-error">Unknown app: ${app}. Available: ${Object.keys(windowNames).join(', ')}</div>`;
+                }
+            } else if (terminalCommands[cmd]) {
+                const lines = terminalCommands[cmd]();
+                output.innerHTML += lines.map(l => `<div class="term-line">${l}</div>`).join('');
+            } else {
+                output.innerHTML += `<div class="term-line term-error">Command not found: ${cmd}. Type <span class="term-cmd">help</span> for available commands.</div>`;
+            }
+
+            output.innerHTML += '<div class="term-line">&nbsp;</div>';
+            input.value = '';
+            output.scrollTop = output.scrollHeight;
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (historyIndex > 0) {
+                historyIndex--;
+                input.value = terminalHistory[historyIndex];
+            }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex < terminalHistory.length - 1) {
+                historyIndex++;
+                input.value = terminalHistory[historyIndex];
+            } else {
+                historyIndex = terminalHistory.length;
+                input.value = '';
+            }
+        }
+    });
+}
+
+// Auto-focus terminal input on window click
+document.addEventListener('click', (e) => {
+    if (e.target.closest('#window-terminal')) {
+        const input = document.getElementById('terminal-input');
+        if (input) input.focus();
+    }
+});
+
+// Initialize terminal when opened
+const origOpenWindow = openWindow;
+openWindow = function(id) {
+    origOpenWindow(id);
+    if (id === 'terminal') {
+        setTimeout(initTerminal, 100);
+    }
+};
