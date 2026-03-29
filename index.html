@@ -89,6 +89,10 @@
                 <div class="icon-img terminal-icon"><i class="fas fa-terminal"></i></div>
                 <span>Terminal</span>
             </div>
+            <div class="desktop-icon" data-window="education" ondblclick="openWindow('education')">
+                <div class="icon-img education-icon"><i class="fas fa-graduation-cap"></i></div>
+                <span>Education</span>
+            </div>
         </div>
 
         <!-- ===== WINDOWS ===== -->
@@ -202,6 +206,54 @@
                             <p class="company"><i class="fas fa-university"></i> Newton School of Technology</p>
                             <p class="date"><i class="far fa-calendar-alt"></i> 2024 – Present</p>
                             <p class="timeline-desc">Leading workshops, mentoring juniors, and organizing coding events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Window -->
+        <div class="os-window" id="window-education" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-education')">
+                <div class="window-title"><i class="fas fa-graduation-cap"></i> Education</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('education')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('education')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('education')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon education-timeline-icon"><i class="fas fa-university"></i></div>
+                        <div class="timeline-content">
+                            <h3>B.Tech in Computer Science</h3>
+                            <p class="company"><i class="fas fa-graduation-cap"></i> Newton School of Technology (IIIT Sonepat)</p>
+                            <p class="date"><i class="far fa-calendar-alt"></i> 2024 – 2028 (Expected)</p>
+                            <p class="timeline-desc">Specializing in full-stack development, data structures & algorithms, and artificial intelligence. Active member of the coding club and hackathon participant.</p>
+                            <div class="edu-highlights">
+                                <span class="edu-tag"><i class="fas fa-star"></i> CGPA: 7.5+</span>
+                                <span class="edu-tag"><i class="fas fa-trophy"></i> Hackathon Winner</span>
+                                <span class="edu-tag"><i class="fas fa-users"></i> Dev Club Member</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon education-timeline-icon"><i class="fas fa-school"></i></div>
+                        <div class="timeline-content">
+                            <h3>Intermediate (MPC)</h3>
+                            <p class="company"><i class="fas fa-building"></i> Sri Chaitanya Junior College</p>
+                            <p class="date"><i class="far fa-calendar-alt"></i> 2022 – 2024</p>
+                            <p class="timeline-desc">Mathematics, Physics, and Chemistry with focus on competitive exam preparation.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon education-timeline-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="timeline-content">
+                            <h3>10th Standard (SSC)</h3>
+                            <p class="company"><i class="fas fa-building"></i> Delhi Public School</p>
+                            <p class="date"><i class="far fa-calendar-alt"></i> 2022</p>
+                            <p class="timeline-desc">Completed secondary education with distinction, developing early interest in technology and programming.</p>
                         </div>
                     </div>
                 </div>
@@ -512,6 +564,7 @@
                 <div class="start-item" onclick="openWindow('projects'); toggleStartMenu();"><i class="fas fa-folder-open"></i> Projects</div>
                 <div class="start-item" onclick="openWindow('skills'); toggleStartMenu();"><i class="fas fa-chart-bar"></i> Skills</div>
                 <div class="start-item" onclick="openWindow('experience'); toggleStartMenu();"><i class="fas fa-briefcase"></i> Experience</div>
+                <div class="start-item" onclick="openWindow('education'); toggleStartMenu();"><i class="fas fa-graduation-cap"></i> Education</div>
                 <div class="start-item" onclick="openWindow('contact'); toggleStartMenu();"><i class="fas fa-envelope"></i> Contact</div>
                 <div class="start-divider"></div>
                 <div class="start-item" onclick="openWindow('resume'); toggleStartMenu();"><i class="fas fa-file-pdf"></i> Resume</div>

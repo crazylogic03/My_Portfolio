@@ -230,7 +230,8 @@ const windowIcons = {
     leetcode: 'fas fa-code',
     codeforces: 'fas fa-chess-knight',
     codechef: 'fas fa-utensils',
-    terminal: 'fas fa-terminal'
+    terminal: 'fas fa-terminal',
+    education: 'fas fa-graduation-cap'
 };
 
 const windowNames = {
@@ -245,7 +246,8 @@ const windowNames = {
     leetcode: 'LeetCode',
     codeforces: 'CodeForces',
     codechef: 'CodeChef',
-    terminal: 'Terminal'
+    terminal: 'Terminal',
+    education: 'Education'
 };
 
 // ========================================

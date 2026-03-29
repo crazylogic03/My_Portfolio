@@ -1571,3 +1571,37 @@ body {
 }
 
 .notif-close:hover { color: #ef4444; }
+
+/* ========================================
+   EDUCATION WINDOW
+   ======================================== */
+.education-icon {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(109, 40, 217, 0.15));
+    color: #8b5cf6;
+}
+
+.education-timeline-icon {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+}
+
+.edu-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.edu-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    color: #a78bfa;
+    font-weight: 500;
+}
+
+.edu-tag i { font-size: 0.65rem; }
