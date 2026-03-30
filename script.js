@@ -261,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
     renderSkills();
     startClock();
+    initContactForm();
 
     // Boot -> Desktop transition
     setTimeout(() => {
@@ -899,3 +900,67 @@ openWindow = function(id) {
         setTimeout(initTerminal, 100);
     }
 };
+
+// ========================================
+// EMAILJS CONTACT FORM
+// ========================================
+function initContactForm() {
+    // Initialize EmailJS with your public key
+    emailjs.init('YOUR_PUBLIC_KEY');
+
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('contact-submit');
+        const statusDiv = document.getElementById('contact-status');
+        const name = document.getElementById('contact-name').value;
+        const email = document.getElementById('contact-email').value;
+        const message = document.getElementById('contact-message').value;
+
+        // Loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        statusDiv.className = 'contact-status';
+        statusDiv.innerHTML = '';
+
+        // Send via EmailJS
+        emailjs.send('service_portfolio', 'template_contact', {
+            from_name: name,
+            reply_to: email,
+            message: message,
+            to_email: 'thrishul.professional@gmail.com'
+        }).then(
+            function() {
+                // Success
+                statusDiv.className = 'contact-status success';
+                statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Message sent successfully!';
+                form.reset();
+                showNotification(
+                    'Message Sent!',
+                    `Thanks ${name}! I'll get back to you soon.`,
+                    'fas fa-envelope-open',
+                    5000
+                );
+            },
+            function(error) {
+                // Error fallback — open mailto link
+                console.error('EmailJS Error:', error);
+                statusDiv.className = 'contact-status error';
+                statusDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Service unavailable. Opening email client...';
+                
+                // Fallback to mailto
+                setTimeout(() => {
+                    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+                    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+                    window.open(`mailto:thrishul.professional@gmail.com?subject=${subject}&body=${body}`, '_blank');
+                }, 1500);
+            }
+        ).finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        });
+    });
+}
