@@ -233,7 +233,8 @@ const windowIcons = {
     terminal: 'fas fa-terminal',
     education: 'fas fa-graduation-cap',
     achievements: 'fas fa-trophy',
-    system: 'fas fa-microchip'
+    system: 'fas fa-microchip',
+    notepad: 'fas fa-sticky-note'
 };
 
 const windowNames = {
@@ -251,7 +252,8 @@ const windowNames = {
     terminal: 'Terminal',
     education: 'Education',
     achievements: 'Achievements',
-    system: 'System Monitor'
+    system: 'System Monitor',
+    notepad: 'Notepad'
 };
 
 // ========================================
@@ -267,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startClock();
     initContactForm();
     initSystemMonitor();
+    initNotepad();
 
     // Boot -> Desktop transition
     setTimeout(() => {
@@ -999,4 +1002,32 @@ function initSystemMonitor() {
     }
 
     setInterval(updateStats, 2000);
+}
+
+// ========================================
+// NOTEPAD LOGIC
+// ========================================
+function initNotepad() {
+    const textarea = document.getElementById('notepad-textarea');
+    const charCount = document.getElementById('char-count');
+    const saveStatus = document.getElementById('save-status');
+    if (!textarea) return;
+
+    // Load saved notes
+    textarea.value = localStorage.getItem('thrishul_notes') || '';
+    if (charCount) charCount.innerText = textarea.value.length;
+
+    textarea.addEventListener('input', () => {
+        const text = textarea.value;
+        localStorage.setItem('thrishul_notes', text);
+        if (charCount) charCount.innerText = text.length;
+        
+        if (saveStatus) {
+            saveStatus.innerText = 'Saving...';
+            clearTimeout(textarea._saveTimeout);
+            textarea._saveTimeout = setTimeout(() => {
+                saveStatus.innerText = 'Saved';
+            }, 1000);
+        }
+    });
 }
