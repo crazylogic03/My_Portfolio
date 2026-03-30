@@ -232,7 +232,8 @@ const windowIcons = {
     codechef: 'fas fa-utensils',
     terminal: 'fas fa-terminal',
     education: 'fas fa-graduation-cap',
-    achievements: 'fas fa-trophy'
+    achievements: 'fas fa-trophy',
+    system: 'fas fa-microchip'
 };
 
 const windowNames = {
@@ -249,7 +250,8 @@ const windowNames = {
     codechef: 'CodeChef',
     terminal: 'Terminal',
     education: 'Education',
-    achievements: 'Achievements'
+    achievements: 'Achievements',
+    system: 'System Monitor'
 };
 
 // ========================================
@@ -264,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSkills();
     startClock();
     initContactForm();
+    initSystemMonitor();
 
     // Boot -> Desktop transition
     setTimeout(() => {
@@ -965,4 +968,35 @@ function initContactForm() {
             submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
         });
     });
+}
+
+// ========================================
+// SYSTEM MONITOR LOGIC
+// ========================================
+function initSystemMonitor() {
+    let startTime = Date.now();
+
+    function updateStats() {
+        const cpu = Math.floor(Math.random() * 30) + 10;
+        const ram = (Math.random() * 0.5 + 1.2).toFixed(1);
+        
+        const cpuBar = document.getElementById('cpu-bar');
+        const cpuVal = document.getElementById('cpu-val');
+        const ramBar = document.getElementById('ram-bar');
+        const ramVal = document.getElementById('ram-val');
+        const uptimeVal = document.getElementById('uptime-val');
+
+        if (cpuBar) cpuBar.style.width = cpu + '%';
+        if (cpuVal) cpuVal.innerText = cpu + '%';
+        if (ramBar) ramBar.style.width = (ram / 4 * 100) + '%';
+        if (ramVal) ramVal.innerText = ram + 'GB / 4.0GB';
+
+        const diff = Math.floor((Date.now() - startTime) / 1000);
+        const h = Math.floor(diff / 3600).toString().padStart(2, '0');
+        const m = Math.floor((diff % 3600) / 60).toString().padStart(2, '0');
+        const s = (diff % 60).toString().padStart(2, '0');
+        if (uptimeVal) uptimeVal.innerText = `${h}:${m}:${s}`;
+    }
+
+    setInterval(updateStats, 2000);
 }
