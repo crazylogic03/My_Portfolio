@@ -94,6 +94,10 @@
                 <div class="icon-img education-icon"><i class="fas fa-graduation-cap"></i></div>
                 <span>Education</span>
             </div>
+            <div class="desktop-icon" data-window="achievements" ondblclick="openWindow('achievements')">
+                <div class="icon-img achievements-icon"><i class="fas fa-trophy"></i></div>
+                <span>Achievements</span>
+            </div>
         </div>
 
         <!-- ===== WINDOWS ===== -->
@@ -255,6 +259,70 @@
                             <p class="company"><i class="fas fa-building"></i> Delhi Public School</p>
                             <p class="date"><i class="far fa-calendar-alt"></i> 2022</p>
                             <p class="timeline-desc">Completed secondary education with distinction, developing early interest in technology and programming.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements Window -->
+        <div class="os-window" id="window-achievements" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-achievements')">
+                <div class="window-title"><i class="fas fa-trophy"></i> Achievements</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('achievements')"><i class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('achievements')"><i class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('achievements')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="achievements-grid">
+                    <div class="achievement-card gold">
+                        <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="achievement-content">
+                            <h3>Hackathon Winner</h3>
+                            <p>1st place in Waste Management Automation hackathon with Team Senorita</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> 2025</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card blue">
+                        <div class="achievement-icon"><i class="fas fa-code-branch"></i></div>
+                        <div class="achievement-content">
+                            <h3>Open Source Contributor</h3>
+                            <p>Active contributor to Mattermost, Ember.js, and Astro repositories</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> 2025 – Present</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card green">
+                        <div class="achievement-icon"><i class="fas fa-code"></i></div>
+                        <div class="achievement-content">
+                            <h3>200+ DSA Problems</h3>
+                            <p>Solved 200+ problems on LeetCode covering Arrays, DP, Graphs, and Trees</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> Ongoing</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card purple">
+                        <div class="achievement-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="achievement-content">
+                            <h3>10+ Projects Built</h3>
+                            <p>Full-stack applications including AI tools, management systems, and games</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> 2024 – Present</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card orange">
+                        <div class="achievement-icon"><i class="fas fa-users"></i></div>
+                        <div class="achievement-content">
+                            <h3>Developer Club Lead</h3>
+                            <p>Leading workshops, mentoring juniors, and organizing coding events at NST</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> 2024 – Present</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card red">
+                        <div class="achievement-icon"><i class="fas fa-fire"></i></div>
+                        <div class="achievement-content">
+                            <h3>500+ GitHub Contributions</h3>
+                            <p>Consistent commit streak across multiple repositories and open-source projects</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> 2024 – Present</span>
                         </div>
                     </div>
                 </div>
@@ -569,6 +637,7 @@
                 <div class="start-item" onclick="openWindow('skills'); toggleStartMenu();"><i class="fas fa-chart-bar"></i> Skills</div>
                 <div class="start-item" onclick="openWindow('experience'); toggleStartMenu();"><i class="fas fa-briefcase"></i> Experience</div>
                 <div class="start-item" onclick="openWindow('education'); toggleStartMenu();"><i class="fas fa-graduation-cap"></i> Education</div>
+                <div class="start-item" onclick="openWindow('achievements'); toggleStartMenu();"><i class="fas fa-trophy"></i> Achievements</div>
                 <div class="start-item" onclick="openWindow('contact'); toggleStartMenu();"><i class="fas fa-envelope"></i> Contact</div>
                 <div class="start-divider"></div>
                 <div class="start-item" onclick="openWindow('resume'); toggleStartMenu();"><i class="fas fa-file-pdf"></i> Resume</div>

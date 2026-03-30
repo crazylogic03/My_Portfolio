@@ -231,7 +231,8 @@ const windowIcons = {
     codeforces: 'fas fa-chess-knight',
     codechef: 'fas fa-utensils',
     terminal: 'fas fa-terminal',
-    education: 'fas fa-graduation-cap'
+    education: 'fas fa-graduation-cap',
+    achievements: 'fas fa-trophy'
 };
 
 const windowNames = {
@@ -247,7 +248,8 @@ const windowNames = {
     codeforces: 'CodeForces',
     codechef: 'CodeChef',
     terminal: 'Terminal',
-    education: 'Education'
+    education: 'Education',
+    achievements: 'Achievements'
 };
 
 // ========================================
