@@ -119,10 +119,7 @@
                 <div class="icon-img system-icon"><i class="fas fa-microchip"></i></div>
                 <span>System Monitor</span>
             </div>
-            <div class="desktop-icon" data-window="notepad" ondblclick="openWindow('notepad')">
-                <div class="icon-img notepad-icon"><i class="fas fa-sticky-note"></i></div>
-                <span>Notepad</span>
-            </div>
+
         </div>
 
         <!-- ===== WINDOWS ===== -->
@@ -396,24 +393,7 @@
             </div>
         </div>
 
-        <!-- Notepad Window -->
-        <div class="os-window" id="window-notepad" style="display:none;">
-            <div class="window-titlebar" onmousedown="startDrag(event, 'window-notepad')">
-                <div class="window-title"><i class="fas fa-sticky-note"></i> Notepad</div>
-                <div class="window-controls">
-                    <button class="win-btn minimize" onclick="minimizeWindow('notepad')"><i class="fas fa-minus"></i></button>
-                    <button class="win-btn maximize" onclick="maximizeWindow('notepad')"><i class="far fa-square"></i></button>
-                    <button class="win-btn close" onclick="closeWindow('notepad')"><i class="fas fa-times"></i></button>
-                </div>
-            </div>
-            <div class="window-body notepad-body">
-                <textarea id="notepad-textarea" placeholder="Type your notes here..."></textarea>
-                <div class="notepad-footer">
-                    <span>Characters: <span id="char-count">0</span></span>
-                    <span id="save-status">Saved</span>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Contact Window -->
         <div class="os-window" id="window-contact" style="display:none;">
@@ -730,7 +710,7 @@
                 <div class="start-item" onclick="openWindow('education'); toggleStartMenu();"><i class="fas fa-graduation-cap"></i> Education</div>
                 <div class="start-item" onclick="openWindow('achievements'); toggleStartMenu();"><i class="fas fa-trophy"></i> Achievements</div>
                 <div class="start-item" onclick="openWindow('system'); toggleStartMenu();"><i class="fas fa-microchip"></i> System Monitor</div>
-                <div class="start-item" onclick="openWindow('notepad'); toggleStartMenu();"><i class="fas fa-sticky-note"></i> Notepad</div>
+
                 <div class="start-item" onclick="toggleSystemSounds()"><i id="sound-icon" class="fas fa-volume-up"></i> System Sounds</div>
                 <div class="start-item" onclick="openWindow('contact'); toggleStartMenu();"><i class="fas fa-envelope"></i> Contact</div>
                 <div class="start-divider"></div>
