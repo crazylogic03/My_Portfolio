@@ -1,16 +1,22 @@
-# Thrishul | Full-Stack Developer Portfolio.
+# ThrishulOS v2.0 | Full-Stack Developer Portfolio
 
-Hello!!!!! Welcome to my personal portfolio repository! This is a responsive, modern web portfolio highlighting my skills as a Full-Stack Developer and Competitive Programmer.
+Welcome to **ThrishulOS**, a futuristic, interactive desktop operating system experience built with Vanilla JavaScript, HTML5, and CSS3. This portfolio is designed to showcase my skills, projects, and achievements through a unique "OS-in-browser" interface.
 
-## 🚀 Features
-- **Responsive Design**: Mobile-first approach for all screen sizes.
-- **Dynamic Projects Section**: Rendered natively via JS for easy updating.
-- **Tech Stack Highlights**: Visually appealing skills section with precise proficiency levels.
+## 🚀 New in v2.0
+- **Interactive Terminal**: Fully functional terminal emulator supporting 15+ commands (`help`, `neofetch`, `projects`, etc.).
+- **System Monitor**: Real-time mock tracking of CPU, RAM, and Disk usage for an immersive experience.
+- **Glassmorphism UI**: Premium window management system with drag-and-drop, minimize, and maximize functionality.
+- **Functional Contact Form**: Integrated with **EmailJS** for direct inbox delivery with success/error notifications.
+- **Notepad App**: Built-in text editor with `localStorage` persistence for quick notes.
+- **Achievements & Education**: Dedicated windows for tracking academic milestones and hackathon wins.
+- **Dynamic Background**: Floating particle system that connects on proximity.
+- **Dark/Light Theme**: Seamless theme toggling with persistent user preference.
+- **Visitor Counter**: Real-time visit tracking displayed in the system tray.
 
 ## 💻 Tech Stack
-- **Frontend**: HTML5, CSS3, Vanilla JS
-- **Styling**: Custom CSS with variables and modern layout techniques
-- **Icons**: Devicons, FontAwesome
+- **Frontend**: HTML5, CSS3 (Vanilla), JavaScript (ES6+)
+- **Integration**: EmailJS (Communication), FontAwesome (Icons), Devicons (Skills)
+- **Animations**: CSS Keyframes + Canvas API (Particles)
 
 ## 📸 Preview
 ![Portfolio Preview](./por.jpg)
