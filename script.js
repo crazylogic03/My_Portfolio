@@ -413,7 +413,8 @@ document.addEventListener('mouseup', () => {
 });
 
 // ========================================
-// TASKBAR
+// ThrishulOS v2.1 - "The Agency Update"
+// Last Updated: March 31, 2026
 // ========================================
 function updateTaskbar() {
     const container = document.getElementById('taskbar-apps');
