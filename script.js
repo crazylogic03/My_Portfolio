@@ -767,7 +767,7 @@ const terminalCommands = {
         '',
         '  Full-Stack Developer [MERN Stack]',
         '  Competitive Programmer & Problem Solver',
-        '  Frontend Developer @ TechQRT Pvt Ltd',
+        '  Frontend Developer Intern @ TechQRT Pvt Ltd',
         '  Student @ Newton School of Technology',
         '  📍 Hyderabad, India',
     ],
@@ -792,7 +792,7 @@ const terminalCommands = {
         '  Type <span class="term-cmd">open contact</span> to send a message.',
     ],
     experience: () => [
-        '<span class="term-accent">💼 Frontend Developer</span> — TechQRT Pvt Ltd',
+        '<span class="term-accent">💼 Frontend Developer Intern</span> — TechQRT Pvt Ltd',
         '   June 2025 – Present',
         '   Building responsive web apps with React',
         '',
