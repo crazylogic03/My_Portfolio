@@ -937,8 +937,8 @@ function initContactForm() {
         statusDiv.className = 'contact-status';
         statusDiv.innerHTML = '';
 
-        // Send via EmailJS
-        emailjs.send('service_portfolio', 'template_contact', {
+        // Send via EmailJS (Service ID: service_le2gibd is safe to push)
+        emailjs.send('service_le2gibd', 'template_contact', {
             from_name: name,
             reply_to: email,
             message: message,
