@@ -26,6 +26,19 @@
     --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
+body.light-mode {
+    --bg-dark: #f0f2f5;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-window: rgba(255, 255, 255, 0.95);
+    --border: rgba(0, 0, 0, 0.08);
+    --text: #1a202c;
+    --text-dim: #4a5568;
+    --titlebar: rgba(237, 242, 247, 0.98);
+    --taskbar-bg: rgba(237, 242, 247, 1);
+    --glass: rgba(0, 0, 0, 0.02);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg-dark);

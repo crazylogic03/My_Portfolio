@@ -270,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initSystemMonitor();
     initNotepad();
+    initTheme();
 
     // Boot -> Desktop transition
     setTimeout(() => {
@@ -1030,4 +1031,41 @@ function initNotepad() {
             }, 1000);
         }
     });
+}
+
+// ========================================
+// THEME MANAGEMENT
+// ========================================
+function initTheme() {
+    const savedTheme = localStorage.getItem('thrishul_theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        const icon = document.getElementById('theme-icon');
+        if (icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+    }
+}
+
+function toggleThemeMode() {
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+    
+    body.classList.toggle('light-mode');
+    const isLight = body.classList.contains('light-mode');
+    
+    localStorage.setItem('thrishul_theme', isLight ? 'light' : 'dark');
+    
+    if (icon) {
+        if (isLight) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            showNotification('Mode Switched', 'Light mode activated.', 'fas fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            showNotification('Mode Switched', 'Dark mode activated.', 'fas fa-moon');
+        }
+    }
 }
