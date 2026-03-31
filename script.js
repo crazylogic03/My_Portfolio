@@ -271,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSystemMonitor();
     initNotepad();
     initTheme();
+    initVisitorCounter();
 
     // Boot -> Desktop transition
     setTimeout(() => {
@@ -1068,4 +1069,21 @@ function toggleThemeMode() {
             showNotification('Mode Switched', 'Dark mode activated.', 'fas fa-moon');
         }
     }
+}
+
+// ========================================
+// VISITOR COUNTER LOGIC
+// ========================================
+function initVisitorCounter() {
+    const visitorSpan = document.getElementById('visitor-count');
+    if (!visitorSpan) return;
+
+    let count = parseInt(localStorage.getItem('thrishul_visits')) || 432; // Mock start
+    if (!sessionStorage.getItem('thrishul_session_init')) {
+        count++;
+        localStorage.setItem('thrishul_visits', count);
+        sessionStorage.setItem('thrishul_session_init', 'true');
+    }
+
+    visitorSpan.innerText = count.toLocaleString();
 }

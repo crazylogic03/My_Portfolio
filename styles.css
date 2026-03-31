@@ -1801,6 +1801,25 @@ body {
 #save-status { color: #22c55e; }
 
 /* ========================================
+   VISITOR COUNTER
+   ======================================== */
+.visitor-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    cursor: default !important;
+}
+
+.visitor-stat:hover { background: rgba(255, 255, 255, 0.03) !important; color: var(--text-dim) !important; }
+.visitor-stat i { color: var(--accent); font-size: 0.65rem; }
+#visitor-count { font-weight: 600; color: var(--text); }
+
+/* ========================================
    CONTACT FORM STATUS
    ======================================== */
 .contact-status {
