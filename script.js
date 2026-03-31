@@ -1087,3 +1087,35 @@ function initVisitorCounter() {
 
     visitorSpan.innerText = count.toLocaleString();
 }
+
+// ========================================
+// SYSTEM SOUNDS LOGIC
+// ========================================
+let soundEnabled = true;
+
+function toggleSystemSounds() {
+    soundEnabled = !soundEnabled;
+    const soundIcon = document.getElementById('sound-icon');
+    if (soundIcon) {
+        soundIcon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
+    }
+    showNotification('Settings', `System sounds ${soundEnabled ? 'enabled' : 'disabled'}.`, 'fas fa-cog');
+}
+
+function playSound(type) {
+    if (!soundEnabled) return;
+    // Mock play sound — real implementation would use Audio()
+    console.log(`Playing sound: ${type}`);
+}
+
+const originalOpenWindowFunc = openWindow;
+openWindow = function(id) {
+    originalOpenWindowFunc(id);
+    playSound('open');
+};
+
+const originalCloseWindowFunc = closeWindow;
+closeWindow = function(id) {
+    originalCloseWindowFunc(id);
+    playSound('close');
+};
