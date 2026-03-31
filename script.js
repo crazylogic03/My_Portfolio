@@ -916,8 +916,8 @@ openWindow = function(id) {
 // EMAILJS CONTACT FORM
 // ========================================
 function initContactForm() {
-    // Initialize EmailJS with your public key
-    emailjs.init('YOUR_PUBLIC_KEY');
+    // Initialize EmailJS with your public key (safe to push to public repo)
+    emailjs.init('qxHwLADmpVLrC2ZX0');
 
     const form = document.getElementById('contact-form');
     if (!form) return;
@@ -937,8 +937,8 @@ function initContactForm() {
         statusDiv.className = 'contact-status';
         statusDiv.innerHTML = '';
 
-        // Send via EmailJS (Service ID: service_le2gibd is safe to push)
-        emailjs.send('service_le2gibd', 'template_contact', {
+        // Send via EmailJS (Service ID & Template ID are safe to push)
+        emailjs.send('service_le2gibd', 'template_wddueeh', {
             from_name: name,
             reply_to: email,
             message: message,
