@@ -477,7 +477,68 @@
                     <div class="achievement-card green">
                         <div class="achievement-icon"><i class="fas fa-code"></i></div>
                         <div class="achievement-content">
-                                </div>
+                            <h3>200+ DSA Problems</h3>
+                            <p>Solved 200+ problems on LeetCode covering Arrays, DP, Graphs, and Trees</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> Ongoing</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card purple">
+                        <div class="achievement-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="achievement-content">
+                            <h3>10+ Projects Built</h3>
+                            <p>Full-stack applications including AI tools, management systems, and games</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> 2024 – Present</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card orange">
+                        <div class="achievement-icon"><i class="fas fa-users"></i></div>
+                        <div class="achievement-content">
+                            <h3>Developer Club Lead</h3>
+                            <p>Leading workshops, mentoring juniors, and organizing coding events at NST</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> 2024 – Present</span>
+                        </div>
+                    </div>
+                    <div class="achievement-card red">
+                        <div class="achievement-icon"><i class="fas fa-fire"></i></div>
+                        <div class="achievement-content">
+                            <h3>500+ GitHub Contributions</h3>
+                            <p>Consistent commit streak across multiple repositories and open-source projects</p>
+                            <span class="achievement-date"><i class="far fa-calendar-alt"></i> 2024 – Present</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Contact Window -->
+        <div class="os-window" id="window-contact" style="display:none;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'window-contact')">
+                <div class="window-title"><i class="fas fa-envelope"></i> Contact Me</div>
+                <div class="window-controls">
+                    <button class="win-btn minimize" onclick="minimizeWindow('contact')"><i
+                            class="fas fa-minus"></i></button>
+                    <button class="win-btn maximize" onclick="maximizeWindow('contact')"><i
+                            class="far fa-square"></i></button>
+                    <button class="win-btn close" onclick="closeWindow('contact')"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div class="contact-layout">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Name</label>
+                            <input type="text" name="from_name" id="contact-name" placeholder="Enter your name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" name="reply_to" id="contact-email" placeholder="Enter your email"
+                                required>
+                        </div>
                         <div class="form-group">
                             <label><i class="fas fa-comment"></i> Message</label>
                             <textarea name="message" id="contact-message" rows="5" placeholder="Write your message..."
@@ -760,7 +821,7 @@
             <div class="window-body terminal-body">
                 <div id="terminal-output"></div>
                 <div class="terminal-input-line">
-                    <span class="terminal-prompt">thrishul@os:~$</span>
+                    <span class="terminal-prompt">spider@web:~$</span>
                     <input type="text" id="terminal-input" autocomplete="off" autofocus spellcheck="false" />
                 </div>
             </div>
@@ -781,7 +842,7 @@
         <div id="taskbar">
             <div class="taskbar-left">
                 <button id="start-btn" onclick="toggleStartMenu()">
-                    <i class="fas fa-terminal"></i>
+                    <i class="fas fa-spider"></i>
                     <span>Start</span>
                 </button>
                 <div class="taskbar-apps" id="taskbar-apps"></div>
@@ -804,10 +865,28 @@
         <!-- ===== START MENU ===== -->
         <div id="start-menu" class="hidden">
             <div class="start-header">
-                <img src="p.jpeg" alt="Thrishul" class="start-avatar" />
-                <div>
-                    <strong>Thrishul</strong>
-                    <small>Full-Stack Developer</small>
+                <div style="display:flex;align-items:center;gap:12px;width:100%;">
+                    <!-- Spider emblem SVG -->
+                    <div style="position:relative;flex-shrink:0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+                            <circle cx="22" cy="22" r="21" fill="#1a1a6c" stroke="#e23636" stroke-width="1.5"/>
+                            <!-- Spider body -->
+                            <ellipse cx="22" cy="18" rx="5" ry="7" fill="#e23636"/>
+                            <ellipse cx="22" cy="29" rx="4" ry="5" fill="#e23636"/>
+                            <!-- Spider legs -->
+                            <line x1="17" y1="16" x2="7" y2="10" stroke="#e23636" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="17" y1="19" x2="6" y2="19" stroke="#e23636" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="17" y1="22" x2="7" y2="28" stroke="#e23636" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="27" y1="16" x2="37" y2="10" stroke="#e23636" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="27" y1="19" x2="38" y2="19" stroke="#e23636" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="27" y1="22" x2="37" y2="28" stroke="#e23636" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <img src="p.jpeg" alt="Thrishul" class="start-avatar" />
+                    <div>
+                        <strong>Thrishul</strong>
+                        <small>Full-Stack Developer</small>
+                    </div>
                 </div>
             </div>
             <div class="start-items">
@@ -847,7 +926,7 @@
                         class="fas fa-terminal"></i> Terminal</div>
             </div>
             <div class="start-footer">
-                <span>© 2025 ThrishulOS v1.0</span>
+                <span>🕷️ 2025 ThrishulOS v2.0 — Spider-Man Edition</span>
             </div>
         </div>
 
@@ -868,4 +947,4 @@
 <!-- leetcode profile card -->
 <!-- codeforces profile card -->
 <!-- codechef profile card -->
-<!-- Commit 6 / 24 -->
+<!-- Commit 7 / 24 -->
