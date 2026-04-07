@@ -270,14 +270,159 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initVisitorCounter();
 
-    // Boot -> Desktop transition
-    setTimeout(() => {
-        desktop.classList.remove('hidden');
-        setTimeout(() => {
-            if (bootScreen) bootScreen.remove();
-        }, 600);
-    }, 3200);
+    // === HACKED BOOT SEQUENCE ===
+    runHackedBootSequence();
 });
+
+function runHackedBootSequence() {
+    const bootScreen  = document.getElementById('boot-screen');
+    const desktop     = document.getElementById('desktop');
+    const scanner     = document.getElementById('boot-scanner');
+    const hackPhase   = document.getElementById('boot-hack-phase');
+    const hackTermEl  = document.getElementById('hack-terminal');
+    const hackIP      = document.getElementById('hack-ip');
+    const warnPhase   = document.getElementById('boot-warning-phase');
+    const spiderPhase = document.getElementById('boot-spider-phase');
+    const normalPhase = document.getElementById('boot-normal-phase');
+    const fill        = document.getElementById('sense-fill');
+    const pctEl       = document.getElementById('sense-pct');
+
+    // ── PHASE 1: HACK TERMINAL (0–1500ms) ──────────────────────────
+    if (scanner) scanner.style.display = 'block';
+
+    const hackLines = [
+        '> Scanning target: THRISHULOS-V2...',
+        '> Port 443 → OPEN    Port 22 → FILTERED',
+        '> Bypassing firewall ........... [OK]',
+        '> Injecting payload: CRAWLER_EX.bin',
+        '> Decrypting memory segment 0xA4F2',
+        '> Privilege escalation ......... [ROOT]',
+        '> !! KERNEL INTEGRITY VIOLATED !!',
+        '> SYSTEM ACCESS GRANTED',
+    ];
+
+    // Ticker for fake IP
+    const ipTick = setInterval(() => {
+        const a = Math.floor(Math.random()*256);
+        const b = Math.floor(Math.random()*256);
+        if (hackIP) hackIP.textContent = `${a}.${b}.${Math.floor(Math.random()*256)}.${Math.floor(Math.random()*256)}`;
+    }, 60);
+
+    hackLines.forEach((line, i) => {
+        setTimeout(() => {
+            if (!hackTermEl) return;
+            const d = document.createElement('div');
+            d.className = 'hack-line';
+            // Colour critical lines differently
+            if (line.includes('!!') || line.includes('GRANTED')) {
+                d.style.color = '#ff4d4d';
+                d.style.fontWeight = '700';
+            }
+            d.textContent = line;
+            hackTermEl.appendChild(d);
+        }, i * 170);
+    });
+
+    // ── PHASE 2: INTRUSION WARNING (1550ms–2500ms) ─────────────────
+    setTimeout(() => {
+        clearInterval(ipTick);
+        hackPhase.style.display = 'none';
+
+        // Red flash
+        bootScreen.style.transition = 'background 0.1s';
+        bootScreen.style.background = 'rgba(200,0,0,0.18)';
+        setTimeout(() => { bootScreen.style.background = ''; }, 200);
+
+        // Screen shake
+        bootScreen.classList.add('boot-shake');
+        setTimeout(() => bootScreen.classList.remove('boot-shake'), 400);
+
+        warnPhase.style.display = 'flex';
+        if (hackIP) hackIP.textContent = '218.56.14.77';
+
+        // Second shake halfway through warning
+        setTimeout(() => {
+            bootScreen.classList.add('boot-shake');
+            setTimeout(() => bootScreen.classList.remove('boot-shake'), 350);
+            bootScreen.style.background = 'rgba(200,0,0,0.10)';
+            setTimeout(() => { bootScreen.style.background = ''; }, 150);
+        }, 450);
+    }, 1550);
+
+    // ── PHASE 3: SPIDER-SENSE OVERRIDE (2550ms – ~14550ms) ─────────
+    setTimeout(() => {
+        warnPhase.style.display = 'none';
+        if (scanner) scanner.style.display = 'none';
+        // Deep dark background so red glow pops
+        bootScreen.style.background = 'radial-gradient(ellipse at center, #0a0015 0%, #000005 100%)';
+        const noiseEl = document.getElementById('boot-noise');
+        if (noiseEl) noiseEl.style.opacity = '0';
+        spiderPhase.style.display = 'flex';
+
+        // Cycle dramatic sub-status messages
+        const senseMessages = [
+            'SYSTEM OVERRIDE INITIATED',
+            'NEURAL LINK ESTABLISHING...',
+            'RECLAIMING KERNEL ACCESS...',
+            'WEB PROTOCOL INJECTING...',
+            'ISOLATING FOREIGN CODE...',
+            'REBUILDING MEMORY BLOCKS...',
+            'SPIDER-SENSE CALIBRATING...',
+            'FIREWALL RECONSTRUCTING...',
+            'IDENTITY VERIFIED: THRISHUL',
+            'SYSTEM HANDSHAKE COMPLETE',
+            'BOOTING THRISHULOS v2.0...',
+        ];
+        const subEl = document.getElementById('sense-sub');
+        let sIdx = 0;
+        const msgInterval = setInterval(() => {
+            sIdx = (sIdx + 1) % senseMessages.length;
+            if (subEl) subEl.textContent = senseMessages[sIdx];
+        }, 1100);
+
+        // Animate override percentage — 120ms/step = 12 seconds to reach 100%
+        let pct = 0;
+        const pctInterval = setInterval(() => {
+            pct += 1;
+            if (fill)  fill.style.width = pct + '%';
+            if (pctEl) pctEl.textContent = pct + '% OVERRIDE';
+            if (pct >= 100) {
+                clearInterval(pctInterval);
+                clearInterval(msgInterval);
+                if (subEl) subEl.textContent = 'OVERRIDE COMPLETE ✓';
+            }
+        }, 120); // 100 steps × 120ms = 12 000ms
+    }, 2550);
+
+    // ── PHASE 4: NORMAL BOOT (14700ms – 16100ms) ───────────────────
+    setTimeout(() => {
+        spiderPhase.style.display = 'none';
+        normalPhase.style.display = 'flex';
+
+        const bootMsgs = [
+            'Spider-Sense: ARMED 🕷️',
+            'Rebuilding system integrity...',
+            'Loading ThrishulOS...',
+        ];
+        let bi = 0;
+        const btEl = normalPhase.querySelector('.boot-text');
+        const btInterval = setInterval(() => {
+            bi = (bi + 1) % bootMsgs.length;
+            if (btEl) btEl.textContent = bootMsgs[bi];
+        }, 480);
+
+        // Show desktop
+        setTimeout(() => {
+            clearInterval(btInterval);
+            desktop.classList.remove('hidden');
+            // Fade out boot screen via JS transition
+            if (bootScreen) {
+                bootScreen.style.opacity = '0';
+                setTimeout(() => { if (bootScreen) bootScreen.remove(); }, 700);
+            }
+        }, 1400);
+    }, 14700);
+}
 
 // ========================================
 // WINDOW MANAGEMENT
@@ -503,66 +648,7 @@ function toggleTheme() {
     desktop.className = wallpapers[wallpaperIndex] || '';
 }
 
-// ========================================
-// RENDER PROJECTS
-// ========================================
-function renderProjects() {
-    const grid = document.getElementById('projects-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-
-    projects.forEach(p => {
-        const card = document.createElement('div');
-        card.className = 'project-card';
-
-        const imgSrc = p.img || 'empty.jpg';
-
-        card.innerHTML = `
-            <div class="project-image">
-                <img src="${imgSrc}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">
-            </div>
-            <div class="project-content">
-                <h3>${p.title}</h3>
-                <p>${p.desc}</p>
-                <div class="project-tech">
-                    ${p.tech.map(t => `<span class="tech-tag"><i class="${techIcons[t] || 'fas fa-code'}"></i> ${t}</span>`).join('')}
-                </div>
-                <div class="project-actions">
-                    ${p.live ? `<a href="${p.live}" target="_blank" class="btn-live"><i class="fas fa-rocket"></i> Live</a>` : ''}
-                    <a href="${p.github}" target="_blank" class="btn-github"><i class="fab fa-github"></i> Code</a>
-                </div>
-            </div>
-        `;
-
-        grid.appendChild(card);
-    });
-}
-
-// ========================================
-// RENDER SKILLS
-// ========================================
-function renderSkills() {
-    const container = document.getElementById('skills-list');
-    if (!container) return;
-
-    container.innerHTML = skillGroups.map(group => {
-        const hasLevels = group.skills.some(s => s.level !== undefined);
-
-        return `
-            <div class="skill-group">
-                <h3 class="skill-category">${group.category}</h3>
-                <div class="horizontal-skills ${hasLevels ? '' : 'icon-grid'}">
-                    ${group.skills.map(skill =>
-                        skill.level !== undefined
-                            ? `
-                                <div class="h-skill">
-                                    <div class="h-skill-info">
-                                        <i class="${skill.icon}"></i>
-                                        <span class="h-skill-name">${skill.name}</span>
-                                        <span class="h-skill-percent">${skill.level}%</span>
-                                    </div>
-                                    <div class="h-skill-bar">
-                                        <div class="h-skill-fill" data-level="${skill.level}" style="width: 0%"></div>
+// ==============l="${skill.level}" style="width: 0%"></div>
                                     </div>
                                 </div>
                             `
@@ -1063,4 +1149,4 @@ closeWindow = function(id) {
     playSound('close');
 };
 
-// Commit 11 / 24
+// Commit 12 / 24
