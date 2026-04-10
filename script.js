@@ -648,7 +648,66 @@ function toggleTheme() {
     desktop.className = wallpapers[wallpaperIndex] || '';
 }
 
-// ==============l="${skill.level}" style="width: 0%"></div>
+// ========================================
+// RENDER PROJECTS
+// ========================================
+function renderProjects() {
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    projects.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+
+        const imgSrc = p.img || 'empty.jpg';
+
+        card.innerHTML = `
+            <div class="project-image">
+                <img src="${imgSrc}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="project-content">
+                <h3>${p.title}</h3>
+                <p>${p.desc}</p>
+                <div class="project-tech">
+                    ${p.tech.map(t => `<span class="tech-tag"><i class="${techIcons[t] || 'fas fa-code'}"></i> ${t}</span>`).join('')}
+                </div>
+                <div class="project-actions">
+                    ${p.live ? `<a href="${p.live}" target="_blank" class="btn-live"><i class="fas fa-rocket"></i> Live</a>` : ''}
+                    <a href="${p.github}" target="_blank" class="btn-github"><i class="fab fa-github"></i> Code</a>
+                </div>
+            </div>
+        `;
+
+        grid.appendChild(card);
+    });
+}
+
+// ========================================
+// RENDER SKILLS
+// ========================================
+function renderSkills() {
+    const container = document.getElementById('skills-list');
+    if (!container) return;
+
+    container.innerHTML = skillGroups.map(group => {
+        const hasLevels = group.skills.some(s => s.level !== undefined);
+
+        return `
+            <div class="skill-group">
+                <h3 class="skill-category">${group.category}</h3>
+                <div class="horizontal-skills ${hasLevels ? '' : 'icon-grid'}">
+                    ${group.skills.map(skill =>
+                        skill.level !== undefined
+                            ? `
+                                <div class="h-skill">
+                                    <div class="h-skill-info">
+                                        <i class="${skill.icon}"></i>
+                                        <span class="h-skill-name">${skill.name}</span>
+                                        <span class="h-skill-percent">${skill.level}%</span>
+                                    </div>
+                                    <div class="h-skill-bar">
+                                        <div class="h-skill-fill" data-level="${skill.level}" style="width: 0%"></div>
                                     </div>
                                 </div>
                             `
@@ -719,7 +778,7 @@ function initParticles() {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const PARTICLE_COUNT = 50;
+    const PARTICLE_COUNT = 60;
 
     function resize() {
         canvas.width = window.innerWidth;
@@ -735,10 +794,11 @@ function initParticles() {
         reset() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.3;
-            this.vy = (Math.random() - 0.5) * 0.3;
+            this.vx = (Math.random() - 0.5) * 0.25;
+            this.vy = (Math.random() - 0.5) * 0.25;
             this.radius = Math.random() * 2 + 0.5;
             this.alpha = Math.random() * 0.4 + 0.1;
+            this.isSpider = Math.random() < 0.05;
         }
         update() {
             this.x += this.vx;
@@ -749,7 +809,9 @@ function initParticles() {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0, 180, 216, ${this.alpha})`;
+            ctx.fillStyle = this.isSpider 
+                ? `rgba(226, 54, 54, ${this.alpha + 0.2})` 
+                : `rgba(200, 200, 220, ${this.alpha})`;
             ctx.fill();
         }
     }
@@ -764,12 +826,13 @@ function initParticles() {
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].y - particles[j].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 120) {
+                if (dist < 140) {
+                    const opacity = 0.08 * (1 - dist / 140);
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(0, 180, 216, ${0.06 * (1 - dist / 120)})`;
-                    ctx.lineWidth = 0.5;
+                    ctx.strokeStyle = `rgba(200, 200, 220, ${opacity})`;
+                    ctx.lineWidth = 0.6;
                     ctx.stroke();
                 }
             }
@@ -818,9 +881,9 @@ function showNotification(title, message, icon = 'fas fa-info-circle', duration 
 // Show welcome notification after boot
 setTimeout(() => {
     showNotification(
-        'Welcome to ThrishulOS',
-        'Double-click icons to explore. Right-click for options.',
-        'fas fa-desktop',
+        'Welcome, Web-Slinger!',
+        'With great power comes great portfolio. Double-click to explore!',
+        'fas fa-spider',
         5000
     );
 }, 4000);
@@ -831,9 +894,10 @@ setTimeout(() => {
 // ========================================
 const terminalCommands = {
     help: () => [
-        '<span class="term-accent">Available commands:</span>',
+        '<span class="term-accent">🕷️ Available commands:</span>',
         '  <span class="term-cmd">about</span>      — Learn about me',
         '  <span class="term-cmd">skills</span>     — View my skills',
+        '  <span class="term-cmd">spidey</span>     — Spider-Man quotes 🕷️',
         '  <span class="term-cmd">projects</span>   — Browse my projects',
         '  <span class="term-cmd">contact</span>    — Get my contact info',
         '  <span class="term-cmd">experience</span> — View work experience',
@@ -888,7 +952,7 @@ const terminalCommands = {
     ],
     whoami: () => ['thrishul — Full-Stack Developer & Competitive Programmer'],
     date: () => [new Date().toString()],
-    uname: () => ['ThrishulOS v2.0 — Portfolio Desktop Environment (x86_64)'],
+    uname: () => ['ThrishulOS v2.0 — Spider-Man Desktop Environment (x86_64)'],
     social: () => [
         '<span class="term-accent">GitHub:</span>     https://github.com/crazylogic03',
         '<span class="term-accent">LinkedIn:</span>   https://linkedin.com/in/sai-thrishul-3a4077329',
@@ -896,15 +960,23 @@ const terminalCommands = {
         '<span class="term-accent">CodeForces:</span> https://codeforces.com/profile/crazylogic03',
         '<span class="term-accent">CodeChef:</span>   https://www.codechef.com/users/crazylogic03',
     ],
+    spidey: () => [
+        '<span class="term-accent">🕷️ Spider-Man Quotes:</span>',
+        '  "With great power comes great responsibility." — Uncle Ben',
+        '  "Whatever life holds in store for me, I will never forget these words."',
+        '  "No matter how buried it gets, or lost you feel... you are always you."',
+        '  "I believe there is a hero in all of us." — Aunt May',
+        '  "Everybody loves a hero... but until then, I\'m just your friendly neighborhood Spider-Man."',
+    ],
     neofetch: () => [
-        '<span class="term-accent">       ████████       </span>   <span class="term-cmd">thrishul</span>@<span class="term-cmd">portfolio</span>',
-        '<span class="term-accent">     ██        ██     </span>   ────────────────────',
-        '<span class="term-accent">   ██    ████    ██   </span>   <span class="term-accent">OS:</span>      ThrishulOS v2.0',
-        '<span class="term-accent">  ██   ██████   ██  </span>   <span class="term-accent">Host:</span>    Portfolio Desktop',
-        '<span class="term-accent">  ██   ██████   ██  </span>   <span class="term-accent">Kernel:</span>  JavaScript ES6+',
-        '<span class="term-accent">   ██    ████    ██   </span>   <span class="term-accent">Shell:</span>   ThrishulTerm 1.0',
-        '<span class="term-accent">     ██        ██     </span>   <span class="term-accent">DE:</span>      Custom CSS Desktop',
-        '<span class="term-accent">       ████████       </span>   <span class="term-accent">Theme:</span>   Dark Mode [Cyan]',
+        '<span class="term-accent">       ╱╲    ╱╲       </span>   <span class="term-cmd">thrishul</span>@<span class="term-cmd">spiderweb</span>',
+        '<span class="term-accent">      ╱  ╲  ╱  ╲      </span>   ────────────────────',
+        '<span class="term-accent">     ╱    ╲╱    ╲     </span>   <span class="term-accent">OS:</span>      ThrishulOS v2.0 🕷️',
+        '<span class="term-accent">    ╱   🕷️    ╲    </span>   <span class="term-accent">Host:</span>    Spider-Man Edition',
+        '<span class="term-accent">     ╲    ╱╲    ╱     </span>   <span class="term-accent">Kernel:</span>  JavaScript ES6+',
+        '<span class="term-accent">      ╲  ╱  ╲  ╱      </span>   <span class="term-accent">Shell:</span>   WebShooter 1.0',
+        '<span class="term-accent">       ╲╱    ╲╱       </span>   <span class="term-accent">DE:</span>      Spider-Man Desktop',
+        '                           <span class="term-accent">Theme:</span>   Red & Blue [Classic]',
         '                           <span class="term-accent">Stack:</span>   MERN',
         '                           <span class="term-accent">Uptime:</span>  Since 2024',
     ],
@@ -920,7 +992,7 @@ function initTerminal() {
 
     // Welcome message
     output.innerHTML = [
-        '<span class="term-accent">Welcome to ThrishulOS Terminal v2.0</span>',
+        '<span class="term-accent">🕷️ Welcome to ThrishulOS Web Terminal v2.0</span>',
         'Type <span class="term-cmd">help</span> to see available commands.',
         ''
     ].map(l => `<div class="term-line">${l}</div>`).join('');
@@ -934,7 +1006,7 @@ function initTerminal() {
             historyIndex = terminalHistory.length;
 
             // Echo the command
-            output.innerHTML += `<div class="term-line"><span class="terminal-prompt">thrishul@os:~$</span> ${cmd}</div>`;
+            output.innerHTML += `<div class="term-line"><span class="terminal-prompt">spider@web:~$</span> ${cmd}</div>`;
 
             if (cmd === 'clear') {
                 output.innerHTML = '';
@@ -1149,4 +1221,4 @@ closeWindow = function(id) {
     playSound('close');
 };
 
-// Commit 17 / 24
+// Commit 18 / 24
