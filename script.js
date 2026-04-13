@@ -1220,5 +1220,3 @@ closeWindow = function(id) {
     originalCloseWindowFunc(id);
     playSound('close');
 };
-
-// Commit 23 / 24
