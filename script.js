@@ -1221,4 +1221,4 @@ closeWindow = function(id) {
     playSound('close');
 };
 
-// Commit 22 / 24
+// Commit 23 / 24
